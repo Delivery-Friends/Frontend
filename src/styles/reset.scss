@@ -134,11 +134,11 @@ table {
 /* 유틸리티 */
 .ir {
   position: absolute;
-  clip: rect(0 0 0 0);
-  clip-path: inset(100%);
   width: 1px;
   height: 1px;
   overflow: hidden;
   overflow: clip;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
   white-space: nowrap;
 }
