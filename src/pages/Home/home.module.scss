@@ -1,0 +1,6 @@
+@import '../../styles/utilities/_mixin.scss';
+@import '../../styles/utilities/_variables.scss';
+
+.div {
+  @include text-style(lg);
+}

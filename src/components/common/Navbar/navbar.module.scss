@@ -1,0 +1,16 @@
+.header {
+  width: 100%;
+  margin: 0 auto;
+  padding-right: calc(2.5rem * 0.5);
+  padding-left: calc(2.5rem * 0.5);
+}
+
+.nav {
+  display: flex;
+  & ul {
+    display: flex;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
