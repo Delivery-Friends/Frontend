@@ -9,6 +9,7 @@
     position: fixed;
     width: 100%;
     background-color: $pointColor;
+    z-index: 10;
     @include flex(center, normal);
     .categoryBar {
       width: 100%;
@@ -16,34 +17,51 @@
       height: 5rem;
       @include flex(center, center);
       li {
-        @include flex(center, center);
         width: 25%;
+        @include flex(center, center);
         span {
           padding-bottom: 0.4rem;
           color: #fff;
-          border-bottom: 3px solid #fff;
           font-size: 2rem;
+          cursor: pointer;
+          &:hover {
+            border-bottom: 3px solid #fff;
+          }
+        }
+        .selected {
+          border-bottom: 3px solid #fff;
         }
       }
     }
   }
   .sortingBar {
-    @include flex(center, normal);
     position: fixed;
     width: 100%;
-    margin: 6rem 0 1rem;
-    padding-bottom: 1rem;
+    background-color: #fff;
+    margin: 5.1rem 0 1rem;
+    padding: 1rem 0;
     border-bottom: 2px solid #d2cfcfa5;
+    z-index: 10;
+    @include flex(center, normal);
     li {
       margin: 0 1rem;
       padding: 0.5rem;
-      color: #222;
-      border: 2px solid grey;
+      color: grey;
+      border: 2px solid #8280803a;
       font-size: 1.4rem;
       border-radius: 1.5rem;
+      cursor: pointer;
+      &:hover {
+        font-weight: 500;
+        color: #fff;
+        background-color: $pointColor;
+        border: 2px solid $pointColor;
+      }
     }
     .selected {
-      color: $pointColor;
+      font-weight: 500;
+      color: #fff;
+      background-color: $pointColor;
       border: 2px solid $pointColor;
     }
   }

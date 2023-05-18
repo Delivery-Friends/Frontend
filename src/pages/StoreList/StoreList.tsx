@@ -8,7 +8,7 @@ const StoreList = () => {
       <div className={classes.wrapCategoryBar}>
         <ul className={classes.categoryBar}>
           <li>
-            <span>전체</span>
+            <span className={classes.selected}>전체</span>
           </li>
           <li>
             <span>한식</span>
