@@ -1,5 +1,7 @@
 import React from 'react';
 import classes from './storeDetail.module.scss';
+import { BsTelephone, BsHeart } from 'react-icons/bs';
+import { CiShare1 } from 'react-icons/ci';
 
 const StoreDetail = () => {
   return (
@@ -9,14 +11,29 @@ const StoreDetail = () => {
         <div className={classes.score}>별별별별별 4.9</div>
         <span>최근리뷰 33</span>
         <ul className={classes.contact}>
-          <li>전화</li>
-          <li>하트651</li>
-          <li>공유</li>
+          <li>
+            <span>
+              <BsTelephone className={classes.icon} />
+              전화
+            </span>
+          </li>
+          <li>
+            <span>
+              <BsHeart className={classes.icon} />
+              651
+            </span>
+          </li>
+          <li>
+            <span>
+              <CiShare1 className={classes.icon} />
+              공유
+            </span>
+          </li>
         </ul>
       </div>
       <ul className={classes.deliveryInfo}>
         <li>
-          최소주문 금액 <span>12000원</span>
+          최소주문금액 <span>12000원</span>
         </li>
         <li>
           배달시간 <span>12000원</span>
@@ -34,7 +51,17 @@ const StoreDetail = () => {
           <li>정보</li>
           <li>리뷰</li>
         </ul>
-        <div className={classes.content}>content</div>
+        <div className={classes.content}>
+          <div className={classes.category}>title</div>
+          <div className={classes.food}>
+            <div>
+              <div className={classes.name}>음식이름</div>
+              <div className={classes.descript}>음식설명</div>
+              <div className={classes.price}>10,000원</div>
+            </div>
+            <img src="/image/brandLogo/bbqLogo.png" alt="food_image" />
+          </div>
+        </div>
       </div>
     </div>
   );

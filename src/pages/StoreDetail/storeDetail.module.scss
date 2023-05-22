@@ -4,62 +4,129 @@
 .wrapStoreDetail {
   width: 100%;
   .storeInfo {
-    @include flex(normal, center);
     flex-direction: column;
+    @include flex(normal, center);
     .title {
-      @include text-style(lg);
-      font-weight: 700;
       margin-top: 1rem;
+      font-weight: 700;
+      @include text-style(lg);
     }
     .score {
-      font-size: 1.7rem;
       margin: 1rem 0;
+      font-size: 1.7rem;
     }
     span {
+      margin-bottom: 1rem;
       font-size: 1.5rem;
       font-weight: 300;
-      margin-bottom: 1rem;
     }
     .contact {
       display: flex;
       width: 100%;
+      margin-top: 1rem;
       padding-bottom: 1rem;
       border-bottom: 1px solid #eee;
       li {
-        @include flex(center, normal);
-        @include text-style(sm, #222);
         width: 33.3%;
+        cursor: pointer;
+        @include flex(center, normal);
+        .icon {
+          position: absolute;
+          top: 0.1rem;
+          left: -2rem;
+          font-size: 1.5rem;
+        }
+        span {
+          position: relative;
+          font-weight: 400;
+          @include text-style(sm, #222);
+        }
       }
     }
   }
   .deliveryInfo {
-    padding: 0 1rem;
+    padding: 1rem 1.5rem 0;
     li {
+      position: relative;
+      margin-bottom: 1rem;
+      @include text-style(sm, #000);
+      &:first-child {
+        margin-top: 1rem;
+      }
       span {
+        position: absolute;
+        top: 0;
+        left: 10rem;
+        button {
+          width: 5rem;
+          background-color: #eee;
+          border: 0.1rem solid #eee;
+          font-size: 1rem;
+          cursor: pointer;
+          border-radius: 2rem;
+        }
       }
     }
   }
   .wrapBottom {
     width: 100%;
-    margin-top: 3rem;
+    margin-top: 1rem;
     .tapMenu {
+      position: sticky;
+      top: 0;
       display: flex;
       width: 100%;
       height: 5rem;
       li {
         width: 33.3%;
-        border-bottom: 0.2rem solid #eee;
-        background-color: #fff;
         color: #888;
+        background-color: #fff;
+        border-bottom: 0.2rem solid #eee;
         font-size: 1.3rem;
         text-align: center;
+        cursor: pointer;
         line-height: 5rem;
         font-weight: 500;
         cursor: pointer;
       }
     }
     .content {
-      padding: 0 1rem;
+      padding: 0 1.5rem;
+      .category {
+        font-size: 1.6rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #d3d5d7;
+      }
+      .food {
+        position: relative;
+        height: 23.5vw;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid #d3d5d7;
+        cursor: pointer;
+        div {
+          .name {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+          }
+          .descript {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+          }
+          .price {
+            font-size: 1.5rem;
+          }
+        }
+        img {
+          position: absolute;
+          top: 1rem;
+          right: 0;
+          width: 20%;
+          border: 1px solid #d3d5d7;
+          border-radius: 0.5rem;
+        }
+      }
     }
   }
 }
