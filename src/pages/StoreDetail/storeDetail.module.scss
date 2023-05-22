@@ -12,8 +12,14 @@
       @include text-style(lg);
     }
     .score {
+      display: flex;
       margin: 1rem 0;
-      font-size: 1.7rem;
+      span {
+        margin-left: 0.4rem;
+        font-size: 1.7rem;
+        font-weight: 500;
+        line-height: 2.3rem;
+      }
     }
     span {
       margin-bottom: 1rem;
@@ -91,7 +97,7 @@
       }
     }
     .content {
-      padding: 0 1.5rem;
+      padding: 2.5rem 1.5rem;
       .category {
         font-size: 1.6rem;
         padding: 0.5rem 0;

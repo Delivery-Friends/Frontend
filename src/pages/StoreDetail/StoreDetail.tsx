@@ -2,13 +2,17 @@ import React from 'react';
 import classes from './storeDetail.module.scss';
 import { BsTelephone, BsHeart } from 'react-icons/bs';
 import { CiShare1 } from 'react-icons/ci';
+import ReactStars from 'react-stars';
 
 const StoreDetail = () => {
   return (
     <div className={classes.wrapStoreDetail}>
       <div className={classes.storeInfo}>
         <div className={classes.title}>상점 이름</div>
-        <div className={classes.score}>별별별별별 4.9</div>
+        <div className={classes.score}>
+          <ReactStars count={5} value={4.9} size={17} color2={'#F9BF25'} />{' '}
+          <span>4.9</span>
+        </div>
         <span>최근리뷰 33</span>
         <ul className={classes.contact}>
           <li>
@@ -53,6 +57,7 @@ const StoreDetail = () => {
         </ul>
         <div className={classes.content}>
           <div className={classes.category}>title</div>
+          {/* 이중 map돌려야할듯 카테고리-음식,음식,음식.. 카테코리2-음식,음식... */}
           <div className={classes.food}>
             <div>
               <div className={classes.name}>음식이름</div>
