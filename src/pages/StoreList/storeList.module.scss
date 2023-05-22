@@ -1,0 +1,68 @@
+@import '../../styles/utilities/mixin';
+@import '../../styles/utilities/variables';
+
+.WrapStoreList {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  .wrapCategoryBar {
+    position: fixed;
+    width: 100%;
+    background-color: $pointColor;
+    z-index: 10;
+    @include flex(center, normal);
+    .categoryBar {
+      width: 100%;
+      max-width: 48rem;
+      height: 5rem;
+      @include flex(center, center);
+      li {
+        width: 25%;
+        @include flex(center, center);
+        span {
+          padding-bottom: 0.4rem;
+          color: #fff;
+          font-size: 2rem;
+          cursor: pointer;
+          &:hover {
+            border-bottom: 3px solid #fff;
+          }
+        }
+        .selected {
+          border-bottom: 3px solid #fff;
+        }
+      }
+    }
+  }
+  .sortingBar {
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    margin: 5.1rem 0 1rem;
+    padding: 1rem 0;
+    border-bottom: 2px solid #d2cfcfa5;
+    z-index: 10;
+    @include flex(center, normal);
+    li {
+      margin: 0 1rem;
+      padding: 0.5rem;
+      color: grey;
+      border: 2px solid #8280803a;
+      font-size: 1.4rem;
+      border-radius: 1.5rem;
+      cursor: pointer;
+      &:hover {
+        font-weight: 500;
+        color: #fff;
+        background-color: $pointColor;
+        border: 2px solid $pointColor;
+      }
+    }
+    .selected {
+      font-weight: 500;
+      color: #fff;
+      background-color: $pointColor;
+      border: 2px solid $pointColor;
+    }
+  }
+}
