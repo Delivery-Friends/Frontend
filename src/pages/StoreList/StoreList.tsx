@@ -27,7 +27,9 @@ const StoreList = () => {
         <li>평점순</li>
         <li>리뷰순</li>
       </ul>
-      <ObjectList />
+      <div className={classes.wrapList}>
+        <ObjectList />
+      </div>
     </div>
   );
 };

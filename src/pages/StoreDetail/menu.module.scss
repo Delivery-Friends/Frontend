@@ -1,0 +1,40 @@
+@import '../../styles/utilities/mixin';
+@import '../../styles/utilities/variables';
+
+.menu {
+  .category {
+    font-size: 1.6rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #d3d5d7;
+  }
+  .food {
+    position: relative;
+    height: 23.5vw;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #d3d5d7;
+    cursor: pointer;
+    div {
+      .name {
+        font-size: 1.6rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+      .descript {
+        font-size: 1.2rem;
+        font-weight: 300;
+        margin-bottom: 0.5rem;
+      }
+      .price {
+        font-size: 1.5rem;
+      }
+    }
+    img {
+      position: absolute;
+      top: 1rem;
+      right: 0;
+      width: 20%;
+      border: 1px solid #d3d5d7;
+      border-radius: 0.5rem;
+    }
+  }
+}

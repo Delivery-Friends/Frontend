@@ -1,0 +1,67 @@
+@import '../../styles/utilities/mixin';
+@import '../../styles/utilities/variables';
+
+.reviews {
+  width: 100%;
+  padding: 0 0.5rem;
+  .header {
+    position: relative;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid #eee;
+    div {
+      @include text-style(md);
+      font-weight: 600;
+      .reviewCount {
+        margin-left: 1rem;
+      }
+    }
+    select {
+      position: absolute;
+      top: 2rem;
+      right: 0;
+      option {
+      }
+    }
+  }
+  .reviewList {
+    .review {
+      margin-bottom: 2rem;
+      .top {
+        display: flex;
+        padding: 1rem 0;
+        img {
+          width: 4rem;
+          height: 4rem;
+          border-radius: 2rem;
+          margin-right: 1rem;
+          border: 1px solid #d3d5d7;
+        }
+        .topRight {
+          .userName {
+            @include text-style(sm);
+            margin-bottom: 1rem;
+          }
+          .star {
+            display: flex;
+            .date {
+              margin-left: 0.5rem;
+              font-size: 1rem;
+              font-weight: 300;
+              line-height: 1.2rem;
+            }
+          }
+        }
+      }
+      .content {
+        img {
+          width: 100%;
+          margin-bottom: 1rem;
+          border-radius: 0.5rem;
+        }
+        .text {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
