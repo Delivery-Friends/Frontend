@@ -38,7 +38,7 @@ const Infomation = () => {
             전체 리뷰수<span>1,000+</span>
           </li>
           <li>
-            찜<span></span>2,177
+            찜<span>2,177</span>
           </li>
         </ul>
       </li>
