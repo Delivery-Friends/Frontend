@@ -1,19 +1,64 @@
 import classes from './navbar.module.scss';
+import { AiOutlineHome } from 'react-icons/ai';
+import { BiSearch } from 'react-icons/bi';
+import { FaRegGrinHearts } from 'react-icons/fa';
+import { MdPersonOutline, MdOutlineStickyNote2 } from 'react-icons/md';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <header className={classes.header}>
-      <h2 className="ir">delivery-freinds 메인 네비게이션</h2>
+    <div className={classes['bottom-nav']}>
+      <h3 className="ir">delivery-freinds 네비게이션</h3>
       <nav className={classes.nav}>
         <ul>
-          <li>홈</li>
-          <li>검색</li>
-          <li>찜한가게</li>
-          <li>주문내역</li>
-          <li>내 정보</li>
+          <li>
+            <NavLink
+              to="/"
+              className={({ isActive }) => (isActive ? classes.selected : '')}
+            >
+              <AiOutlineHome size="20" />
+              <span>홈</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/storeList"
+              className={({ isActive }) => (isActive ? classes.selected : '')}
+            >
+              <BiSearch size="20" />
+              <span>검색</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/work"
+              className={({ isActive }) => (isActive ? classes.selected : '')}
+            >
+              <FaRegGrinHearts size="20" />
+              <span>찜한가게</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/bill"
+              className={({ isActive }) => (isActive ? classes.selected : '')}
+            >
+              <MdOutlineStickyNote2 size="20" />
+              <span>주문내역</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/login"
+              className={({ isActive }) => (isActive ? classes.selected : '')}
+            >
+              <MdPersonOutline size="20" />
+              <span>내 정보</span>
+            </NavLink>
+          </li>
         </ul>
       </nav>
-    </header>
+    </div>
   );
 };
 
