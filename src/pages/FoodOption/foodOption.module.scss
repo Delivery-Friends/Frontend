@@ -1,0 +1,94 @@
+@import '../../styles/utilities/mixin';
+@import '../../styles/utilities/variables';
+
+.foodOption {
+  width: 100%;
+  img {
+    position: relative;
+    width: 100%;
+  }
+  .info {
+    margin-top: -15rem;
+    padding: 2rem 1rem 1rem;
+    border-bottom: 1rem solid #eee;
+
+    .name {
+      @include text-style(md);
+      font-weight: 500;
+      position: sticky;
+      top: 0;
+      margin-bottom: 1rem;
+    }
+    .description {
+      font-size: 1.6rem;
+      font-weight: 300;
+    }
+    .foodPrice {
+      margin-top: 2rem;
+      position: relative;
+      font-size: 1.6rem;
+      font-weight: 500;
+
+      .price {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+  .options {
+    width: 100%;
+    .option {
+      width: 100%;
+      padding: 2rem 1rem;
+      border-bottom: 1rem solid #eee;
+      .title {
+        position: relative;
+        font-size: 1.8rem;
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+        div {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 3rem;
+          height: 1.8rem;
+          border-radius: 1.25rem;
+          background-color: #eee;
+          color: grey;
+          font-size: 1rem;
+          line-height: 1.8rem;
+          text-align: center;
+        }
+        .required {
+          background-color: skyblue;
+          color: blue;
+        }
+      }
+      ul {
+        font-size: 1.6rem;
+        li {
+          display: flex;
+          position: relative;
+          margin-bottom: 1.5rem;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          input {
+            width: 2rem;
+            height: 2rem;
+            margin-right: 0.7rem;
+          }
+          .choice {
+            line-height: 1.7;
+          }
+          .addPrice {
+            position: absolute;
+            top: 0;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+}
