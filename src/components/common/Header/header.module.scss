@@ -1,0 +1,65 @@
+@import '../../../styles/utilities/_variables.scss';
+@import '../../../styles/utilities/_mixin.scss';
+
+.header {
+  position: fixed;
+  width: 100%;
+  padding: 1.6rem 0;
+  padding-right: calc(2.5rem * 0.5);
+  padding-left: calc(2.5rem * 0.5);
+  color: #fff;
+  background-color: $pointColor;
+
+  z-index: 10;
+  top: 0;
+
+  gap: 0.3rem;
+  @include text-style(lg);
+  @include flex(center, center);
+  .backimg {
+    position: absolute;
+    top: 1.8rem;
+    left: 1.2rem;
+  }
+
+  .cartimg {
+    position: absolute;
+    top: 1.6rem;
+    right: 1.2rem;
+  }
+
+  .title {
+    h2 {
+      font-weight: 500;
+    }
+    &:-webkit-any-link {
+      // a링크 색깔 변경
+      color: inherit !important ;
+      text-decoration: none;
+    }
+  }
+}
+
+// .usermenu {
+//   display: relative;
+//   padding: 0.6rem 0.8rem;
+//   border: 2px solid rgb(156, 159, 250);
+//   border-radius: 32px;
+//   gap: 0.6rem;
+//   @include flex(space-between, center);
+
+//   div {
+//     height: 30px;
+//     img {
+//       width: 30px;
+//       border-radius: 50%;
+//     }
+//   }
+// }
+
+// .logo {
+//   position: relative;
+//   a img {
+//     cursor: pointer;
+//   }
+// }
