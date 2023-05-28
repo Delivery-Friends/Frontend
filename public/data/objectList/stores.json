@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "name": "bbq 아주대점",
+    "deliveryWaitTime": 40,
+    "packageAvailable": false,
+    "packageWaitTime": 40,
+    "deliveryTip": 3000,
+    "stars": 4.9,
+    "reviews": 30,
+    "listPrice": 12000,
+    "fileNames": [
+      {
+        "filename": "/image/brandLogo/bbqLogo.png"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "bhc 아주대점",
+    "deliveryWaitTime": 30,
+    "packageAvailable": false,
+    "packageWaitTime": 30,
+    "deliveryTip": 4000,
+    "stars": 4.9,
+    "reviews": 30,
+    "listPrice": 12000,
+    "fileNames": [
+      {
+        "filename": "/image/brandLogo/bhcLogo.png"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "bbq 아주대점",
+    "deliveryWaitTime": 40,
+    "packageAvailable": false,
+    "packageWaitTime": 40,
+    "deliveryTip": 3000,
+    "stars": 4.9,
+    "reviews": 30,
+    "listPrice": 12000,
+    "fileNames": [
+      {
+        "filename": "/image/brandLogo/bbqLogo.png"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "bhc 아주대점",
+    "deliveryWaitTime": 30,
+    "packageAvailable": false,
+    "packageWaitTime": 30,
+    "deliveryTip": 4000,
+    "stars": 4.9,
+    "reviews": 30,
+    "listPrice": 12000,
+    "fileNames": [
+      {
+        "filename": "/image/brandLogo/bhcLogo.png"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "bbq 아주대점",
+    "deliveryWaitTime": 40,
+    "packageAvailable": false,
+    "packageWaitTime": 40,
+    "deliveryTip": 3000,
+    "stars": 4.9,
+    "reviews": 30,
+    "listPrice": 12000,
+    "fileNames": [
+      {
+        "filename": "/image/brandLogo/bbqLogo.png"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "bhc 아주대점",
+    "deliveryWaitTime": 30,
+    "packageAvailable": false,
+    "packageWaitTime": 30,
+    "deliveryTip": 4000,
+    "stars": 4.9,
+    "reviews": 30,
+    "listPrice": 12000,
+    "fileNames": [
+      {
+        "filename": "/image/brandLogo/bhcLogo.png"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "bbq 아주대점",
+    "deliveryWaitTime": 40,
+    "packageAvailable": false,
+    "packageWaitTime": 40,
+    "deliveryTip": 3000,
+    "stars": 4.9,
+    "reviews": 30,
+    "listPrice": 12000,
+    "fileNames": [
+      {
+        "filename": "/image/brandLogo/bbqLogo.png"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "bhc 아주대점",
+    "deliveryWaitTime": 30,
+    "packageAvailable": false,
+    "packageWaitTime": 30,
+    "deliveryTip": 4000,
+    "stars": 4.9,
+    "reviews": 30,
+    "listPrice": 12000,
+    "fileNames": [
+      {
+        "filename": "/image/brandLogo/bhcLogo.png"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "bbq 아주대점",
+    "deliveryWaitTime": 40,
+    "packageAvailable": false,
+    "packageWaitTime": 40,
+    "deliveryTip": 3000,
+    "stars": 4.9,
+    "reviews": 30,
+    "listPrice": 12000,
+    "fileNames": [
+      {
+        "filename": "/image/brandLogo/bbqLogo.png"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "bhc 아주대점",
+    "deliveryWaitTime": 30,
+    "packageAvailable": false,
+    "packageWaitTime": 30,
+    "deliveryTip": 4000,
+    "stars": 4.9,
+    "reviews": 30,
+    "listPrice": 12000,
+    "fileNames": [
+      {
+        "filename": "/image/brandLogo/bhcLogo.png"
+      }
+    ]
+  }
+]

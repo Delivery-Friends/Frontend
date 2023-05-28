@@ -4,7 +4,7 @@
 .objectList {
   li {
     width: 100%;
-    padding: 1.5rem 4rem;
+    padding: 1.5rem 2rem;
     border-bottom: 1px solid #d2cfcfa5;
     @include flex(normal, normal);
     .objectLeft {
@@ -45,12 +45,47 @@
         }
       }
       .objectMid {
-        font-size: 1.5rem;
+        display: flex;
+        font-size: 1.2rem;
         margin: 3rem 0 0.7rem;
+        .participants {
+          font-size: 1.5rem;
+          line-height: 1.1rem;
+          margin: 0 0.5rem;
+          font-weight: 700;
+        }
+        .befName {
+          width: 6rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          margin-left: 0.5rem;
+        }
+        .star {
+          font-size: 1.2rem;
+          color: #fece28;
+          margin-top: -0.1rem;
+          margin-right: 0.3rem;
+        }
+        .userStars {
+          font-weight: 700;
+          .review {
+            margin-left: 0.2rem;
+            font-weight: 400;
+          }
+        }
       }
       .objectBottom {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         font-weight: 300;
+        .location {
+          font-weight: 600;
+          margin-right: 0.5rem;
+        }
+        .deadline {
+          color: red;
+          font-weight: 600;
+        }
       }
     }
   }

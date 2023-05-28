@@ -4,6 +4,7 @@ import Home from './pages/Home/Home';
 import StoreList from './pages/StoreList/StoreList';
 import StoreDetail from './pages/StoreDetail/StoreDetail';
 import FoodOption from './pages/FoodOption/FoodOption';
+import BefList from './pages/BefList/BefList';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: 'foodoption/:id',
         element: <FoodOption />,
+      },
+      {
+        path: 'BefList',
+        element: <BefList />,
       },
     ],
   },
