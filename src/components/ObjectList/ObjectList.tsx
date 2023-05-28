@@ -1,28 +1,128 @@
 import React from 'react';
 import classes from './objectList.module.scss';
 import { AiFillStar } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
 
-export const ObjectList = () => {
+type Stores = [
+  {
+    id: number;
+    name: string;
+    deliveryWaitTime: number;
+    packageAvailable: boolean;
+    packageWaitTime: number;
+    deliveryTip: number;
+    stars: number;
+    reviews: number;
+    listPrice: number;
+    fileNames: [
+      {
+        filename: string;
+      }
+    ];
+  }
+];
+type Befs = [
+  {
+    id: number;
+    storeName: string;
+    storeStars: number;
+    storeReviews: number;
+    participants: number;
+    userName: string;
+    userStars: number;
+    userReview: number;
+    location: string;
+    deadLine: number;
+    fileNames: [
+      {
+        filename: string;
+      }
+    ];
+  }
+];
+interface Props {
+  // setUser: React.Dispatch<React.SetStateAction<Rank[]>>;
+  stores: Stores | undefined;
+  befs: Befs | undefined;
+}
+
+export const ObjectList = (props: Props) => {
+  const navigate = useNavigate();
+  const { stores, befs } = props;
+
   return (
     <ul className={classes.objectList}>
-      <li className="object">
-        <div className={classes.objectLeft}>
-          <img src="/image/brandLogo/bhcLogo.png" alt="brandLogo" />
-        </div>
-        <div className={classes.objectRight}>
-          <div className={classes.objectTitle}>bhc 아주대점</div>
-          <div className={classes.score}>
-            <AiFillStar className={classes.star} />
-            <span>
-              4.9<span className={classes.review}>(+30)</span>
-            </span>
-          </div>
-          <div className={classes.objectMid}>
-            배달 39~54분 | 배달팀 0원 ~ 3,000원
-          </div>
-          <div className={classes.objectBottom}>최소주문 12,000원</div>
-        </div>
-      </li>
+      {/* storeList */}
+      {stores?.map((obj, index) => {
+        return (
+          <li
+            key={index}
+            className="object"
+            onClick={() => navigate(`/storeDetail/${obj.id}`)}
+          >
+            <div className={classes.objectLeft}>
+              <img src={obj.fileNames[0].filename} alt="brandLogo" />
+            </div>
+            <div className={classes.objectRight}>
+              <div className={classes.objectTitle}>{obj.name}</div>
+              <div className={classes.score}>
+                <AiFillStar className={classes.star} />
+                <span>
+                  {obj.stars}
+                  <span className={classes.review}>(+{obj.reviews})</span>
+                </span>
+              </div>
+              <div className={classes.objectMid}>
+                배달 {obj.deliveryWaitTime}분 | 배달팀{' '}
+                {obj.deliveryTip.toLocaleString()}원
+              </div>
+              <div className={classes.objectBottom}>
+                최소주문 {obj.listPrice.toLocaleString()}원
+              </div>
+            </div>
+          </li>
+        );
+      })}
+      {/* befList */}
+      {befs?.map((obj, index) => {
+        return (
+          <li
+            key={index}
+            className="object"
+            onClick={() => navigate(`/befDetail/${obj.id}`)}
+          >
+            <div className={classes.objectLeft}>
+              <img src={obj.fileNames[0].filename} alt="brandLogo" />
+            </div>
+            <div className={classes.objectRight}>
+              <div className={classes.objectTitle}>{obj.storeName}</div>
+              <div className={classes.score}>
+                <AiFillStar className={classes.star} />
+                <span>
+                  {obj.storeStars}
+                  <span className={classes.review}>(+{obj.storeReviews})</span>
+                </span>
+              </div>
+              <div className={classes.objectMid}>
+                참여인원{' '}
+                <span className={classes.participants}>{obj.participants}</span>{' '}
+                명 | 대표배프 :
+                <div className={classes.befName}>{obj.userName}</div>
+                <AiFillStar className={classes.star} />
+                <span className={classes.userStars}>
+                  {obj.userStars}
+                  <span className={classes.review}>({obj.userReview})</span>
+                </span>
+              </div>
+              <div className={classes.objectBottom}>
+                <span className={classes.location}>{obj.location}</span>| 마감
+                시간 : <span className={classes.deadline}>{obj.deadLine}</span>
+                분
+              </div>
+            </div>
+          </li>
+        );
+      })}
     </ul>
   );
 };

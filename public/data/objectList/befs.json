@@ -1,0 +1,172 @@
+[
+  {
+    "id": 1,
+    "storeName": "bbq 아주대점",
+    "storeStars": 4.9,
+    "storeReviews": 30,
+    "participants": 3,
+    "userName": "dongSeup",
+    "userStars": 4.5,
+    "userReview": 10,
+    "location": "팔달구 원천동 남제관 1층",
+    "deadLine": 10,
+    "fileNames": [
+      {
+        "filename": "/image/brandLogo/bbqLogo.png"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "storeName": "bhc 아주대점",
+    "storeStars": 4.9,
+    "storeReviews": 30,
+    "participants": 3,
+    "userName": "ShimDongSeup",
+    "userStars": 4.5,
+    "userReview": 10,
+    "location": "팔달구 원천동 남제관 1층",
+    "deadLine": 10,
+    "fileNames": [
+      {
+        "filename": "/image/brandLogo/bhcLogo.png"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "storeName": "bbq 아주대점",
+    "storeStars": 4.9,
+    "storeReviews": 30,
+    "participants": 3,
+    "userName": "dongSeup",
+    "userStars": 4.5,
+    "userReview": 10,
+    "location": "팔달구 원천동 남제관 1층",
+    "deadLine": 10,
+    "fileNames": [
+      {
+        "filename": "/image/brandLogo/bbqLogo.png"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "storeName": "bhc 아주대점",
+    "storeStars": 4.9,
+    "storeReviews": 30,
+    "participants": 3,
+    "userName": "ShimDongSeup",
+    "userStars": 4.5,
+    "userReview": 10,
+    "location": "팔달구 원천동 남제관 1층",
+    "deadLine": 10,
+    "fileNames": [
+      {
+        "filename": "/image/brandLogo/bhcLogo.png"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "storeName": "bbq 아주대점",
+    "storeStars": 4.9,
+    "storeReviews": 30,
+    "participants": 3,
+    "userName": "dongSeup",
+    "userStars": 4.5,
+    "userReview": 10,
+    "location": "팔달구 원천동 남제관 1층",
+    "deadLine": 10,
+    "fileNames": [
+      {
+        "filename": "/image/brandLogo/bbqLogo.png"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "storeName": "bhc 아주대점",
+    "storeStars": 4.9,
+    "storeReviews": 30,
+    "participants": 3,
+    "userName": "ShimDongSeup",
+    "userStars": 4.5,
+    "userReview": 10,
+    "location": "팔달구 원천동 남제관 1층",
+    "deadLine": 10,
+    "fileNames": [
+      {
+        "filename": "/image/brandLogo/bhcLogo.png"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "storeName": "bbq 아주대점",
+    "storeStars": 4.9,
+    "storeReviews": 30,
+    "participants": 3,
+    "userName": "dongSeup",
+    "userStars": 4.5,
+    "userReview": 10,
+    "location": "팔달구 원천동 남제관 1층",
+    "deadLine": 10,
+    "fileNames": [
+      {
+        "filename": "/image/brandLogo/bbqLogo.png"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "storeName": "bhc 아주대점",
+    "storeStars": 4.9,
+    "storeReviews": 30,
+    "participants": 3,
+    "userName": "ShimDongSeup",
+    "userStars": 4.5,
+    "userReview": 10,
+    "location": "팔달구 원천동 남제관 1층",
+    "deadLine": 10,
+    "fileNames": [
+      {
+        "filename": "/image/brandLogo/bhcLogo.png"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "storeName": "bbq 아주대점",
+    "storeStars": 4.9,
+    "storeReviews": 30,
+    "participants": 3,
+    "userName": "dongSeup",
+    "userStars": 4.5,
+    "userReview": 10,
+    "location": "팔달구 원천동 남제관 1층",
+    "deadLine": 10,
+    "fileNames": [
+      {
+        "filename": "/image/brandLogo/bbqLogo.png"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "storeName": "bhc 아주대점",
+    "storeStars": 4.9,
+    "storeReviews": 30,
+    "participants": 3,
+    "userName": "ShimDongSeup",
+    "userStars": 4.5,
+    "userReview": 10,
+    "location": "팔달구 원천동 남제관 1층",
+    "deadLine": 10,
+    "fileNames": [
+      {
+        "filename": "/image/brandLogo/bhcLogo.png"
+      }
+    ]
+  }
+]
