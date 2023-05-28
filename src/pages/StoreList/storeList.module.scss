@@ -3,22 +3,25 @@
 
 .WrapStoreList {
   display: flex;
-  width: 100%;
+  width: 100vw;
   flex-direction: column;
   .wrapCategoryBar {
     position: fixed;
     width: 100%;
     background-color: $pointColor;
     z-index: 10;
-    @include flex(center, normal);
     .categoryBar {
-      width: 100%;
-      max-width: 48rem;
+      display: flex;
       height: 5rem;
-      @include flex(center, center);
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
       li {
-        width: 25%;
         @include flex(center, center);
+        width: 23%;
+        flex: 0 0 auto;
         span {
           padding-bottom: 0.4rem;
           color: #fff;
@@ -35,34 +38,34 @@
     }
   }
   .sortingBar {
+    @include flex(center, normal);
     position: fixed;
     width: 100%;
-    background-color: #fff;
     margin: 5.1rem 0 1rem;
     padding: 1rem 0;
+    background-color: #fff;
     border-bottom: 2px solid #d2cfcfa5;
     z-index: 10;
-    @include flex(center, normal);
     li {
       margin: 0 1rem;
       padding: 0.5rem;
       color: grey;
       border: 2px solid #8280803a;
       font-size: 1.4rem;
-      border-radius: 1.5rem;
       cursor: pointer;
+      border-radius: 1.5rem;
       &:hover {
-        font-weight: 500;
         color: #fff;
         background-color: $pointColor;
         border: 2px solid $pointColor;
+        font-weight: 500;
       }
     }
     .selected {
-      font-weight: 500;
       color: #fff;
       background-color: $pointColor;
       border: 2px solid $pointColor;
+      font-weight: 500;
     }
   }
   .wrapList {

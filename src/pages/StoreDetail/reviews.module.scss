@@ -3,9 +3,10 @@
 
 .reviews {
   width: 100%;
-  padding: 0 0.5rem;
+  padding: 2.5rem 0.5rem;
   .header {
     position: relative;
+    padding: 0 1.5rem;
     padding-bottom: 4rem;
     border-bottom: 1px solid #eee;
     div {
@@ -18,12 +19,14 @@
     select {
       position: absolute;
       top: 2rem;
-      right: 0;
+      right: 1.5rem;
       option {
       }
     }
   }
   .reviewList {
+    padding: 0 1.5rem;
+
     .review {
       margin-bottom: 2rem;
       .top {
@@ -32,9 +35,9 @@
         img {
           width: 4rem;
           height: 4rem;
-          border-radius: 2rem;
           margin-right: 1rem;
           border: 1px solid #d3d5d7;
+          border-radius: 2rem;
         }
         .topRight {
           .userName {

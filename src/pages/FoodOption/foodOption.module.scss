@@ -1,0 +1,128 @@
+@import '../../styles/utilities/mixin';
+@import '../../styles/utilities/variables';
+
+.foodOption {
+  width: 100%;
+  img {
+    position: relative;
+    width: 100%;
+    z-index: -1;
+  }
+  .info {
+    margin-top: -10rem;
+    padding: 2rem 1rem 1rem;
+    border-bottom: 1rem solid #eee;
+    background-color: #fff;
+    .name {
+      @include text-style(md);
+      font-weight: 500;
+      position: sticky;
+      top: 0;
+      margin-bottom: 1rem;
+    }
+    .description {
+      font-size: 1.6rem;
+      font-weight: 300;
+    }
+    .foodPrice {
+      margin-top: 2rem;
+      position: relative;
+      font-size: 1.6rem;
+      font-weight: 500;
+
+      .price {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+  .options {
+    width: 100%;
+    .option {
+      width: 100%;
+      padding: 2rem 1rem;
+      border-bottom: 1rem solid #eee;
+      &:last-child {
+        border-bottom: none;
+      }
+      .title {
+        position: relative;
+        font-size: 1.8rem;
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+        div {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 3rem;
+          height: 1.8rem;
+          border-radius: 1.25rem;
+          background-color: #eee;
+          color: grey;
+          font-size: 1rem;
+          line-height: 1.8rem;
+          text-align: center;
+        }
+        .required {
+          background-color: skyblue;
+          color: blue;
+        }
+      }
+      ul {
+        font-size: 1.6rem;
+        li {
+          display: flex;
+          position: relative;
+          margin-bottom: 1.5rem;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          input {
+            width: 2rem;
+            height: 2rem;
+            margin-right: 0.7rem;
+          }
+          .choice {
+            line-height: 1.7;
+          }
+          .addPrice {
+            position: absolute;
+            top: 0;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+  .bottomBar {
+    @include flex(center, center);
+    position: sticky;
+    bottom: 0;
+    border-top: 1px solid #eee;
+    padding: 1rem 1rem 1.5rem;
+    z-index: 10;
+    background-color: #fff;
+    .left {
+      margin-right: 1.5rem;
+      span {
+        display: block;
+        color: grey;
+      }
+      .leatPrice {
+        margin-top: 1rem;
+        color: #000;
+      }
+    }
+    button {
+      width: 75%;
+      height: 10vw;
+      color: #fff;
+      font-weight: 700;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: $pointColor;
+      cursor: pointer;
+    }
+  }
+}
