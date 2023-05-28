@@ -19,6 +19,18 @@ const StoreList = () => {
           <li>
             <span>일식</span>
           </li>
+          <li>
+            <span>야식</span>
+          </li>
+          <li>
+            <span>치킨</span>
+          </li>
+          <li>
+            <span>피자</span>
+          </li>
+          <li>
+            <span>분식</span>
+          </li>
         </ul>
       </div>
       <ul className={classes.sortingBar}>

@@ -4,12 +4,12 @@
 .wrapStoreDetail {
   width: 100%;
   .storeInfo {
-    flex-direction: column;
     @include flex(normal, center);
+    flex-direction: column;
     .title {
+      @include text-style(lg);
       margin-top: 1rem;
       font-weight: 700;
-      @include text-style(lg);
     }
     .score {
       display: flex;
@@ -33,19 +33,19 @@
       padding-bottom: 1rem;
       border-bottom: 1px solid #eee;
       li {
+        @include flex(center, normal);
         width: 33.3%;
         cursor: pointer;
-        @include flex(center, normal);
         .icon {
           position: absolute;
+          font-size: 1.5rem;
           top: 0.1rem;
           left: -2rem;
-          font-size: 1.5rem;
         }
         span {
+          @include text-style(sm, #222);
           position: relative;
           font-weight: 400;
-          @include text-style(sm, #222);
         }
       }
     }
@@ -54,9 +54,9 @@
     padding: 1rem 1.5rem 0;
     border-bottom: 0.7rem solid #eee;
     li {
+      @include text-style(sm, #000);
       position: relative;
       margin-bottom: 1rem;
-      @include text-style(sm, #000);
       &:first-child {
         margin-top: 1rem;
       }
@@ -80,11 +80,11 @@
     // margin-top: 1rem;
     .tapMenu {
       position: sticky;
-      top: 0;
       display: flex;
       width: 100%;
       height: 5rem;
       z-index: 10;
+      top: 0;
       li {
         width: 33.3%;
         color: #888;
@@ -93,15 +93,15 @@
         font-size: 1.3rem;
         text-align: center;
         cursor: pointer;
+        cursor: pointer;
         line-height: 5rem;
         font-weight: 500;
-        cursor: pointer;
       }
       .selected {
+        color: #000;
         border: 0.2rem solid #eee;
         border-top: 0.3rem solid #000;
         border-bottom: 0.2rem solid #fff;
-        color: #000;
       }
     }
     .content {
