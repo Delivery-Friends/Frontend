@@ -1,40 +1,79 @@
 @import '../../styles/utilities/mixin';
 @import '../../styles/utilities/variables';
 
-.menu {
-  .category {
-    font-size: 1.6rem;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #d3d5d7;
-  }
-  .food {
-    position: relative;
-    height: 23.5vw;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid #d3d5d7;
-    cursor: pointer;
-    div {
-      .name {
-        font-size: 1.6rem;
-        font-weight: 500;
-        margin-bottom: 0.5rem;
+.menuList {
+  padding: 2.5rem 0;
+  .menu {
+    .category {
+      padding: 0.5rem 1.5rem;
+      border-bottom: 1px solid #d3d5d7;
+      font-size: 1.6rem;
+    }
+    .food {
+      position: relative;
+      height: 25vw;
+      padding: 1.5rem 1.5rem;
+      border-bottom: 1px solid #d3d5d7;
+      cursor: pointer;
+      div {
+        .name {
+          margin-bottom: 0.5rem;
+          font-size: 1.6rem;
+          font-weight: 500;
+        }
+        .descript {
+          margin-bottom: 0.5rem;
+          font-size: 1.2rem;
+          font-weight: 300;
+        }
+        .price {
+          font-size: 1.5rem;
+        }
       }
-      .descript {
-        font-size: 1.2rem;
-        font-weight: 300;
-        margin-bottom: 0.5rem;
-      }
-      .price {
-        font-size: 1.5rem;
+      img {
+        position: absolute;
+        width: 20%;
+        border: 1px solid #d3d5d7;
+        top: 1rem;
+        right: 1.5rem;
+        border-radius: 0.5rem;
       }
     }
-    img {
-      position: absolute;
-      top: 1rem;
-      right: 0;
-      width: 20%;
-      border: 1px solid #d3d5d7;
+  }
+  .bottomBar {
+    position: sticky;
+    padding: 1rem 1rem 1.5rem;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    z-index: 10;
+    bottom: 0;
+    @include flex(center, center);
+
+    button {
+      width: 100%;
+      height: 10vw;
+      padding: 0 2rem;
+      color: #fff;
+      background-color: $pointColor;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      font-weight: 500;
       border-radius: 0.5rem;
+      @include flex(space-between, center);
+      .count {
+        width: 2rem;
+        height: 2rem;
+        margin-right: 4rem;
+        color: $pointColor;
+        background-color: #fff;
+        font-size: 1.3rem;
+        border-radius: 1rem;
+        line-height: 2rem;
+      }
+      .totalPrice {
+        font-size: 1.4rem;
+      }
     }
   }
 }

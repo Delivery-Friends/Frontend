@@ -3,8 +3,9 @@
 
 .reviews {
   width: 100%;
-  padding: 0 0.5rem;
+  padding: 2.5rem 0.5rem;
   .header {
+    padding: 0 1.5rem;
     position: relative;
     padding-bottom: 4rem;
     border-bottom: 1px solid #eee;
@@ -18,12 +19,14 @@
     select {
       position: absolute;
       top: 2rem;
-      right: 0;
+      right: 1.5rem;
       option {
       }
     }
   }
   .reviewList {
+    padding: 0 1.5rem;
+
     .review {
       margin-bottom: 2rem;
       .top {

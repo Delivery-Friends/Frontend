@@ -2,7 +2,10 @@
 @import '../../styles/utilities/variables';
 
 .information {
+  padding: 2.5rem 0;
+
   .section {
+    padding: 0 1.5rem;
     border-bottom: 0.7rem solid #eee;
     margin-bottom: 2rem;
     &:last-child {

@@ -49,6 +49,13 @@ const FoodOption = () => {
           </ul>
         </div>
       </div>
+      <div className={classes.bottomBar}>
+        <div className={classes.left}>
+          <span>배달최소주문금액</span>
+          <span className={classes.leatPrice}>10,000원</span>
+        </div>
+        <button>18,000원 담기</button>
+      </div>
     </div>
   );
 };

@@ -6,12 +6,13 @@
   img {
     position: relative;
     width: 100%;
+    z-index: -1;
   }
   .info {
-    margin-top: -15rem;
+    margin-top: -10rem;
     padding: 2rem 1rem 1rem;
     border-bottom: 1rem solid #eee;
-
+    background-color: #fff;
     .name {
       @include text-style(md);
       font-weight: 500;
@@ -42,6 +43,9 @@
       width: 100%;
       padding: 2rem 1rem;
       border-bottom: 1rem solid #eee;
+      &:last-child {
+        border-bottom: none;
+      }
       .title {
         position: relative;
         font-size: 1.8rem;
@@ -89,6 +93,36 @@
           }
         }
       }
+    }
+  }
+  .bottomBar {
+    @include flex(center, center);
+    position: sticky;
+    bottom: 0;
+    border-top: 1px solid #eee;
+    padding: 1rem 1rem 1.5rem;
+    z-index: 10;
+    background-color: #fff;
+    .left {
+      margin-right: 1.5rem;
+      span {
+        display: block;
+        color: grey;
+      }
+      .leatPrice {
+        margin-top: 1rem;
+        color: #000;
+      }
+    }
+    button {
+      width: 75%;
+      height: 10vw;
+      color: #fff;
+      font-weight: 700;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: $pointColor;
+      cursor: pointer;
     }
   }
 }
