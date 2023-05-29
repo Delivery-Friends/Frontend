@@ -7,6 +7,7 @@ import FoodOption from './pages/FoodOption/FoodOption';
 import BefList from './pages/BefList/BefList';
 import Login from './pages/Login/Login';
 import LoginKakao from './pages/Login/LoginKakao';
+import Signup from './pages/Signup/Signup';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,15 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       { index: true, element: <Home /> },
+      {
+        path: 'login',
+        element: <Login />,
+      },
+      { path: 'login/kakao', element: <LoginKakao /> },
+      {
+        path: 'signup',
+        element: <Signup />,
+      },
       {
         path: 'storeList',
         element: <StoreList />,
@@ -29,11 +39,6 @@ const router = createBrowserRouter([
       {
         path: 'BefList',
         element: <BefList />,
-      },
-      { path: 'login/kakao', element: <LoginKakao /> },
-      {
-        path: 'login',
-        element: <Login />,
       },
     ],
   },
