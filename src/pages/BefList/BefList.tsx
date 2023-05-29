@@ -40,10 +40,7 @@ const BefList = () => {
       <button className={classes.mapBtn} onClick={() => navigate('/befMap')}>
         <RiMap2Fill />
       </button>
-      <div
-        className={classes.plusBtn}
-        onClick={() => navigate('/befRegistration')}
-      >
+      <div className={classes.plusBtn} onClick={() => navigate('/storelist')}>
         <BsFillPlusCircleFill />
       </div>
     </div>

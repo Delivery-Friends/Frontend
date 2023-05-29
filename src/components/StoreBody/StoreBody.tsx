@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import classes from './storeBody.module.scss';
 import { BsTelephone, BsHeart } from 'react-icons/bs';
 import { CiShare1 } from 'react-icons/ci';
+import { IoIosPeople } from 'react-icons/io';
 import ReactStars from 'react-stars';
 import Menu from './Menu';
 import Infomation from './Infomation';
 import Reviews from './Reviews';
+import { useNavigate } from 'react-router-dom';
 
 const StoreBody = (props: { id: number }) => {
+  const navigator = useNavigate();
   const [tap, setTap] = useState(1);
   return (
     <div className={classes.wrapStoreBody}>
@@ -37,6 +40,14 @@ const StoreBody = (props: { id: number }) => {
               공유
             </span>
           </li>
+          {window.location.href.includes('storeDetail') && (
+            <li onClick={() => navigator('/befRegistration')}>
+              <span className={classes.bef}>
+                <IoIosPeople className={classes.befIcon} />
+                배프등록
+              </span>
+            </li>
+          )}
         </ul>
       </div>
       <ul className={classes.deliveryInfo}>

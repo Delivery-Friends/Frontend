@@ -1,9 +1,8 @@
 @import '../../styles/utilities/mixin';
 @import '../../styles/utilities/variables';
 
-.objectList {
-  margin-bottom: 6.5rem;
-  li {
+.wrapBefRegistration {
+  .storeInfo {
     width: 100%;
     padding: 1.5rem 2rem;
     border-bottom: 1px solid #d2cfcfa5;
@@ -89,5 +88,39 @@
         }
       }
     }
+  }
+  .range {
+    position: relative;
+    padding: 1.5rem 2rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    input {
+      width: 100%;
+      display: block;
+      accent-color: $pointColor;
+      margin-top: 1rem;
+    }
+    .zero {
+      position: absolute;
+      bottom: -1rem;
+      left: 2rem;
+    }
+    .ten {
+      position: absolute;
+      bottom: -1rem;
+      right: 2rem;
+    }
+  }
+  .address {
+    padding: 1.5rem 2rem;
+  }
+  .deadline {
+    padding: 1.5rem 2rem;
+  }
+  .title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-right: 1rem;
   }
 }
