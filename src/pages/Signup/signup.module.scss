@@ -1,0 +1,20 @@
+@import '../../styles/utilities/_mixin.scss';
+@import '../../styles/utilities/_variables.scss';
+
+.signup {
+  margin-top: 3.2rem;
+  padding: 1.2rem;
+
+  button {
+    margin: 0 auto;
+    margin-top: 4.2rem;
+  }
+
+  form div {
+    margin-top: 4rem;
+  }
+
+  form div:first-child {
+    margin-top: 0rem;
+  }
+}
