@@ -8,6 +8,7 @@ import BefList from './pages/BefList/BefList';
 import Login from './pages/Login/Login';
 import LoginKakao from './pages/Login/LoginKakao';
 import Signup from './pages/Signup/Signup';
+import BefDetail from './pages/BefDetail/BefDetail';
 
 const router = createBrowserRouter([
   {
@@ -37,8 +38,12 @@ const router = createBrowserRouter([
         element: <FoodOption />,
       },
       {
-        path: 'BefList',
+        path: 'befList',
         element: <BefList />,
+      },
+      {
+        path: 'befDetail/:id',
+        element: <BefDetail />,
       },
     ],
   },
