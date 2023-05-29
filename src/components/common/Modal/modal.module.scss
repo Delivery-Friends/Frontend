@@ -1,0 +1,71 @@
+@import '../../../styles/utilities/variables';
+@import '../../../styles/utilities/mixin';
+.backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(76, 76, 76, 0.7);
+  z-index: 20;
+  top: 0;
+  left: 0;
+}
+
+.modalcard {
+  position: fixed;
+  display: flex;
+  width: 60%;
+
+  background-color: #fff;
+  overflow: hidden;
+  z-index: 30;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  // transition-duration: 300ms;
+
+  border-radius: 10px;
+  flex-direction: column;
+  @media screen and (max-width: 575.98px) {
+    width: 100%;
+  }
+
+  & > h3 {
+    padding: 1.8rem;
+    border-bottom: 2px solid $lightGrayColor;
+    text-align: center;
+    @include text-style(md);
+    @media screen and (max-width: 575.98px) {
+      @include text-style(sm);
+    }
+  }
+
+  & > div {
+    position: relative;
+    padding: 1.8rem;
+    flex: auto;
+    @media screen and (max-width: 575.98px) {
+      padding: 0.2rem;
+    }
+  }
+
+  & > div:first-of-type {
+    height: 400px;
+    overflow-y: auto;
+  }
+
+  button {
+    position: absolute;
+    padding: 0.4rem;
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    transition: all;
+    top: 0;
+    right: 0;
+    &img {
+    }
+    &:hover {
+      opacity: 70%;
+    }
+  }
+}
