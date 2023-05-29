@@ -9,6 +9,7 @@ import Login from './pages/Login/Login';
 import LoginKakao from './pages/Login/LoginKakao';
 import Signup from './pages/Signup/Signup';
 import BefDetail from './pages/BefDetail/BefDetail';
+import BefMap from './pages/BefMap/BefMap';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: 'befDetail/:id',
         element: <BefDetail />,
+      },
+      {
+        path: 'befMap',
+        element: <BefMap />,
       },
     ],
   },
