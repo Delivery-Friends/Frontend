@@ -5,6 +5,8 @@ import StoreList from './pages/StoreList/StoreList';
 import StoreDetail from './pages/StoreDetail/StoreDetail';
 import FoodOption from './pages/FoodOption/FoodOption';
 import BefList from './pages/BefList/BefList';
+import Login from './pages/Login/Login';
+import LoginKakao from './pages/Login/LoginKakao';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,11 @@ const router = createBrowserRouter([
       {
         path: 'BefList',
         element: <BefList />,
+      },
+      { path: 'login/kakao', element: <LoginKakao /> },
+      {
+        path: 'login',
+        element: <Login />,
       },
     ],
   },

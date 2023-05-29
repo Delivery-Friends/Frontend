@@ -1,0 +1,33 @@
+@import '../../styles/utilities/_mixin.scss';
+@import '../../styles/utilities/_variables.scss';
+
+.login {
+  margin-top: 3.2rem;
+  padding: 0.4rem;
+  text-align: center;
+  h2 {
+    text-align: center;
+    @include text-style(md);
+  }
+
+  p {
+    text-align: center;
+    margin: 1.8rem 0;
+    @include text-style(sm);
+  }
+
+  .gray {
+    color: #808080;
+  }
+
+  button {
+    margin: 0 auto;
+  }
+}
+
+.spinner {
+  margin-top: 10rem;
+  span {
+    margin: 0 auto;
+  }
+}
