@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { userKakaoLogin } from '../../api/kakaoLogin';
+import classes from './login.module.scss';
 
+import { FadeLoader } from 'react-spinners';
 const LoginKakao = () => {
   const navigate = useNavigate();
 
@@ -21,7 +23,11 @@ const LoginKakao = () => {
     }
   }, [navigate]);
 
-  return <div>LoginKakao</div>;
+  return (
+    <div className={classes.spinner}>
+      <FadeLoader color="#5f4ef7" />
+    </div>
+  );
 };
 
 export default LoginKakao;
