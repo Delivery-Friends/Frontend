@@ -44,9 +44,6 @@
       width: 100%;
       padding: 2rem 1rem;
       border-bottom: 1rem solid #eee;
-      &:last-child {
-        border-bottom: none;
-      }
       .title {
         position: relative;
         font-size: 1.8rem;
@@ -93,6 +90,37 @@
             right: 0;
           }
         }
+      }
+    }
+  }
+  .quantity {
+    width: 100%;
+    position: relative;
+    padding: 1.5rem 1.5rem;
+    @include flex(space-between, center);
+
+    .title {
+      font-size: 1.7rem;
+    }
+    .wrapBtn {
+      @include flex(center, center);
+      button {
+        width: 3.6rem;
+        height: 3.55rem;
+        color: grey;
+        border: 0.1rem solid rgb(228, 228, 228);
+        cursor: pointer;
+        background-color: #fff;
+      }
+
+      div {
+        width: 3.6rem;
+        height: 3.55rem;
+        padding-top: 1rem;
+        border-top: 0.1rem solid rgb(228, 228, 228);
+        border-bottom: 0.1rem solid rgb(228, 228, 228);
+        text-align: center;
+        font-size: 1.5rem;
       }
     }
   }

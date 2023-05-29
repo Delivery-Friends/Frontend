@@ -1,14 +1,19 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import classes from './menu.module.scss';
 
 const Menu = () => {
+  const navigate = useNavigate();
   return (
     <div className={classes.menuList}>
       <ul className={classes.menus}>
         <li className={classes.menu}>
           <div className={classes.category}>title</div>
           {/* 이중 map돌려야할듯 카테고리-음식,음식,음식.. 카테코리2-음식,음식... */}
-          <div className={classes.food}>
+          <div
+            className={classes.food}
+            onClick={() => navigate('/foodOption/1')}
+          >
             <div>
               <div className={classes.name}>음식이름</div>
               <div className={classes.descript}>음식설명</div>

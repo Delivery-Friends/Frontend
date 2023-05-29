@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classes from './foodOption.module.scss';
 
 const FoodOption = () => {
+  const [amount, setAmount] = useState(1);
   return (
     <div className={classes.foodOption}>
       <img src="/image/brandLogo/bbqLogo.png" alt="food_img" />
@@ -47,6 +48,34 @@ const FoodOption = () => {
               <span className={classes.addPrice}>+2,000원</span>
             </li>
           </ul>
+        </div>
+      </div>
+      <div className={classes.quantity}>
+        <div className={classes.title}>수량</div>
+        <div className={classes.wrapBtn}>
+          <button
+            onClick={() => {
+              if (amount === 1) {
+                alert('1개 미만은 주문하실 수 없습니다.');
+              } else {
+                setAmount(amount - 1);
+              }
+            }}
+          >
+            -
+          </button>
+          <div>{amount}</div>
+          <button
+            onClick={() => {
+              if (amount === 10) {
+                alert('10개 이상 주문하실 수 없습니다.');
+              } else {
+                setAmount(amount + 1);
+              }
+            }}
+          >
+            +
+          </button>
         </div>
       </div>
       <div className={classes.bottomBar}>

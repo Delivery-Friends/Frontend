@@ -43,6 +43,12 @@
           top: 0.1rem;
           left: -2rem;
         }
+        a {
+          @include text-style(sm, #222);
+          position: relative;
+          font-weight: 400;
+          text-decoration: none;
+        }
         span {
           @include text-style(sm, #222);
           position: relative;

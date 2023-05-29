@@ -23,10 +23,10 @@ const StoreBody = (props: { id: number }) => {
         <span>최근리뷰 33</span>
         <ul className={classes.contact}>
           <li>
-            <span>
+            <a href={`tel:010-0000-0000`}>
               <BsTelephone className={classes.icon} />
               전화
-            </span>
+            </a>
           </li>
           <li>
             <span>
