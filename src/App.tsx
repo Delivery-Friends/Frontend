@@ -13,6 +13,7 @@ import BefRegistration from './pages/BefRegistration/BefRegistration';
 import BefMap from './pages/BefMap/BefMap';
 import Cart from './pages/Cart/Cart';
 import Order from './pages/Order/Order';
+import ReviewWrite from './pages/ReviewWrite/ReviewWrite';
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
       {
         path: 'order',
         element: <Order />,
+      },
+      {
+        path: 'reviewWrite',
+        element: <ReviewWrite />,
       },
     ],
   },
