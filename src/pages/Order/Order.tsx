@@ -29,7 +29,8 @@ const Order = () => {
             </div>
           </div>
         </div>
-        <button>리뷰 쓰기</button>
+        <button onClick={() => navigate('/reviewWrite')}>리뷰 쓰기</button>
+        {/* <button onClick={() => navigate('/reviewWrite',{state : "주문아이디"})}>리뷰 쓰기</button> */}
       </li>
     </ul>
   );
