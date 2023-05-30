@@ -22,13 +22,6 @@ const ReviewWrite = () => {
 
   const formData = new FormData();
   const saveFileImage = (event: any) => {
-    //이미지첨부 시 프론트단에 표시 백엔드 연결시 주석처리
-    // setReview({
-    //   ...review,
-    //   img: URL.createObjectURL(event.target.files[0]),
-    // });
-    ///////////
-
     // 백엔드에 보내줄 이미지파일을 폼데이터로 저장
     formData.append('file', event.target.files[0]);
 
@@ -39,11 +32,10 @@ const ReviewWrite = () => {
         if (res.status === 200) {
           console.log('이미지 첨부 성공');
           //받아온 url로 프론트상에서 이미지 변경
-          console.log(res);
-          // setReview({
-          //   ...review,
-          //   img: res.data,
-          // });
+          setReview({
+            ...review,
+            img: res.data,
+          });
         } else {
           throw new Error('이미지 수정 실패');
         }
