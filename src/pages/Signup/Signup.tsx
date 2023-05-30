@@ -1,5 +1,5 @@
 import { FormEvent, useCallback, useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { userJoin } from '../../api/kakaoLogin';
 
 import Input from '../../components/common/Input/Input';
@@ -7,6 +7,7 @@ import Button from '../../components/common/Button/Button';
 import classes from './signup.module.scss';
 
 const Signup = () => {
+  const navigate = useNavigate();
   const userNameRef = useRef<HTMLInputElement>(null);
   const nickNameRef = useRef<HTMLInputElement>(null);
 
@@ -18,14 +19,18 @@ const Signup = () => {
 
   const { state } = useLocation();
 
-  const submitHandler = (e: FormEvent) => {
+  const submitHandler = async (e: FormEvent) => {
     e.preventDefault();
     const joinData = {
       name: userNameRef.current?.value,
       nickname: nickNameRef.current?.value,
       kakaoId: state.kakaoId,
     };
-    userJoin(joinData);
+
+    const res = await userJoin(joinData);
+    console.log(res);
+    // 회원가입 후 로그인 창으로 이동
+    navigate('/login');
   };
 
   const handleChangeUserName = useCallback(() => {
