@@ -33,6 +33,16 @@ const userLogin = async (access_token: string) => {
 
 // 회원가입
 export const userJoin = async (joinData: JoinDataType) => {
-  const res = await instance.post('/join', { joinData });
+  const res = await instance.post('/join', joinData);
   return res.data;
+};
+
+// Refresh토큰재발급
+export const getRefreshToken = async () => {
+  const res = await instance.post(
+    '/doRefresh',
+    {},
+    { headers: { 'REFRESH-TOKEN': localStorage.getItem('refreshToken') } }
+  );
+  return res;
 };
