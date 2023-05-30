@@ -6,9 +6,9 @@
     "packageAvailable": false,
     "packageWaitTime": 40,
     "deliveryTip": 3000,
-    "stars": 4.9,
-    "reviews": 30,
-    "listPrice": 12000,
+    "reviewScore": 4.9,
+    "reviewCount": 30,
+    "minPrice": 12000,
     "fileNames": [
       {
         "filename": "/image/brandLogo/bbqLogo.png"
@@ -22,9 +22,9 @@
     "packageAvailable": false,
     "packageWaitTime": 30,
     "deliveryTip": 4000,
-    "stars": 4.9,
-    "reviews": 30,
-    "listPrice": 12000,
+    "reviewScore": 4.9,
+    "reviewCount": 30,
+    "minPrice": 12000,
     "fileNames": [
       {
         "filename": "/image/brandLogo/bhcLogo.png"
@@ -38,9 +38,9 @@
     "packageAvailable": false,
     "packageWaitTime": 40,
     "deliveryTip": 3000,
-    "stars": 4.9,
-    "reviews": 30,
-    "listPrice": 12000,
+    "reviewScore": 4.9,
+    "reviewCount": 30,
+    "minPrice": 12000,
     "fileNames": [
       {
         "filename": "/image/brandLogo/bbqLogo.png"
@@ -54,9 +54,9 @@
     "packageAvailable": false,
     "packageWaitTime": 30,
     "deliveryTip": 4000,
-    "stars": 4.9,
-    "reviews": 30,
-    "listPrice": 12000,
+    "reviewScore": 4.9,
+    "reviewCount": 30,
+    "minPrice": 12000,
     "fileNames": [
       {
         "filename": "/image/brandLogo/bhcLogo.png"
@@ -70,9 +70,9 @@
     "packageAvailable": false,
     "packageWaitTime": 40,
     "deliveryTip": 3000,
-    "stars": 4.9,
-    "reviews": 30,
-    "listPrice": 12000,
+    "reviewScore": 4.9,
+    "reviewCount": 30,
+    "minPrice": 12000,
     "fileNames": [
       {
         "filename": "/image/brandLogo/bbqLogo.png"
@@ -86,9 +86,9 @@
     "packageAvailable": false,
     "packageWaitTime": 30,
     "deliveryTip": 4000,
-    "stars": 4.9,
-    "reviews": 30,
-    "listPrice": 12000,
+    "reviewScore": 4.9,
+    "reviewCount": 30,
+    "minPrice": 12000,
     "fileNames": [
       {
         "filename": "/image/brandLogo/bhcLogo.png"
@@ -102,9 +102,9 @@
     "packageAvailable": false,
     "packageWaitTime": 40,
     "deliveryTip": 3000,
-    "stars": 4.9,
-    "reviews": 30,
-    "listPrice": 12000,
+    "reviewScore": 4.9,
+    "reviewCount": 30,
+    "minPrice": 12000,
     "fileNames": [
       {
         "filename": "/image/brandLogo/bbqLogo.png"
@@ -118,9 +118,9 @@
     "packageAvailable": false,
     "packageWaitTime": 30,
     "deliveryTip": 4000,
-    "stars": 4.9,
-    "reviews": 30,
-    "listPrice": 12000,
+    "reviewScore": 4.9,
+    "reviewCount": 30,
+    "minPrice": 12000,
     "fileNames": [
       {
         "filename": "/image/brandLogo/bhcLogo.png"
@@ -134,9 +134,9 @@
     "packageAvailable": false,
     "packageWaitTime": 40,
     "deliveryTip": 3000,
-    "stars": 4.9,
-    "reviews": 30,
-    "listPrice": 12000,
+    "reviewScore": 4.9,
+    "reviewCount": 30,
+    "minPrice": 12000,
     "fileNames": [
       {
         "filename": "/image/brandLogo/bbqLogo.png"
@@ -150,9 +150,9 @@
     "packageAvailable": false,
     "packageWaitTime": 30,
     "deliveryTip": 4000,
-    "stars": 4.9,
-    "reviews": 30,
-    "listPrice": 12000,
+    "reviewScore": 4.9,
+    "reviewCount": 30,
+    "minPrice": 12000,
     "fileNames": [
       {
         "filename": "/image/brandLogo/bhcLogo.png"

@@ -11,9 +11,9 @@ type Stores = [
     packageAvailable: boolean;
     packageWaitTime: number;
     deliveryTip: number;
-    stars: number;
-    reviews: number;
-    listPrice: number;
+    reviewScore: number;
+    reviewCount: number;
+    minPrice: number;
     fileNames: [
       {
         filename: string;
@@ -53,36 +53,41 @@ export const ObjectList = (props: Props) => {
   return (
     <ul className={classes.objectList}>
       {/* storeList */}
-      {stores?.map((obj, index) => {
-        return (
-          <li
-            key={index}
-            className="object"
-            onClick={() => navigate(`/storeDetail/${obj.id}`)}
-          >
-            <div className={classes.objectLeft}>
-              <img src={obj.fileNames[0].filename} alt="brandLogo" />
-            </div>
-            <div className={classes.objectRight}>
-              <div className={classes.objectTitle}>{obj.name}</div>
-              <div className={classes.score}>
-                <AiFillStar className={classes.star} />
-                <span>
-                  {obj.stars}
-                  <span className={classes.review}>(+{obj.reviews})</span>
-                </span>
+      {stores &&
+        stores.map((obj, index) => {
+          return (
+            <li
+              key={index}
+              className="object"
+              onClick={() => navigate(`/storeDetail/${obj.id}`)}
+            >
+              <div className={classes.objectLeft}>
+                {obj.fileNames.length >= 1 ? (
+                  <img src={obj.fileNames[0].filename} alt="brandLogo" />
+                ) : (
+                  <img src={'/image/defaultImg.png'} alt="brandLogo" />
+                )}
               </div>
-              <div className={classes.objectMid}>
-                배달 {obj.deliveryWaitTime}분 | 배달팀{' '}
-                {obj.deliveryTip.toLocaleString()}원
+              <div className={classes.objectRight}>
+                <div className={classes.objectTitle}>{obj.name}</div>
+                <div className={classes.score}>
+                  <AiFillStar className={classes.star} />
+                  <span>
+                    {obj.reviewScore}
+                    <span className={classes.review}>(+{obj.reviewCount})</span>
+                  </span>
+                </div>
+                <div className={classes.objectMid}>
+                  배달 {obj.deliveryWaitTime}분 | 배달팀{' '}
+                  {obj.deliveryTip.toLocaleString()}원
+                </div>
+                <div className={classes.objectBottom}>
+                  최소주문 {obj.minPrice.toLocaleString()}원
+                </div>
               </div>
-              <div className={classes.objectBottom}>
-                최소주문 {obj.listPrice.toLocaleString()}원
-              </div>
-            </div>
-          </li>
-        );
-      })}
+            </li>
+          );
+        })}
       {/* befList */}
       {befs?.map((obj, index) => {
         return (
