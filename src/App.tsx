@@ -11,6 +11,7 @@ import Signup from './pages/Signup/Signup';
 import BefDetail from './pages/BefDetail/BefDetail';
 import BefRegistration from './pages/BefRegistration/BefRegistration';
 import BefMap from './pages/BefMap/BefMap';
+import Cart from './pages/Cart/Cart';
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: 'befMap',
         element: <BefMap />,
+      },
+      {
+        path: 'cart',
+        element: <Cart />,
       },
     ],
   },
