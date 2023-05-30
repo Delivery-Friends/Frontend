@@ -10,7 +10,7 @@ const Login = () => {
     <section className={classes.login}>
       <h2>Delivery-Friends 로그인</h2>
       <p>배달 프렌즈를 사용해주셔서 감사합니다.</p>
-      <Button size="lg" onClick={loginHandler}>
+      <Button size="md" onClick={loginHandler}>
         <img src="/image/userImage/kakao.png" alt="카카오로고" />
         카카오톡으로 로그인
       </Button>
