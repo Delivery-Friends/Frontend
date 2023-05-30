@@ -41,7 +41,6 @@ type Befs = [
   }
 ];
 interface Props {
-  // setUser: React.Dispatch<React.SetStateAction<Rank[]>>;
   stores: Stores | undefined;
   befs: Befs | undefined;
 }

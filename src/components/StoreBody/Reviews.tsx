@@ -1,43 +1,73 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import classes from './reviews.module.scss';
 import ReactStars from 'react-stars';
+import axios from 'axios';
+import { BASE_URL } from '../../config';
 
-const Reviews = () => {
+type ReviewType =
+  | {
+      nickname: string;
+      imgSrc: string;
+      score: number;
+      content: string;
+      createdAt: string;
+      reviewMedium: string[];
+    }[]
+  | undefined;
+
+const Reviews = (props: { id: number | undefined | string }) => {
+  const { id } = props;
+  const [review, setReview] = useState<ReviewType>();
+  useEffect(() => {
+    axios
+      .get(`${BASE_URL}/store/review/${id}`)
+      .then(res => setReview(res.data.payload));
+  }, []);
   return (
-    <div className={classes.reviews}>
-      <div className={classes.header}>
-        <div>
-          최근리뷰<span className={classes.reviewCount}>123개</span>
-        </div>
-        <select>
-          <option value="1">최신순</option>
-          <option value="2">별점 높은 순</option>
-          <option value="3">별점 낮은 순</option>
-        </select>
-      </div>
-      <div className={classes.reviewList}>
-        <div className={classes.review}>
-          <div className={classes.top}>
-            <img src="/image/brandLogo/bbqLogo.png" alt="profile_img" />
-            <div className={classes.topRight}>
-              <div className={classes.userName}>유저이름</div>
-              <div className={classes.star}>
-                <ReactStars
-                  count={5}
-                  value={4.9}
-                  size={12}
-                  color2={'#F9BF25'}
-                />
-                <span className={classes.date}>리뷰작성날짜</span>
-              </div>
+    <div>
+      {review && (
+        <div className={classes.reviews}>
+          <div className={classes.header}>
+            <div>
+              최근리뷰
+              <span className={classes.reviewCount}>{review?.length}개</span>
             </div>
+            <select>
+              <option value="1">최신순</option>
+              <option value="2">별점 높은 순</option>
+              <option value="3">별점 낮은 순</option>
+            </select>
           </div>
-          <div className={classes.content}>
-            <img src="/image/brandLogo/bbqLogo.png" alt="review_img" />
-            <div className={classes.text}>리뷰내용</div>
+          <div className={classes.reviewList}>
+            {review &&
+              review.map((obj: any, index: number) => {
+                return (
+                  <div key={index} className={classes.review}>
+                    <div className={classes.top}>
+                      <img src={obj.imgSrc} alt="profile_img" />
+                      <div className={classes.topRight}>
+                        <div className={classes.userName}>{obj.nickName}</div>
+                        <div className={classes.star}>
+                          <ReactStars
+                            count={5}
+                            value={obj.score}
+                            size={12}
+                            color2={'#F9BF25'}
+                          />
+                          <span className={classes.date}>{obj.createdAt}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className={classes.content}>
+                      <img src={obj.reviewMedium[0]} alt="review_img" />
+                      <div className={classes.text}>{obj.content}</div>
+                    </div>
+                  </div>
+                );
+              })}
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
