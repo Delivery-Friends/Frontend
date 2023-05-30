@@ -1,12 +1,17 @@
 import React from 'react';
 import classes from './cart.module.scss';
 import { GrClose } from 'react-icons/gr';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
+  const navigate = useNavigate();
   return (
     <div className={classes.wrapCart}>
-      <div className={classes.storeName}>
-        <img src="/image/brnadLgo/bbqLogo.png" alt="storeImg" />
+      <div
+        className={classes.storeName}
+        onClick={() => navigate(`/storeDetail/storeId`)}
+      >
+        <img src="/image/brandLogo/bbqLogo.png" alt="storeImg" />
         <div className={classes.name}>가계이름</div>
       </div>
       <ul className={classes.cartMenu}>
@@ -38,8 +43,14 @@ const Cart = () => {
           배달팁 <div className={classes.price}>3,000원</div>
         </div>
         <div className={classes.total}>
-          결제예정금액 <div className={classes.price}>3,000원</div>
+          결제예정금액 <div className={classes.price}>30,000원</div>
         </div>
+      </div>
+      <div className={classes.bottomBar}>
+        <button>
+          <div className={classes.count}>2</div> <div>배달 주문하기</div>
+          <div className={classes.totalPrice}>43,500 원</div>
+        </button>
       </div>
     </div>
   );
