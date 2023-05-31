@@ -2,13 +2,13 @@
   {
     "id": 1,
     "storeName": "bbq 아주대점",
-    "storeStars": 4.9,
-    "storeReviews": 30,
+    "storeStars": 4.7,
+    "storeReviews": 347,
     "participants": 3,
-    "userName": "dongSeup",
-    "userStars": 4.5,
-    "userReview": 10,
-    "location": "팔달구 원천동 남제관 1층",
+    "userName": "심동섭",
+    "userStars": 4.1,
+    "userReview": 16,
+    "location": "팔달구 원천동 산학원",
     "deadLine": 10,
     "fileNames": [
       {
@@ -19,13 +19,13 @@
   {
     "id": 2,
     "storeName": "bhc 아주대점",
-    "storeStars": 4.9,
-    "storeReviews": 30,
-    "participants": 3,
-    "userName": "ShimDongSeup",
-    "userStars": 4.5,
-    "userReview": 10,
-    "location": "팔달구 원천동 남제관 1층",
+    "storeStars": 4.1,
+    "storeReviews": 32,
+    "participants": 5,
+    "userName": "조재환",
+    "userStars": 3.9,
+    "userReview": 122,
+    "location": "팔달구 원천동 일신관 1층",
     "deadLine": 10,
     "fileNames": [
       {
@@ -35,48 +35,48 @@
   },
   {
     "id": 1,
-    "storeName": "bbq 아주대점",
+    "storeName": "피자헛 아주대점",
     "storeStars": 4.9,
-    "storeReviews": 30,
+    "storeReviews": 195,
     "participants": 3,
-    "userName": "dongSeup",
+    "userName": "이정호",
     "userStars": 4.5,
-    "userReview": 10,
+    "userReview": 74,
     "location": "팔달구 원천동 남제관 1층",
-    "deadLine": 10,
+    "deadLine": 15,
     "fileNames": [
       {
-        "filename": "/image/brandLogo/bbqLogo.png"
+        "filename": "/image/brandLogo/pizzaHutLogo.png"
       }
     ]
   },
   {
     "id": 2,
-    "storeName": "bhc 아주대점",
-    "storeStars": 4.9,
+    "storeName": "홍콩반점 아주대점",
+    "storeStars": 4.2,
     "storeReviews": 30,
-    "participants": 3,
-    "userName": "ShimDongSeup",
-    "userStars": 4.5,
+    "participants": 4,
+    "userName": "이정호",
+    "userStars": 4.4,
     "userReview": 10,
-    "location": "팔달구 원천동 남제관 1층",
+    "location": "팔달구 원천동 일신관",
     "deadLine": 10,
     "fileNames": [
       {
-        "filename": "/image/brandLogo/bhcLogo.png"
+        "filename": "/image/brandLogo/홍콩반점Logo.png"
       }
     ]
   },
   {
     "id": 1,
-    "storeName": "bbq 아주대점",
-    "storeStars": 4.9,
-    "storeReviews": 30,
-    "participants": 3,
+    "storeName": "bbq 수원점",
+    "storeStars": 4.6,
+    "storeReviews": 48,
+    "participants": 2,
     "userName": "dongSeup",
     "userStars": 4.5,
     "userReview": 10,
-    "location": "팔달구 원천동 남제관 1층",
+    "location": "팔달구 원천동 국제학사",
     "deadLine": 10,
     "fileNames": [
       {

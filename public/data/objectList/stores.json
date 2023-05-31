@@ -2,12 +2,12 @@
   {
     "id": 1,
     "name": "bbq 아주대점",
-    "deliveryWaitTime": 40,
+    "deliveryWaitTime": 45,
     "packageAvailable": false,
-    "packageWaitTime": 40,
-    "deliveryTip": 3000,
-    "reviewScore": 4.9,
-    "reviewCount": 30,
+    "packageWaitTime": 45,
+    "deliveryTip": 4000,
+    "reviewScore": 4.8,
+    "reviewCount": 45,
     "minPrice": 12000,
     "fileNames": [
       {
@@ -22,9 +22,9 @@
     "packageAvailable": false,
     "packageWaitTime": 30,
     "deliveryTip": 4000,
-    "reviewScore": 4.9,
-    "reviewCount": 30,
-    "minPrice": 12000,
+    "reviewScore": 3.9,
+    "reviewCount": 450,
+    "minPrice": 13000,
     "fileNames": [
       {
         "filename": "/image/brandLogo/bhcLogo.png"
@@ -33,60 +33,60 @@
   },
   {
     "id": 1,
-    "name": "bbq 아주대점",
-    "deliveryWaitTime": 40,
+    "name": "홍콩반점 아주대점",
+    "deliveryWaitTime": 60,
     "packageAvailable": false,
     "packageWaitTime": 40,
-    "deliveryTip": 3000,
-    "reviewScore": 4.9,
-    "reviewCount": 30,
-    "minPrice": 12000,
+    "deliveryTip": 4500,
+    "reviewScore": 4.8,
+    "reviewCount": 199,
+    "minPrice": 13000,
     "fileNames": [
       {
-        "filename": "/image/brandLogo/bbqLogo.png"
+        "filename": "/image/brandLogo/홍콩반점Logo.png"
       }
     ]
   },
   {
     "id": 2,
-    "name": "bhc 아주대점",
-    "deliveryWaitTime": 30,
+    "name": "피자헛 아주대점",
+    "deliveryWaitTime": 48,
     "packageAvailable": false,
-    "packageWaitTime": 30,
+    "packageWaitTime": 52,
     "deliveryTip": 4000,
-    "reviewScore": 4.9,
-    "reviewCount": 30,
-    "minPrice": 12000,
+    "reviewScore": 4.5,
+    "reviewCount": 138,
+    "minPrice": 14000,
     "fileNames": [
       {
-        "filename": "/image/brandLogo/bhcLogo.png"
+        "filename": "/image/brandLogo/pizzaHutLogo.png"
       }
     ]
   },
   {
     "id": 1,
-    "name": "bbq 아주대점",
-    "deliveryWaitTime": 40,
+    "name": "김선생 아주대점",
+    "deliveryWaitTime": 30,
     "packageAvailable": false,
-    "packageWaitTime": 40,
-    "deliveryTip": 3000,
-    "reviewScore": 4.9,
+    "packageWaitTime": 35,
+    "deliveryTip": 2000,
+    "reviewScore": 4.4,
     "reviewCount": 30,
-    "minPrice": 12000,
+    "minPrice": 16000,
     "fileNames": [
       {
-        "filename": "/image/brandLogo/bbqLogo.png"
+        "filename": "/image/brandLogo/김선생Logo.jpeg"
       }
     ]
   },
   {
     "id": 2,
-    "name": "bhc 아주대점",
-    "deliveryWaitTime": 30,
+    "name": "bhc 수원역점",
+    "deliveryWaitTime": 50,
     "packageAvailable": false,
-    "packageWaitTime": 30,
+    "packageWaitTime": 32,
     "deliveryTip": 4000,
-    "reviewScore": 4.9,
+    "reviewScore": 4.1,
     "reviewCount": 30,
     "minPrice": 12000,
     "fileNames": [

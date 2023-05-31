@@ -6,7 +6,7 @@ import { RiMap2Fill } from 'react-icons/ri';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 
-type Befs = [
+export type Befs = [
   {
     id: number;
     storeName: string;

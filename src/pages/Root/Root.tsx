@@ -21,6 +21,7 @@ const headerTile: IndexSignature = {
   '/order': '주문내역',
   '/reviewWrite': '리뷰등록',
   '/paymentorder': '결제',
+  '/payment': '결제결과',
 };
 
 const Root = () => {

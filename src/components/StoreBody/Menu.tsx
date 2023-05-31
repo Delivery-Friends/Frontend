@@ -9,6 +9,7 @@ type Menu = {
   name: string;
   price: number;
   expression: string;
+  medium: string[];
   readMenuOptionGroupList: {
     id: number;
     name: string;
@@ -33,7 +34,6 @@ const Menu = (props: { id: string | number | undefined }) => {
       .get(`${BASE_URL}/store/menu/${id}`)
       .then(res => setMenu(res.data.payload));
   }, []);
-
   return (
     <div className={classes.menuList}>
       <ul className={classes.menus}>
@@ -59,7 +59,7 @@ const Menu = (props: { id: string | number | undefined }) => {
                       {obj.price.toLocaleString()}원
                     </div>
                   </div>
-                  <img src="/image/brandLogo/bbqLogo.png" alt="food_image" />
+                  <img src={obj.medium[0]} alt="food_image" />
                 </div>
               );
             })}

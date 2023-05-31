@@ -24,7 +24,7 @@ const PaymentOrder = () => {
   const paymenyClickHandler = () => {
     navigate('/payment', {
       state: {
-        orderId: '6fa721312311242',
+        orderId: '5fa721312311242',
         amount: 20000,
         orderName: 'BBQ 황금올리브',
         customerName: '이정호',
@@ -54,7 +54,7 @@ const PaymentOrder = () => {
         </div>
         <div>
           <span>배달팁</span>
-          <span>0원</span>
+          <span>1200원</span>
         </div>
         <div>
           <span>총 결제금액</span>

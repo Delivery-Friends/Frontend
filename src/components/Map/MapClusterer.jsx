@@ -4,10 +4,32 @@ import { MarkerClusterer } from 'react-kakao-maps-sdk';
 import axios from 'axios';
 import Marker from './Marker';
 import Modal from '../common/Modal/Modal';
+import { ObjectList } from '../ObjectList/ObjectList';
+
+// export type Befs = [
+//   {
+//     id: number;
+//     storeName: string;
+//     storeStars: number;
+//     storeReviews: number;
+//     participants: number;
+//     userName: string;
+//     userStars: number;
+//     userReview: number;
+//     location: string;
+//     deadLine: number;
+//     fileNames: [
+//       {
+//         filename: string;
+//       }
+//     ];
+//   }
+// ];
 
 const MapClusterer = () => {
   const [positions, setPositions] = useState([]);
   const clusterRef = useRef();
+  const [befs, setBefs] = useState();
   const [modalOpen, setModalOpen] = useState(false);
   useEffect(() => {
     const mapData = async () => {
@@ -40,9 +62,14 @@ const MapClusterer = () => {
       return 'Many';
     }
   }
+
+  useEffect(() => {
+    axios.get('/data/objectList/befs.json').then(res => setBefs(res.data));
+  }, []);
+
   const clusterClickHandler = () => {
     console.log(clusterRef.current.markers);
-    // setModalOpen(!modalOpen);
+    setModalOpen(!modalOpen);
   };
 
   const onClustered = (e, clusters) => {
@@ -90,9 +117,8 @@ const MapClusterer = () => {
         onClose={() => {
           setModalOpen(!modalOpen);
         }}
-      >
-        <p>현재 베프 모집중이에요</p>
-      </Modal>
+        body={<ObjectList stores={undefined} befs={befs} />}
+      />
     </>
   );
 };
