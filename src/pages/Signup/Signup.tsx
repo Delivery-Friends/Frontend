@@ -1,7 +1,6 @@
 import { FormEvent, useCallback, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { userJoin } from '../../api/kakaoLogin';
-
 import Input from '../../components/common/Input/Input';
 import Button from '../../components/common/Button/Button';
 import classes from './signup.module.scss';
@@ -18,7 +17,6 @@ const Signup = () => {
   const [checkNickNameMsg, setCheckNickNameMsg] = useState('');
 
   const { state } = useLocation();
-
   const submitHandler = async (e: FormEvent) => {
     e.preventDefault();
     const joinData = {

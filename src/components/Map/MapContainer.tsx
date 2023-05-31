@@ -1,21 +1,46 @@
 import { Map } from 'react-kakao-maps-sdk';
 import Marker from './Marker';
 import Location from './Location';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import classes from './map.module.scss';
 import { FadeLoader } from 'react-spinners';
+import Button from '../common/Button/Button';
+import MapClusterer from './MapClusterer';
 
 type MapContainerProps = {
-  title: string;
-  latlng: {
-    lat: string;
-    lng: string;
-  };
-}[];
+  positions: {
+    title: string;
+    latlng: {
+      lat: number;
+      lng: number;
+    };
+  }[];
+};
 
-const MapContainer = () => {
+const MapContainer = ({ positions }: MapContainerProps) => {
   const location: any = Location();
   const mapRef = useRef<any>();
+  const [mapInfo, setMapInfo] = useState<any>();
+
+  const mapInfoHandler = () => {
+    const map = mapRef.current;
+    setMapInfo({
+      center: {
+        lat: map.getCenter().getLat(),
+        lng: map.getCenter().getLng(),
+      },
+      level: map.getLevel(),
+      typeId: map.getMapTypeId(),
+      swLatLng: {
+        lat: map.getBounds().getSouthWest().getLat(),
+        lng: map.getBounds().getSouthWest().getLng(),
+      },
+      neLatLng: {
+        lat: map.getBounds().getNorthEast().getLat(),
+        lng: map.getBounds().getNorthEast().getLng(),
+      },
+    });
+  };
 
   if (location.isLoading) {
     return (
@@ -37,12 +62,23 @@ const MapContainer = () => {
           width: '100%',
           height: '450px',
         }}
-        level={3}
+        level={4}
         // 지도의 확대 레벨
         ref={mapRef}
       >
         <Marker center={location.center} />
+        {positions.map(pos => {
+          return (
+            <Marker
+              key={`${pos.latlng.lat}-${pos.latlng.lng}`}
+              center={pos.latlng}
+              title={pos.title}
+            />
+          );
+        })}
+        <MapClusterer />
       </Map>
+      <Button onClick={mapInfoHandler}>베프정보 맵 가져오기</Button>
     </div>
   );
 };

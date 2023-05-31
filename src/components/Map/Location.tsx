@@ -12,7 +12,7 @@ const Location = () => {
 
   useEffect(() => {
     if (navigator.geolocation) {
-      // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+      // GeoLocation을 이용해서 현재 사용자 위치 설정
       navigator.geolocation.getCurrentPosition(
         position => {
           setLocation(prev => ({
@@ -33,7 +33,7 @@ const Location = () => {
         }
       );
     } else {
-      // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+      // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정
       setLocation(prev => ({
         ...prev,
         errMsg: '위치정보를 가져올 수 없습니다.',

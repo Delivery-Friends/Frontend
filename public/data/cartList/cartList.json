@@ -1,0 +1,56 @@
+[
+  {
+    "cartId": 0,
+    "storeId": 0,
+    "menu": [
+      {
+        "name": "BBQ",
+        "price": 1000,
+        "count": 3,
+        "options": [
+          {
+            "name": "옵션1",
+            "price": 0,
+            "count": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cartId": 0,
+    "storeId": 0,
+    "menu": [
+      {
+        "name": "BBQ",
+        "price": 1000,
+        "count": 3,
+        "options": [
+          {
+            "name": "옵션1",
+            "price": 0,
+            "count": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cartId": 0,
+    "storeId": 0,
+    "menu": [
+      {
+        "name": "피자헛",
+        "price": 1000,
+        "count": 3,
+        "options": [
+          {
+            "name": "옵션1",
+            "price": 0,
+            "count": 0
+          }
+        ]
+      }
+    ]
+  }
+]

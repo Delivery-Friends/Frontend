@@ -31,7 +31,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
-              to="/work"
+              to="."
               className={({ isActive }) => (isActive ? classes.selected : '')}
             >
               <FaRegGrinHearts size="20" />
@@ -40,7 +40,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
-              to="/bill"
+              to="/order"
               className={({ isActive }) => (isActive ? classes.selected : '')}
             >
               <MdOutlineStickyNote2 size="20" />
