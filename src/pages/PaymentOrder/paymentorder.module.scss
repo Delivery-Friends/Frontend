@@ -1,0 +1,101 @@
+@import '../../styles/utilities/mixin';
+@import '../../styles/utilities/variables';
+
+.orderwrapper {
+  display: flex;
+  width: 100%;
+  padding: 1.5rem 1.8rem;
+  font-size: 1.2rem;
+  flex-direction: column;
+  .ordertime {
+    display: flex;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 0.1rem solid #d2cfcfa5;
+    justify-content: space-between;
+    align-items: center;
+
+    p:last-child {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+  }
+
+  .address {
+    margin-bottom: 2rem;
+    border-bottom: 0.1rem solid #d2cfcfa5;
+    p {
+      margin-bottom: 0.4rem;
+      font-size: 1.6rem;
+    }
+    span {
+      display: block;
+      margin-bottom: 1.2rem;
+    }
+
+    input {
+      display: block;
+      width: 100%;
+      height: 30px;
+      padding: 0.8rem;
+      background-color: #dddadaa5;
+      border-radius: 0.4rem;
+      &::placeholder {
+        color: black;
+      }
+    }
+  }
+
+  .request {
+    padding-top: 1.2rem;
+    color: $gray;
+    margin-bottom: 2rem;
+    border-top: 0.1rem solid #d2cfcfa5;
+    span {
+      display: block;
+      margin-bottom: 1.2rem;
+    }
+    input {
+      display: block;
+      width: 100%;
+      height: 30px;
+      padding: 0.8rem;
+      background-color: #dddadaa5;
+      border-radius: 0.4rem;
+    }
+  }
+
+  .payment {
+    border-top: 0.1rem solid #d2cfcfa5;
+    padding: 1.4rem 0;
+    p {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 1.4rem;
+    }
+    div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    div:last-child {
+      margin-bottom: 0;
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+  }
+  .orderpayment {
+    border-top: 0.1rem solid #d2cfcfa5;
+    padding: 1.4rem 0;
+    font-size: 1.4rem;
+    font-weight: 500;
+    p {
+      margin-bottom: 1.4rem;
+    }
+    button {
+      margin: 0 auto;
+    }
+  }
+}

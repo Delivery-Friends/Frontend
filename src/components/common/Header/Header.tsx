@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import classes from './header.module.scss';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { BsFillCartFill } from 'react-icons/bs';
@@ -9,6 +9,7 @@ interface HeaderProps {
 
 const Header = ({ headerTitle }: HeaderProps) => {
   const navigate = useNavigate();
+
   return (
     <header className={classes.header}>
       <IoMdArrowRoundBack
@@ -16,11 +17,14 @@ const Header = ({ headerTitle }: HeaderProps) => {
         onClick={() => navigate(-1)}
       />
       {headerTitle ? (
-        <Link to="/" className={classes.title}>
+        <p className={classes.title}>
           <h2>{headerTitle}</h2>
-        </Link>
+        </p>
       ) : null}
-      <BsFillCartFill className={classes.cartimg} />
+      <BsFillCartFill
+        onClick={() => navigate('/cart')}
+        className={classes.cartimg}
+      />
     </header>
   );
 };

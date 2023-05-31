@@ -14,13 +14,17 @@ import BefMap from './pages/BefMap/BefMap';
 import Cart from './pages/Cart/Cart';
 import Order from './pages/Order/Order';
 import ReviewWrite from './pages/ReviewWrite/ReviewWrite';
+import PaymentOrder from './pages/PaymentOrder/PaymentOrder';
+import Payment from './pages/Payment/Payment';
+import PaymentSuccess from './pages/Payment/PaymentSuccess';
+import PaymentFail from './pages/Payment/PaymentFail';
 
 const router = createBrowserRouter([
+  { path: '/', element: <Home /> },
   {
     path: '/',
     element: <Root />,
     children: [
-      { index: true, element: <Home /> },
       {
         path: 'login',
         element: <Login />,
@@ -39,7 +43,7 @@ const router = createBrowserRouter([
         element: <StoreDetail />,
       },
       {
-        path: 'foodoption',
+        path: 'foodoption/:id',
         element: <FoodOption />,
       },
       {
@@ -70,6 +74,16 @@ const router = createBrowserRouter([
         path: 'reviewWrite',
         element: <ReviewWrite />,
       },
+      {
+        path: 'paymentorder/:orderId',
+        element: <PaymentOrder />,
+      },
+      {
+        path: 'payment',
+        element: <Payment />,
+      },
+      { path: 'payment/success', element: <PaymentSuccess /> },
+      { path: 'payment/fail', element: <PaymentFail /> },
     ],
   },
 ]);
