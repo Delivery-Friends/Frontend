@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classes from './storeBody.module.scss';
 import { BsTelephone, BsHeart } from 'react-icons/bs';
 import { CiShare1 } from 'react-icons/ci';
@@ -8,22 +8,60 @@ import Menu from './Menu';
 import Infomation from './Infomation';
 import Reviews from './Reviews';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { BASE_URL } from '../../config';
 
-const StoreBody = (props: { id: number }) => {
+type StoreType = {
+  id: number;
+  name: string;
+  region1depthName: string;
+  region2depthName: string;
+  region3depthName: string;
+  phoneNumber: string;
+  intro: string;
+  openTime: string;
+  closeTime: string;
+  registrationNumber: string;
+  deliveryWaitTime: number;
+  deliveryTip: number;
+  packageAvailable: boolean;
+  packageWaitTime: number;
+  reviewScore: number;
+  reviewCount: number;
+  orderCount: number;
+  minPrice: number;
+  likeCount: number;
+};
+
+const StoreBody = (props: { id: string | number | undefined }) => {
+  const { id } = props;
   const navigator = useNavigate();
   const [tap, setTap] = useState(1);
+  const [store, setStore] = useState<StoreType>();
+
+  useEffect(() => {
+    axios
+      .get(`${BASE_URL}/store/${id}`)
+      .then(res => setStore(res.data.payload));
+  }, []);
+
   return (
     <div className={classes.wrapStoreBody}>
       <div className={classes.storeInfo}>
-        <div className={classes.title}>상점 이름</div>
+        <div className={classes.title}>{store?.name}</div>
         <div className={classes.score}>
-          <ReactStars count={5} value={4.9} size={17} color2={'#F9BF25'} />
-          <span>4.9</span>
+          <ReactStars
+            count={5}
+            value={store?.reviewScore}
+            size={17}
+            color2={'#F9BF25'}
+          />
+          <span>{store?.reviewScore}</span>
         </div>
-        <span>최근리뷰 33</span>
+        <span>최근리뷰 {store?.reviewCount}</span>
         <ul className={classes.contact}>
           <li>
-            <a href={`tel:010-0000-0000`}>
+            <a href={`tel:${store?.phoneNumber}`}>
               <BsTelephone className={classes.icon} />
               전화
             </a>
@@ -41,7 +79,11 @@ const StoreBody = (props: { id: number }) => {
             </span>
           </li>
           {window.location.href.includes('storeDetail') && (
-            <li onClick={() => navigator('/befRegistration')}>
+            <li
+              onClick={() =>
+                navigator('/befRegistration', { state: store?.id })
+              }
+            >
               <span className={classes.bef}>
                 <IoIosPeople className={classes.befIcon} />
                 배프등록
@@ -52,15 +94,15 @@ const StoreBody = (props: { id: number }) => {
       </div>
       <ul className={classes.deliveryInfo}>
         <li>
-          최소주문금액 <span>12000원</span>
+          최소주문금액 <span>{store?.minPrice.toLocaleString()}원</span>
         </li>
         <li>
-          배달시간 <span>12000원</span>
+          배달시간 <span>{store?.deliveryWaitTime}분</span>
         </li>
         <li>
           배달팁
           <span>
-            0원 ~ 3000원 <button>자세히</button>
+            {store?.deliveryTip.toLocaleString()}원 <button>자세히</button>
           </span>
         </li>
       </ul>
@@ -86,9 +128,9 @@ const StoreBody = (props: { id: number }) => {
           </li>
         </ul>
         <div className={classes.content}>
-          {tap === 1 && <Menu />}
-          {tap === 2 && <Infomation />}
-          {tap === 3 && <Reviews />}
+          {tap === 1 && <Menu id={id} />}
+          {tap === 2 && <Infomation store={store} />}
+          {tap === 3 && <Reviews id={id} />}
         </div>
       </div>
     </div>

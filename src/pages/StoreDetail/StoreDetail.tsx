@@ -1,7 +1,10 @@
+import { useParams } from 'react-router-dom';
 import StoreBody from '../../components/StoreBody/StoreBody';
 
 const StoreDetail = () => {
-  return <StoreBody id={1} />;
+  const params = useParams<string>();
+  const storeId = params.id;
+  return <StoreBody id={storeId} />;
 };
 
 export default StoreDetail;
