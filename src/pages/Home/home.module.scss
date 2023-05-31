@@ -32,6 +32,10 @@
 }
 
 .mainwrapper {
+  button {
+    background-color: $pointColor;
+    color: #fff;
+  }
   margin-top: 6rem;
   padding: 0 1.2rem;
   .orderwrapper {

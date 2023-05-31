@@ -14,13 +14,13 @@ const Home = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-  const soloDeliveryHandler = () => {
-    navigate('/storeList');
-  };
+  // const soloDeliveryHandler = () => {
+  //   navigate('/storeList');
+  // };
 
-  const friendDeliveryHandler = () => {
-    navigate('/storeList');
-  };
+  // const friendDeliveryHandler = () => {
+  //   navigate('/storeList');
+  // };
 
   return (
     <>
@@ -34,15 +34,17 @@ const Home = () => {
         </div>
         <div className={classes.mainwrapper}>
           <div className={classes.orderwrapper}>
-            <Button size="lg" onClick={soloDeliveryHandler}>
+            <Button size="lg" onClick={openModalHandler}>
               혼자주문
             </Button>
-            <Button size="lg" onClick={friendDeliveryHandler}>
+            <Button size="lg" onClick={openModalHandler}>
               배프와주문
             </Button>
           </div>
           <div className={classes.foodranking}>
-            <Button size="lg">맛집랭킹</Button>
+            <Button size="lg" onClick={openModalHandler}>
+              맛집랭킹
+            </Button>
             <Button size="lg" onClick={openModalHandler}>
               실시간 인기 카테고리
             </Button>
@@ -50,7 +52,8 @@ const Home = () => {
         </div>
       </div>
       <Modal
-        title="실시간 인기 카테고리"
+        title="뚜둔"
+        body={<div>Freinds-Delivery 서비스는 다음 주에 공개됩니다.</div>}
         isOpen={isModalOpen}
         onClose={openModalHandler}
       />
