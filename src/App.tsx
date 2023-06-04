@@ -10,7 +10,7 @@ import LoginKakao from './pages/Login/LoginKakao';
 import Signup from './pages/Signup/Signup';
 import BefDetail from './pages/BefDetail/BefDetail';
 import BefRegistration from './pages/BefRegistration/BefRegistration';
-import BefMap from './pages/BefMap/BefMap';
+// import BefMap from './pages/BefMap/BefMap';
 import Cart from './pages/Cart/Cart';
 import Order from './pages/Order/Order';
 import ReviewWrite from './pages/ReviewWrite/ReviewWrite';
@@ -51,17 +51,17 @@ const router = createBrowserRouter([
         element: <BefList />,
       },
       {
-        path: 'befDetail/:id',
+        path: 'befDetail',
         element: <BefDetail />,
       },
       {
         path: 'befRegistration',
         element: <BefRegistration />,
       },
-      {
-        path: 'befMap',
-        element: <BefMap />,
-      },
+      // {
+      //   path: 'befMap',
+      //   element: <BefMap />,
+      // },
       {
         path: 'cart',
         element: <Cart />,

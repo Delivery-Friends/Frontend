@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ObjectList } from '../../components/ObjectList/ObjectList';
 import classes from './storeList.module.scss';
 import axios from 'axios';
-import { BASE_URL } from '../../config';
+import { instance } from '../../api/axiosBase';
 
 type Stores = [
   {
@@ -32,8 +32,8 @@ const StoreList = () => {
     axios.get('/data/objectList/stores.json').then(res => setStores(res.data));
   }, []);
   // useEffect(() => {
-  //   axios
-  //     .get(`${BASE_URL}/stores?category=${category}&&sort=${sort}`)
+  //   instance
+  //     .get(`/stores?category=${category}&&sort=${sort}`)
   //     .then(res => setStores(res.data.payload));
   // }, [category, sort]);
 

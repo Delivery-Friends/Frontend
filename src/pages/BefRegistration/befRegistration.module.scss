@@ -95,7 +95,7 @@
     padding: 1.5rem 2rem;
     font-size: 1.6rem;
     font-weight: 700;
-    margin-bottom: 3rem;
+    margin: 2rem 0 4rem;
     input {
       width: 100%;
       display: block;
@@ -115,6 +115,7 @@
   }
   .address {
     padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
     .inputWrapper {
       @include flex(center, normal);
       flex-wrap: wrap;
@@ -149,7 +150,7 @@
   }
   .deadline {
     padding: 1.5rem 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 7rem;
     span {
       display: block;
       margin-bottom: 2rem;

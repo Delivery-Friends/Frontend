@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import classes from './reviews.module.scss';
 import ReactStars from 'react-stars';
-import axios from 'axios';
-import { BASE_URL } from '../../config';
+import { instance } from '../../api/axiosBase';
 
 type ReviewType =
   | {
@@ -19,8 +18,8 @@ const Reviews = (props: { id: number | undefined | string }) => {
   const { id } = props;
   const [review, setReview] = useState<ReviewType>();
   useEffect(() => {
-    axios
-      .get(`${BASE_URL}/store/review/${id}`)
+    instance
+      .get(`/store/review/${id}`)
       .then(res => setReview(res.data.payload));
   }, []);
   return (

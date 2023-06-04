@@ -2,6 +2,9 @@ import React from 'react';
 import classes from './objectList.module.scss';
 import { AiFillStar } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
+import { format, register } from 'timeago.js';
+import koLocale from 'timeago.js/lib/lang/ko'; // 한글로 변환
+register('ko', koLocale);
 
 type Stores = [
   {
@@ -21,25 +24,27 @@ type Stores = [
     ];
   }
 ];
-type Befs = [
-  {
-    id: number;
-    storeName: string;
-    storeStars: number;
-    storeReviews: number;
-    participants: number;
-    userName: string;
-    userStars: number;
-    userReview: number;
-    location: string;
-    deadLine: number;
-    fileNames: [
-      {
-        filename: string;
-      }
-    ];
-  }
-];
+type Befs = {
+  groupEndTime: string;
+  teamId: number;
+  storeId: number;
+  storeName: string;
+  leaderName: string;
+  leaderImgSrc: string[];
+  category: string;
+  storeImgUrl: string[];
+  storeScore: number;
+  reviewCount: number;
+  deliveryTime: number;
+  deliveryTip: number;
+  minPrice: number;
+  maxMember: number;
+  basicAddress: string;
+  detailedAddress: string;
+  latitude: string;
+  longitude: string;
+}[];
+
 interface Props {
   stores: Stores | undefined;
   befs: Befs | undefined;
@@ -93,35 +98,37 @@ export const ObjectList = (props: Props) => {
           <li
             key={index}
             className="object"
-            onClick={() => navigate(`/befDetail/${obj.id}`)}
+            onClick={() => navigate(`/befDetail`, { state: obj })}
           >
             <div className={classes.objectLeft}>
-              <img src={obj.fileNames[0].filename} alt="brandLogo" />
+              <img src={obj.storeImgUrl[0]} alt="brandLogo" />
             </div>
             <div className={classes.objectRight}>
               <div className={classes.objectTitle}>{obj.storeName}</div>
               <div className={classes.score}>
                 <AiFillStar className={classes.star} />
                 <span>
-                  {obj.storeStars}
-                  <span className={classes.review}>(+{obj.storeReviews})</span>
+                  {obj.storeScore}
+                  <span className={classes.review}>(+{obj.reviewCount})</span>
                 </span>
               </div>
               <div className={classes.objectMid}>
                 참여인원{' '}
-                <span className={classes.participants}>{obj.participants}</span>{' '}
-                명 | 대표배프 :
-                <div className={classes.befName}>{obj.userName}</div>
-                <AiFillStar className={classes.star} />
+                <span className={classes.participants}>{obj.maxMember}</span> 명
+                | 대표배프 :
+                <div className={classes.befName}>{obj.leaderName}</div>
+                {/* <AiFillStar className={classes.star} />
                 <span className={classes.userStars}>
                   {obj.userStars}
                   <span className={classes.review}>({obj.userReview})</span>
-                </span>
+                </span> */}
               </div>
               <div className={classes.objectBottom}>
-                <span className={classes.location}>{obj.location}</span>| 마감
-                시간 : <span className={classes.deadline}>{obj.deadLine}</span>
-                분
+                <span className={classes.location}>{obj.basicAddress}</span>|
+                마감 시간 :{' '}
+                <span className={classes.deadline}>
+                  {format(obj.groupEndTime, 'ko')}
+                </span>
               </div>
             </div>
           </li>

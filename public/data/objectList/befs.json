@@ -1,172 +1,41 @@
 [
   {
-    "id": 1,
-    "storeName": "bbq 아주대점",
-    "storeStars": 4.7,
-    "storeReviews": 347,
-    "participants": 3,
-    "userName": "심동섭",
-    "userStars": 4.1,
-    "userReview": 16,
-    "location": "팔달구 원천동 산학원",
-    "deadLine": 10,
-    "fileNames": [
-      {
-        "filename": "/image/brandLogo/bbqLogo.png"
-      }
-    ]
+    "groupEndTime": "2023-06-04T16:51:32.108Z",
+    "teamId": 0,
+    "storeId": 1,
+    "storeName": "string",
+    "leaderName": "string",
+    "leaderImgSrc": ["string"],
+    "category": "string",
+    "storeImgUrl": ["string"],
+    "storeScore": 0,
+    "reviewCount": 0,
+    "deliveryTime": 0,
+    "deliveryTip": 0,
+    "minPrice": 0,
+    "maxMember": 0,
+    "basicAddress": "string",
+    "detailedAddress": "string",
+    "latitude": "string",
+    "longitude": "string"
   },
   {
-    "id": 2,
-    "storeName": "bhc 아주대점",
-    "storeStars": 4.1,
-    "storeReviews": 32,
-    "participants": 5,
-    "userName": "조재환",
-    "userStars": 3.9,
-    "userReview": 122,
-    "location": "팔달구 원천동 일신관 1층",
-    "deadLine": 10,
-    "fileNames": [
-      {
-        "filename": "/image/brandLogo/bhcLogo.png"
-      }
-    ]
-  },
-  {
-    "id": 1,
-    "storeName": "피자헛 아주대점",
-    "storeStars": 4.9,
-    "storeReviews": 195,
-    "participants": 3,
-    "userName": "이정호",
-    "userStars": 4.5,
-    "userReview": 74,
-    "location": "팔달구 원천동 남제관 1층",
-    "deadLine": 15,
-    "fileNames": [
-      {
-        "filename": "/image/brandLogo/pizzaHutLogo.png"
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "storeName": "홍콩반점 아주대점",
-    "storeStars": 4.2,
-    "storeReviews": 30,
-    "participants": 4,
-    "userName": "이정호",
-    "userStars": 4.4,
-    "userReview": 10,
-    "location": "팔달구 원천동 일신관",
-    "deadLine": 10,
-    "fileNames": [
-      {
-        "filename": "/image/brandLogo/홍콩반점Logo.png"
-      }
-    ]
-  },
-  {
-    "id": 1,
-    "storeName": "bbq 수원점",
-    "storeStars": 4.6,
-    "storeReviews": 48,
-    "participants": 2,
-    "userName": "dongSeup",
-    "userStars": 4.5,
-    "userReview": 10,
-    "location": "팔달구 원천동 국제학사",
-    "deadLine": 10,
-    "fileNames": [
-      {
-        "filename": "/image/brandLogo/bbqLogo.png"
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "storeName": "bhc 아주대점",
-    "storeStars": 4.9,
-    "storeReviews": 30,
-    "participants": 3,
-    "userName": "ShimDongSeup",
-    "userStars": 4.5,
-    "userReview": 10,
-    "location": "팔달구 원천동 남제관 1층",
-    "deadLine": 10,
-    "fileNames": [
-      {
-        "filename": "/image/brandLogo/bhcLogo.png"
-      }
-    ]
-  },
-  {
-    "id": 1,
-    "storeName": "bbq 아주대점",
-    "storeStars": 4.9,
-    "storeReviews": 30,
-    "participants": 3,
-    "userName": "dongSeup",
-    "userStars": 4.5,
-    "userReview": 10,
-    "location": "팔달구 원천동 남제관 1층",
-    "deadLine": 10,
-    "fileNames": [
-      {
-        "filename": "/image/brandLogo/bbqLogo.png"
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "storeName": "bhc 아주대점",
-    "storeStars": 4.9,
-    "storeReviews": 30,
-    "participants": 3,
-    "userName": "ShimDongSeup",
-    "userStars": 4.5,
-    "userReview": 10,
-    "location": "팔달구 원천동 남제관 1층",
-    "deadLine": 10,
-    "fileNames": [
-      {
-        "filename": "/image/brandLogo/bhcLogo.png"
-      }
-    ]
-  },
-  {
-    "id": 1,
-    "storeName": "bbq 아주대점",
-    "storeStars": 4.9,
-    "storeReviews": 30,
-    "participants": 3,
-    "userName": "dongSeup",
-    "userStars": 4.5,
-    "userReview": 10,
-    "location": "팔달구 원천동 남제관 1층",
-    "deadLine": 10,
-    "fileNames": [
-      {
-        "filename": "/image/brandLogo/bbqLogo.png"
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "storeName": "bhc 아주대점",
-    "storeStars": 4.9,
-    "storeReviews": 30,
-    "participants": 3,
-    "userName": "ShimDongSeup",
-    "userStars": 4.5,
-    "userReview": 10,
-    "location": "팔달구 원천동 남제관 1층",
-    "deadLine": 10,
-    "fileNames": [
-      {
-        "filename": "/image/brandLogo/bhcLogo.png"
-      }
-    ]
+    "groupEndTime": "2023-06-04T16:51:32.108Z",
+    "teamId": 0,
+    "storeId": 1,
+    "storeName": "string",
+    "leaderName": "string",
+    "category": "string",
+    "storeImgUrl": ["string"],
+    "storeScore": 0,
+    "reviewCount": 0,
+    "deliveryTime": 0,
+    "deliveryTip": 0,
+    "minPrice": 0,
+    "maxMember": 0,
+    "basicAddress": "string",
+    "detailedAddress": "string",
+    "latitude": "string",
+    "longitude": "string"
   }
 ]
