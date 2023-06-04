@@ -39,9 +39,9 @@ const BefRegistration = () => {
     setZoneCode(zipCode);
   };
 
-  // const onReg = () => {
-  //   accessInstance;
-  // };
+  const onReg = () => {
+    accessInstance.post('/team/make', {});
+  };
 
   return (
     <div className={classes.wrapBefRegistration}>
