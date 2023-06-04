@@ -32,13 +32,15 @@ export const BefList = () => {
   const navigate = useNavigate();
   const [befs, setBefs] = useState<Befs>();
 
-  useEffect(() => {
-    axios.get('/data/objectList/befs.json').then(res => setBefs(res.data));
-  }, []);
-
   // useEffect(() => {
-  //   instance.get('/teamlist').then(res => setBefs(res.data.payload));
+  //   axios.get('/data/objectList/befs.json').then(res => setBefs(res.data));
   // }, []);
+
+  useEffect(() => {
+    instance
+      .get('/teamlist?page=&&size=')
+      .then(res => setBefs(res.data.payload));
+  }, []);
 
   return (
     <div className={classes.befList}>

@@ -18,6 +18,7 @@ import PaymentOrder from './pages/PaymentOrder/PaymentOrder';
 import Payment from './pages/Payment/Payment';
 import PaymentSuccess from './pages/Payment/PaymentSuccess';
 import PaymentFail from './pages/Payment/PaymentFail';
+import UserDetail from './pages/UserDetail/UserDetail';
 
 const router = createBrowserRouter([
   { path: '/', element: <Home /> },
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
         element: <StoreDetail />,
       },
       {
-        path: 'foodoption/:id',
+        path: 'foodoption',
         element: <FoodOption />,
       },
       {
@@ -51,12 +52,16 @@ const router = createBrowserRouter([
         element: <BefList />,
       },
       {
-        path: 'befDetail',
+        path: 'befDetail/:id',
         element: <BefDetail />,
       },
       {
         path: 'befRegistration',
         element: <BefRegistration />,
+      },
+      {
+        path: 'userDetail/:id',
+        element: <UserDetail />,
       },
       // {
       //   path: 'befMap',

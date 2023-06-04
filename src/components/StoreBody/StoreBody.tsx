@@ -31,6 +31,7 @@ type StoreType = {
   orderCount: number;
   minPrice: number;
   likeCount: number;
+  medium: string[];
 };
 
 const StoreBody = (props: { id: string | number | undefined }) => {
@@ -77,11 +78,7 @@ const StoreBody = (props: { id: string | number | undefined }) => {
             </span>
           </li>
           {window.location.href.includes('storeDetail') && (
-            <li
-              onClick={() =>
-                navigator('/befRegistration', { state: store?.id })
-              }
-            >
+            <li onClick={() => navigator('/befRegistration', { state: store })}>
               <span className={classes.bef}>
                 <IoIosPeople className={classes.befIcon} />
                 배프등록

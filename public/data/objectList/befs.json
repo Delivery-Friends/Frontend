@@ -17,7 +17,8 @@
     "basicAddress": "string",
     "detailedAddress": "string",
     "latitude": "string",
-    "longitude": "string"
+    "longitude": "string",
+    "medium": ["string"]
   },
   {
     "groupEndTime": "2023-06-04T16:51:32.108Z",
@@ -36,6 +37,7 @@
     "basicAddress": "string",
     "detailedAddress": "string",
     "latitude": "string",
-    "longitude": "string"
+    "longitude": "string",
+    "medium": ["string"]
   }
 ]

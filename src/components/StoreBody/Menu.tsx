@@ -63,7 +63,7 @@ const Menu = (props: { id: string | number | undefined }) => {
         </li>
       </ul>
       <div className={classes.bottomBar}>
-        <button>
+        <button onClick={() => navigate('/cart')}>
           {/* <div className={classes.count}>2</div>  */}
           <div>장바구니 보기</div>
           {/* <div className={classes.totalPrice}>43,500 원</div> */}
