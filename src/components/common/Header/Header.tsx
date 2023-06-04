@@ -17,9 +17,9 @@ const Header = ({ headerTitle }: HeaderProps) => {
         onClick={() => navigate(-1)}
       />
       {headerTitle ? (
-        <p className={classes.title}>
+        <div className={classes.title}>
           <h2>{headerTitle}</h2>
-        </p>
+        </div>
       ) : null}
       <BsFillCartFill
         onClick={() => navigate('/cart')}
