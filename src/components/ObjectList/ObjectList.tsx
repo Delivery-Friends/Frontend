@@ -98,7 +98,7 @@ export const ObjectList = (props: Props) => {
           <li
             key={index}
             className="object"
-            onClick={() => navigate(`/befDetail`, { state: obj })}
+            onClick={() => navigate(`/befDetail/${obj.teamId}`)}
           >
             <div className={classes.objectLeft}>
               <img src={obj.storeImgUrl[0]} alt="brandLogo" />
@@ -124,7 +124,7 @@ export const ObjectList = (props: Props) => {
                 </span> */}
               </div>
               <div className={classes.objectBottom}>
-                <span className={classes.location}>{obj.basicAddress}</span>|
+                <span className={classes.location}>{obj.basicAddress}</span>
                 마감 시간 :{' '}
                 <span className={classes.deadline}>
                   {format(obj.groupEndTime, 'ko')}

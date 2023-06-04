@@ -4,8 +4,12 @@ import { AiFillStar } from 'react-icons/ai';
 import PopupPostCode from './SearchAddress/PopupPostCode';
 import moment from 'moment';
 import { accessInstance } from '../../api/axiosBase';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const BefRegistration = () => {
+  const navigate = useNavigate();
+  const { state } = useLocation();
+  const store = state;
   const [range, setRange] = useState(1);
   // const [ampm, setAmpm] = useState<string>('오전');
   const [hour, setHour] = useState<string>('00');
@@ -27,8 +31,8 @@ const BefRegistration = () => {
     let geocoder = new kakao.maps.services.Geocoder();
     let callback = function (result: any, status: any) {
       if (status === kakao.maps.services.Status.OK) {
-        setLat(result[0].x);
-        setLong(result[0].y);
+        setLat(result[0].y);
+        setLong(result[0].x);
       } else {
         alert('주소변환 실패');
       }
@@ -39,29 +43,59 @@ const BefRegistration = () => {
     setZoneCode(zipCode);
   };
 
+  console.log({
+    endTime: time,
+    storeId: store.id,
+    maxMember: range,
+    basicAddress: fullAddress,
+    detailedAddress: detailAddress,
+    latitude: lat,
+    logitude: long,
+  });
+
   const onReg = () => {
-    accessInstance.post('/team/make', {});
+    accessInstance
+      .post('/team/make', {
+        endTime: time,
+        storeId: store.id,
+        maxMember: range,
+        basicAddress: fullAddress,
+        detailedAddress: detailAddress,
+        latitude: lat,
+        logitude: long,
+      })
+      .then(res => {
+        if (res.data.statusCode === 200) {
+          navigate('/befList');
+        } else {
+          alert('배프등록에 실패하였습니다.');
+        }
+      });
   };
 
   return (
     <div className={classes.wrapBefRegistration}>
       <div className={classes.storeInfo}>
         <div className={classes.objectLeft}>
-          <img src={'/image/brandLogo/bbqLogo.png'} alt="brandLogo" />
+          {/* <img src={store?.medium[0]} alt="brandLogo" /> */}
+          <img src={''} alt="brandLogo" />
         </div>
         <div className={classes.objectRight}>
-          <div className={classes.objectTitle}>가계이름</div>
+          <div className={classes.objectTitle}>{store?.name}</div>
           <div className={classes.score}>
             <AiFillStar className={classes.star} />
             <span>
-              {3.9}
-              <span className={classes.review}>(+100)</span>
+              {store?.reviewScore}
+              <span className={classes.review}>(+{store?.reciewCount})</span>
             </span>
           </div>
           <div className={classes.objectMid}>
-            배달 {30}분 | 배달팀 {3000}원
+            배달 {store?.deliveryWaitTime}분 | 배달팀{' '}
+            {store?.deliveryTip.toLocaleString()}원
           </div>
-          <div className={classes.objectBottom}>최소주문 {12000}원</div>
+          <div className={classes.objectBottom}>
+            최소주문 {store?.minPrice.toLocaleString()}원
+          </div>
         </div>
       </div>
       <div className={classes.range}>
@@ -135,7 +169,7 @@ const BefRegistration = () => {
         </div>
       </div>
       <div className={classes.wrapBtn}>
-        <button>배프 등록하기</button>
+        <button onClick={() => onReg()}>배프 등록하기</button>
       </div>
     </div>
   );

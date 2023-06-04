@@ -81,8 +81,14 @@
         font-size: 1.2rem;
         font-weight: 300;
         .location {
+          display: block;
+          width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
           font-weight: 600;
           margin-right: 0.5rem;
+          margin-bottom: 0.5rem;
         }
         .deadline {
           color: red;

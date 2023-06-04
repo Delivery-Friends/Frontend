@@ -28,14 +28,14 @@ const StoreList = () => {
   const [category, setCategory] = useState('');
   const [sort, setSort] = useState('orderCount,Desc');
 
-  useEffect(() => {
-    axios.get('/data/objectList/stores.json').then(res => setStores(res.data));
-  }, []);
   // useEffect(() => {
-  //   instance
-  //     .get(`/stores?category=${category}&&sort=${sort}`)
-  //     .then(res => setStores(res.data.payload));
-  // }, [category, sort]);
+  //   axios.get('/data/objectList/stores.json').then(res => setStores(res.data));
+  // }, []);
+  useEffect(() => {
+    instance
+      .get(`/stores?category=${category}&&sort=${sort}`)
+      .then(res => setStores(res.data.payload));
+  }, [category, sort]);
 
   return (
     <div className={classes.WrapStoreList}>
