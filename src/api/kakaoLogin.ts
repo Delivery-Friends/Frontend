@@ -37,12 +37,13 @@ export const userJoin = async (joinData: JoinDataType) => {
   return res.data;
 };
 
-// Refresh토큰재발급
+// Refresh만료시 토큰 재발급
 export const getRefreshToken = async () => {
+  const refreshToken = localStorage.getItem('refreshToken');
   const res = await instance.post(
-    '/doRefresh',
+    '/refresh',
     {},
-    { headers: { 'REFRESH-TOKEN': localStorage.getItem('refreshToken') } }
+    { headers: { 'REFRESH-TOKEN': `Bearer ${refreshToken}` } }
   );
   return res;
 };
