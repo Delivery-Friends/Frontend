@@ -1,7 +1,6 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BASE_URL } from '../../config';
+import { instance } from '../../api/axiosBase';
 import classes from './menu.module.scss';
 
 type Menu = {
@@ -30,9 +29,7 @@ const Menu = (props: { id: string | number | undefined }) => {
   const [menu, setMenu] = useState<Menu>();
 
   useEffect(() => {
-    axios
-      .get(`${BASE_URL}/store/menu/${id}`)
-      .then(res => setMenu(res.data.payload));
+    instance.get(`/store/menu/${id}`).then(res => setMenu(res.data.payload));
   }, []);
   return (
     <div className={classes.menuList}>

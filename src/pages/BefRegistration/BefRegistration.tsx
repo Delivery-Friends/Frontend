@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import classes from './befRegistration.module.scss';
 import { AiFillStar } from 'react-icons/ai';
 import PopupPostCode from './SearchAddress/PopupPostCode';
+import moment from 'moment';
+import { accessInstance } from '../../api/axiosBase';
 
 const BefRegistration = () => {
   const [range, setRange] = useState(1);
-  const [ampm, setAmpm] = useState<string>('오전');
-  const [hour, setHour] = useState<string>('1');
+  // const [ampm, setAmpm] = useState<string>('오전');
+  const [hour, setHour] = useState<string>('00');
   const [minute, setMinute] = useState<string>('00');
-  const time = ampm + ' ' + hour + '시 ' + minute + '분';
+  const date = moment().format();
+  const time = date.substring(0, 11) + hour + ':' + minute + ':00';
 
   // 팝업창 상태 관리
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -35,6 +38,10 @@ const BefRegistration = () => {
     setFullAddress(fullAddr);
     setZoneCode(zipCode);
   };
+
+  // const onReg = () => {
+  //   accessInstance;
+  // };
 
   return (
     <div className={classes.wrapBefRegistration}>
@@ -103,10 +110,10 @@ const BefRegistration = () => {
       <div className={classes.deadline}>
         <span className={classes.title}>모짐 마감 시간</span>
         <div className={classes.time}>
-          <select value={ampm} onChange={e => setAmpm(e.target.value)}>
+          {/* <select value={ampm} onChange={e => setAmpm(e.target.value)}>
             <option value="오전">오전</option>
             <option value="오후">오후</option>
-          </select>
+          </select> */}
           <select value={hour} onChange={e => setHour(e.target.value)}>
             {hours.map((str, index) => {
               return (
@@ -136,7 +143,32 @@ const BefRegistration = () => {
 
 export default BefRegistration;
 
-const hours = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+const hours = [
+  '00',
+  '01',
+  '02',
+  '03',
+  '04',
+  '05',
+  '06',
+  '07',
+  '08',
+  '09',
+  '10',
+  '11',
+  '12',
+  '13',
+  '14',
+  '15',
+  '16',
+  '17',
+  '18',
+  '19',
+  '20',
+  '21',
+  '22',
+  '23',
+];
 const minutes = [
   '00',
   '01',

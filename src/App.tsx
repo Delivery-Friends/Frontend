@@ -51,7 +51,7 @@ const router = createBrowserRouter([
         element: <BefList />,
       },
       {
-        path: 'befDetail/:id',
+        path: 'befDetail',
         element: <BefDetail />,
       },
       {

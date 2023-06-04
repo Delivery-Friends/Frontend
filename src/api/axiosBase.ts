@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig } from 'axios';
 import { getRefreshToken } from './kakaoLogin';
 
 const axiosConfig: AxiosRequestConfig = {
-  baseURL: 'http://jaehwan.shop:9000/',
+  baseURL: 'https://jaehwan.shop/api/',
 };
 
 export const instance = axios.create({

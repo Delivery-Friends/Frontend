@@ -9,7 +9,7 @@ import Infomation from './Infomation';
 import Reviews from './Reviews';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { BASE_URL } from '../../config';
+import { instance } from '../../api/axiosBase';
 
 type StoreType = {
   id: number;
@@ -40,9 +40,7 @@ const StoreBody = (props: { id: string | number | undefined }) => {
   const [store, setStore] = useState<StoreType>();
 
   useEffect(() => {
-    axios
-      .get(`${BASE_URL}/store/${id}`)
-      .then(res => setStore(res.data.payload));
+    instance.get(`/store/${id}`).then(res => setStore(res.data.payload));
   }, []);
 
   return (
