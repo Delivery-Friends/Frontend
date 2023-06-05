@@ -76,9 +76,17 @@ const Home = () => {
           </ul>
         </div>
         <img src="/image/logo.png" alt="logo" />
-        <span className={classes.info}>
+        <div className={classes.info}>
           본 사이트는 모바일 환경에 최적화 되어있습니다.
-        </span>
+        </div>
+        <img
+          className={classes.info}
+          src="/image/delivery-friends-QRcode.png"
+          alt="logo"
+        />
+        <div className={classes.info}>
+          핸드폰으로 QR을 스캔하여 사이트를 이용해주세요.
+        </div>
       </div>
     </div>
   );
