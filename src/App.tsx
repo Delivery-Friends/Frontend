@@ -23,11 +23,11 @@ import LikedStore from './pages/LikedStore/LikedStore';
 import MyPage from './pages/MyPage/MyPage';
 
 const router = createBrowserRouter([
-  { path: '/', element: <Home /> },
   {
     path: '/',
     element: <Root />,
     children: [
+      { index: true, element: <Home /> },
       {
         path: 'login',
         element: <Login />,

@@ -31,7 +31,7 @@ interface UserReviewData {
 }
 
 const UserDetail = () => {
-  const { userId } = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
   const [userData, setUserData] = useState<UserData>();
   const [userReviews, setUserReviews] = useState<UserReviewData[]>([]);
@@ -39,28 +39,22 @@ const UserDetail = () => {
 
   useEffect(() => {
     const api = async () => {
-      const { data: userData } = await accessInstance.get(
-        `/userinfo/${userId}`
-      );
-      console.log(userData);
-      setUserData(userData);
+      const { data } = await accessInstance.get(`/userinfo/${id}`);
+      setUserData(data.payload);
     };
     api();
-  }, [userId]);
+  }, [id]);
 
   useEffect(() => {
     const api = async () => {
-      const { data: userReviewsData } = await accessInstance.get(
-        `/user/review/${userId}`
-      );
-      setUserReviews(userReviewsData);
+      const { data } = await accessInstance.get(`/user/review/${id}`);
+      setUserReviews(data.payload);
     };
     api();
-  }, [userId]);
-
+  }, [id]);
   const reviewWriteHandler = () => {
     navigate('/reviewWrite', {
-      state: { orderId: undefined, leaderId: userId },
+      state: { orderId: undefined, leaderId: id },
     });
   };
 
@@ -100,7 +94,7 @@ const UserDetail = () => {
           </div>
         </div>
         <ul className={classes.reviewList}>
-          {userReviews &&
+          {userReviews.length > 0 &&
             userReviews.map((review, index) => {
               return (
                 <li key={index}>
