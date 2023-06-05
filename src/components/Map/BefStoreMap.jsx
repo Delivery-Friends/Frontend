@@ -7,7 +7,6 @@ import { FadeLoader } from 'react-spinners';
 import classes from './map.module.scss';
 import { instance } from '../../api/axiosBase';
 import { ObjectList } from '../ObjectList/ObjectList';
-import axios from 'axios';
 import Modal from '../common/Modal/Modal';
 
 const { kakao } = window;
@@ -42,7 +41,7 @@ const BefStoreMap = ({ positions }) => {
               greaterLongitude: bounds.oa.toString(),
             },
           });
-          console.log(data.payload);
+
           setBefs(data.payload);
 
           // await axios
@@ -88,10 +87,9 @@ const BefStoreMap = ({ positions }) => {
     if (!location.isLoading && mapInstance && befs) {
       const { map, clusterer } = mapInstance;
       clusterer.clear();
+
       const markers = createNewMark(map, befs);
-      console.log(markers);
       clusterer.addMarkers(markers);
-      console.log(clusterer);
       kakao.maps.event.addListener(
         clusterer,
         'clusterclick',

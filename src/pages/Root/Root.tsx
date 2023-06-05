@@ -24,7 +24,7 @@ const headerTile: IndexSignature = {
   '/paymentorder': '결제',
   '/payment': '결제결과',
   '/mypage': '내정보',
-  '/userDetail': '유저정보',
+  '/userdetail': '유저정보',
 };
 
 const Root = () => {
@@ -34,8 +34,8 @@ const Root = () => {
 
   return (
     <>
-      <Header headerTitle={title} />
-      <main className={classes.main}>
+      {title && <Header headerTitle={title} />}
+      <main className={`${classes.main} ${title ? '' : classes.noHeader}`}>
         <Outlet />
       </main>
       <footer>

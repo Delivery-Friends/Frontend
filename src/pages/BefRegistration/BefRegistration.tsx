@@ -57,6 +57,8 @@ const BefRegistration = () => {
       .then(res => {
         if (res.data.statusCode === 200) {
           navigate('/befList');
+        } else if (res.data.message === '이미 가입한 팀이 있습니다.') {
+          alert('이미 가입한 팀이 있습니다.');
         } else {
           alert('배프등록에 실패하였습니다.');
         }
