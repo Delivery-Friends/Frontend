@@ -1,6 +1,5 @@
 import classes from './navbar.module.scss';
 import { AiOutlineHome } from 'react-icons/ai';
-import { BiSearch } from 'react-icons/bi';
 import { FaRegGrinHearts } from 'react-icons/fa';
 import { MdFastfood } from 'react-icons/md';
 import { MdPersonOutline, MdOutlineStickyNote2 } from 'react-icons/md';
