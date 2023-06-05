@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ObjectList } from '../../components/ObjectList/ObjectList';
 import classes from './befList.module.scss';
-import axios from 'axios';
 import { RiMap2Fill } from 'react-icons/ri';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
@@ -44,7 +43,12 @@ export const BefList = () => {
 
   return (
     <div className={classes.befList}>
-      <ObjectList stores={undefined} befs={befs} />
+      <ObjectList
+        stores={undefined}
+        befs={befs}
+        likedStore={undefined}
+        users={undefined}
+      />
       <button className={classes.mapBtn} onClick={() => navigate('/befMap')}>
         <RiMap2Fill />
       </button>

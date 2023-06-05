@@ -21,7 +21,7 @@ const BefRegistration = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   // 주소 값 관리
   const [fullAddress, setFullAddress] = useState('');
-  const [zoneCode, setZoneCode] = useState('');
+  // const [zoneCode, setZoneCode] = useState('');
   const [detailAddress, setDetailAddress] = useState('');
   // 위도 경도 값 관리
   const [lat, setLat] = useState();
@@ -40,18 +40,8 @@ const BefRegistration = () => {
 
     geocoder.addressSearch(fullAddr, callback);
     setFullAddress(fullAddr);
-    setZoneCode(zipCode);
+    // setZoneCode(zipCode);
   };
-
-  console.log({
-    endTime: time,
-    storeId: store.id,
-    maxMember: range,
-    basicAddress: fullAddress,
-    detailedAddress: detailAddress,
-    latitude: lat,
-    logitude: long,
-  });
 
   const onReg = () => {
     accessInstance
@@ -78,19 +68,19 @@ const BefRegistration = () => {
       <div className={classes.storeInfo}>
         <div className={classes.objectLeft}>
           {/* <img src={store?.medium[0]} alt="brandLogo" /> */}
-          <img src={''} alt="brandLogo" />
+          <img src={store?.medium[0]} alt="brandLogo" />
         </div>
         <div className={classes.objectRight}>
           <div className={classes.objectTitle}>{store?.name}</div>
           <div className={classes.score}>
             <AiFillStar className={classes.star} />
             <span>
-              {store?.reviewScore}
-              <span className={classes.review}>(+{store?.reciewCount})</span>
+              {store?.reviewScore.toString().substring(0, 3)}
+              <span className={classes.review}>(+{store?.reviewCount})</span>
             </span>
           </div>
           <div className={classes.objectMid}>
-            배달 {store?.deliveryWaitTime}분 | 배달팀{' '}
+            배달 {store?.deliveryWaitTime}분 | 배달팁{' '}
             {store?.deliveryTip.toLocaleString()}원
           </div>
           <div className={classes.objectBottom}>
@@ -105,7 +95,7 @@ const BefRegistration = () => {
           type="range"
           min={0}
           max={10}
-          color={'#fff'}
+          color="#fff"
           step={1}
           value={range}
           onChange={e => {

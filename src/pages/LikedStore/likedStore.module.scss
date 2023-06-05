@@ -1,0 +1,17 @@
+@import '../../styles/utilities/mixin';
+@import '../../styles/utilities/variables';
+
+.wrapLikedStore {
+  .wrapBtn {
+    button {
+      width: 50%;
+      height: 10vw;
+      background: #fff;
+      border: 1px solid #d2cfcfa5;
+    }
+    .selected {
+      border-top: 3px solid #000;
+      border-bottom: none;
+    }
+  }
+}

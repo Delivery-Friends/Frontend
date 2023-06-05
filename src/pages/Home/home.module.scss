@@ -5,7 +5,7 @@
   width: 100%;
   padding: 0 20px;
   padding-top: 14px;
-  padding-bottom: 32px;
+  padding-bottom: 2rem;
   color: #fff;
   background-color: $pointColor;
   border-radius: 0% 0% 10% 10% / 20% 20% 20% 20%;
@@ -24,14 +24,26 @@
   }
 
   input {
+    display: none;
     width: 100%;
     height: 32px;
     padding: 0.8rem 0.4rem;
     font-size: 1.6rem;
   }
+  .title {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-top: 2rem;
+  }
 }
 
 .mainwrapper {
+  @include flex(center, center);
+  flex-direction: column;
+  img {
+    width: 20vw;
+    margin: 4rem auto;
+  }
   button {
     background-color: $pointColor;
     color: #fff;
@@ -43,11 +55,17 @@
     justify-content: space-between;
     gap: 1rem;
     button {
-      height: 120px;
+      width: 43vw;
+      font-size: 1.8rem;
+      font-weight: 500;
+      height: 12rem;
+      border: none;
+      border-radius: 0.7rem;
     }
   }
 
   .foodranking {
+    width: 94%;
     margin-top: 5rem;
     button {
       margin: 0 auto;
@@ -55,6 +73,29 @@
 
     button:last-child {
       margin-top: 1.6rem;
+    }
+    .title {
+      width: 100%;
+      text-align: center;
+      margin-top: 4rem;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: $pointColor;
+    }
+    .popular {
+      @include flex(space-between, center);
+      // flex-direction: column;
+      margin-top: 2rem;
+      width: 100%;
+      height: 10vw;
+      border: 0.2rem solid $pointColor;
+      border-radius: 0.5rem;
+      padding: 3rem;
+      li {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: $pointColor;
+      }
     }
   }
 }

@@ -45,14 +45,27 @@ type Befs = {
   longitude: string;
 }[];
 
+type Users = [
+  {
+    userId: number;
+    nickname: string;
+    name: string;
+    imgSrc: string;
+    score: number;
+    reviewCount: number;
+  }
+];
+
 interface Props {
   stores: Stores | undefined;
   befs: Befs | undefined;
+  likedStore: Stores | undefined;
+  users: Users | undefined;
 }
 
 export const ObjectList = (props: Props) => {
   const navigate = useNavigate();
-  const { stores, befs } = props;
+  const { stores, befs, likedStore, users } = props;
 
   return (
     <ul className={classes.objectList}>
@@ -69,7 +82,7 @@ export const ObjectList = (props: Props) => {
                 {obj.fileNames.length >= 1 ? (
                   <img src={obj.fileNames[0].filename} alt="brandLogo" />
                 ) : (
-                  <img src={'/image/defaultImg.png'} alt="brandLogo" />
+                  <img src="/image/defaultImg.png" alt="brandLogo" />
                 )}
               </div>
               <div className={classes.objectRight}>
@@ -77,7 +90,7 @@ export const ObjectList = (props: Props) => {
                 <div className={classes.score}>
                   <AiFillStar className={classes.star} />
                   <span>
-                    {obj.reviewScore}
+                    {obj.reviewScore.toString().substring(0, 3)}
                     <span className={classes.review}>(+{obj.reviewCount})</span>
                   </span>
                 </div>
@@ -108,7 +121,7 @@ export const ObjectList = (props: Props) => {
               <div className={classes.score}>
                 <AiFillStar className={classes.star} />
                 <span>
-                  {obj.storeScore}
+                  {obj.storeScore.toString().substring(0, 3)}
                   <span className={classes.review}>(+{obj.reviewCount})</span>
                 </span>
               </div>
@@ -134,6 +147,69 @@ export const ObjectList = (props: Props) => {
           </li>
         );
       })}
+      {likedStore &&
+        likedStore.map((obj, index) => {
+          return (
+            <li
+              key={index}
+              className="object"
+              onClick={() => navigate(`/storeDetail/${obj.id}`)}
+            >
+              <div className={classes.objectLeft}>
+                {obj.fileNames.length >= 1 ? (
+                  <img src={obj.fileNames[0].filename} alt="brandLogo" />
+                ) : (
+                  <img src="/image/defaultImg.png" alt="brandLogo" />
+                )}
+              </div>
+              <div className={classes.objectRight}>
+                <div className={classes.objectTitle}>{obj.name}</div>
+                <div className={classes.score}>
+                  <AiFillStar className={classes.star} />
+                  <span>
+                    {obj.reviewScore.toString().substring(0, 3)}
+                    <span className={classes.review}>(+{obj.reviewCount})</span>
+                  </span>
+                </div>
+                <div className={classes.objectMid}>
+                  배달 {obj.deliveryWaitTime}분 | 배달팀{' '}
+                  {obj.deliveryTip.toLocaleString()}원
+                </div>
+                <div className={classes.objectBottom}>
+                  최소주문 {obj.minPrice.toLocaleString()}원
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      {users &&
+        users.map((obj, index) => {
+          return (
+            <li
+              key={index}
+              className="object"
+              onClick={() => navigate(`/userDetail/${obj.userId}`)}
+            >
+              <div className={classes.objectLeft}>
+                {obj.imgSrc !== '' ? (
+                  <img src={obj.imgSrc} alt="brandLogo" />
+                ) : (
+                  <img src="/image/defaultImg.png" alt="brandLogo" />
+                )}
+              </div>
+              <div className={classes.objectRight}>
+                <div className={classes.objectTitle}>{obj.nickname}</div>
+                <div className={classes.score}>
+                  <AiFillStar className={classes.star} />
+                  <span>
+                    {obj.score.toString().substring(0, 3)}
+                    <span className={classes.review}>(+{obj.reviewCount})</span>
+                  </span>
+                </div>
+              </div>
+            </li>
+          );
+        })}
     </ul>
   );
 };
