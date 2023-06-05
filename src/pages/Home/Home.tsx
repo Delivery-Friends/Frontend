@@ -76,6 +76,9 @@ const Home = () => {
           </ul>
         </div>
         <img src="/image/logo.png" alt="logo" />
+        <span className={classes.info}>
+          본 사이트는 모바일 환경에 최적화 되어있습니다.
+        </span>
       </div>
     </div>
   );

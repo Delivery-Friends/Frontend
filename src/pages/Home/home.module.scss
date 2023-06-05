@@ -51,11 +51,12 @@
   margin-top: 6rem;
   padding: 0 1.2rem;
   .orderwrapper {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     gap: 1rem;
     button {
-      width: 43vw;
+      width: 43%;
       font-size: 1.8rem;
       font-weight: 500;
       height: 12rem;
@@ -97,5 +98,14 @@
         color: $pointColor;
       }
     }
+  }
+  .info {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .info {
+    display: none;
   }
 }
