@@ -2,6 +2,7 @@ import classes from './navbar.module.scss';
 import { AiOutlineHome } from 'react-icons/ai';
 import { BiSearch } from 'react-icons/bi';
 import { FaRegGrinHearts } from 'react-icons/fa';
+import { MdFastfood } from 'react-icons/md';
 import { MdPersonOutline, MdOutlineStickyNote2 } from 'react-icons/md';
 import { NavLink, useNavigate } from 'react-router-dom';
 
@@ -26,7 +27,7 @@ const Navbar = () => {
               to="/storeList"
               className={({ isActive }) => (isActive ? classes.selected : '')}
             >
-              <BiSearch size="20" />
+              <MdFastfood size="20" />
               <span>배달</span>
             </NavLink>
           </li>
@@ -36,7 +37,7 @@ const Navbar = () => {
               className={({ isActive }) => (isActive ? classes.selected : '')}
             >
               <FaRegGrinHearts size="20" />
-              <span>찜한가게</span>
+              <span>찜목록</span>
             </NavLink>
           </li>
           <li>
