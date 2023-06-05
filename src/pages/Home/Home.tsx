@@ -7,25 +7,48 @@ import { instance } from '../../api/axiosBase';
 
 const Home = () => {
   const navigate = useNavigate();
+  const [location, setLocation] = useState({
+    firsrDepth: '',
+    secondDepth: '',
+  });
 
-  const [popular, setPopular] = useState<string[]>([
-    '치킨',
-    '중식',
-    '피자',
-    '한식',
-    '일식',
-  ]);
+  const [popular, setPopular] = useState<string[]>(['', '', '', '', '']);
 
   useEffect(() => {
+    navigator.geolocation.getCurrentPosition(onSuccess);
     instance.get('/popular/category').then(res => setPopular(res.data.payload));
   }, []);
+
+  const onSuccess = (position: {
+    coords: { latitude: number; longitude: number };
+  }) => {
+    let coord = new kakao.maps.LatLng(
+      position.coords.latitude,
+      position.coords.longitude
+    );
+    geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
+  };
+  const geocoder = new kakao.maps.services.Geocoder();
+
+  let callback = function (result: any, status: any) {
+    if (status === kakao.maps.services.Status.OK) {
+      setLocation({
+        ...location,
+        firsrDepth: result[0].address.region_2depth_name,
+        secondDepth: result[0].address.region_3depth_name,
+      });
+    } else {
+      alert('주소변환 실패');
+    }
+  };
 
   return (
     <div>
       <div className={classes.main}>
         <div>
           <IoLocationSharp size={20} />
-          <span>영통구 원천동</span>
+          <span style={{ marginRight: '.5rem' }}>{location.firsrDepth}</span>
+          <span>{location.secondDepth}</span>
         </div>
         <input type="text" />
         <div className={classes.title}>Delivery Friends</div>
