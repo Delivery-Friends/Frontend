@@ -1,7 +1,9 @@
 import Button from '../../components/common/Button/Button';
 import { BiTime } from 'react-icons/bi';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import classes from './paymentorder.module.scss';
+import { useEffect } from 'react';
+import { accessInstance } from '../../api/axiosBase';
 
 // const [cart, setCart] = useState([]);
 // useEffect(() => {
@@ -21,6 +23,8 @@ import classes from './paymentorder.module.scss';
 
 const PaymentOrder = () => {
   const navigate = useNavigate();
+  const { state: cartData } = useLocation();
+
   const paymenyClickHandler = () => {
     navigate('/payment', {
       state: {
@@ -31,6 +35,15 @@ const PaymentOrder = () => {
       },
     });
   };
+
+  // useEffect(() => {
+  //   const paymentOrderApi = async () => {
+  //     const res = await accessInstance.get('/team/my');
+  //     console.log(res);
+  //   };
+
+  //   paymentOrderApi();
+  // }, []);
 
   return (
     <section className={classes.orderwrapper}>

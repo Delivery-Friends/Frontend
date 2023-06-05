@@ -55,7 +55,6 @@ const Modal = ({
   disabled,
 }: ModalProps) => {
   const [isModal, setIsModal] = useState(false);
-
   const closeModalHandler = useCallback(() => {
     if (disabled) {
       return;

@@ -12,6 +12,10 @@ export const instance = axios.create({
   },
 });
 
+export const imgInstance = axios.create({
+  baseURL: axiosConfig.baseURL,
+});
+
 export const accessInstance = axios.create({
   baseURL: axiosConfig.baseURL,
   headers: {
