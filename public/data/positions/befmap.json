@@ -1,0 +1,79 @@
+{
+  "storeData": [
+    {
+      "groupEndTime": "2023-06-03T12:41:06.864Z",
+      "storeId": 1,
+      "storeName": "피자헛",
+      "storeScore": 55,
+      "reviewCount": 13,
+      "deliveryTime": 14,
+      "deliveryTip": 15,
+      "minPrice": 11,
+      "maxMember": 10,
+      "basicAddress": "경기도 고양시 일산동구 은행마을로 100",
+      "detailedAddress": "305동 503호",
+      "latitude": "string",
+      "longitude": "string"
+    },
+    {
+      "groupEndTime": "2023-06-03T12:41:06.864Z",
+      "storeId": 2,
+      "storeName": "파스타집",
+      "storeScore": 0,
+      "reviewCount": 0,
+      "deliveryTime": 0,
+      "deliveryTip": 0,
+      "minPrice": 0,
+      "maxMember": 0,
+      "basicAddress": "경기도 수원시 영통구",
+      "detailedAddress": "일신관 1층",
+      "latitude": "37.27943075229118",
+      "longitude": "127.01763998406159"
+    },
+    {
+      "groupEndTime": "2023-06-03T12:41:06.864Z",
+      "storeId": 3,
+      "storeName": "맘스터치",
+      "storeScore": 10,
+      "reviewCount": 12,
+      "deliveryTime": 13,
+      "deliveryTip": 14,
+      "minPrice": 10000,
+      "maxMember": 3,
+      "basicAddress": "경기도 수원시 영통구",
+      "detailedAddress": "남제관 1층",
+      "latitude": "37.27943075229118",
+      "longitude": "127.1119998999"
+    },
+    {
+      "groupEndTime": "2023-06-03T12:41:06.864Z",
+      "storeId": 4,
+      "storeName": "국밥집",
+      "storeScore": 0,
+      "reviewCount": 0,
+      "deliveryTime": 0,
+      "deliveryTip": 0,
+      "minPrice": 12000,
+      "maxMember": 4,
+      "basicAddress": "경기도 수원시 영통구",
+      "detailedAddress": "남제관 1층",
+      "latitude": "37.27943075229118",
+      "longitude": "127.11199981999"
+    },
+    {
+      "groupEndTime": "2023-06-03T12:41:06.864Z",
+      "storeId": 5,
+      "storeName": "BBQ",
+      "storeScore": 0,
+      "reviewCount": 0,
+      "deliveryTime": 0,
+      "deliveryTip": 0,
+      "minPrice": 13000,
+      "maxMember": 5,
+      "basicAddress": "경기도 수원시 영통구",
+      "detailedAddress": "용지관 1층",
+      "latitude": "37.31943075229118",
+      "longitude": "127.1763998406159"
+    }
+  ]
+}

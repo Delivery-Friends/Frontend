@@ -19,26 +19,47 @@
       position: relative;
       width: 80px;
       height: 80px;
-
+      img {
+        object-fit: contain;
+      }
+      label {
+        position: absolute;
+        cursor: pointer;
+        bottom: 0;
+        right: -5px;
+        background-size: 100% 100%;
+        width: 36px;
+        height: 36px;
+        z-index: 10;
+      }
       button {
         position: absolute;
-        right: 6px;
+        left: 2rem;
       }
     }
-
     .rightButton {
       position: absolute;
       display: flex;
       gap: 0.6rem;
+      bottom: 24px;
       right: 18px;
     }
     .userInfoText {
       margin-right: 0.8rem;
+
       .nickName {
-        margin-bottom: 0.6rem;
         display: flex;
+        margin-bottom: 0.6rem;
         align-items: center;
         gap: 0.2rem;
+
+        input {
+          padding: 0.4rem 0;
+          border: 1px solid #d5d5d5;
+          &:focus {
+            border-color: $pointColor;
+          }
+        }
       }
 
       p {

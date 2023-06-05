@@ -50,7 +50,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
-              to="/login"
+              to="/mypage"
               className={({ isActive }) => (isActive ? classes.selected : '')}
             >
               <MdPersonOutline size="20" />
