@@ -10,7 +10,7 @@ import LoginKakao from './pages/Login/LoginKakao';
 import Signup from './pages/Signup/Signup';
 import BefDetail from './pages/BefDetail/BefDetail';
 import BefRegistration from './pages/BefRegistration/BefRegistration';
-// import BefMap from './pages/BefMap/BefMap';
+import BefMap from './pages/BefMap/BefMap';
 import Cart from './pages/Cart/Cart';
 import Order from './pages/Order/Order';
 import ReviewWrite from './pages/ReviewWrite/ReviewWrite';
@@ -20,6 +20,7 @@ import PaymentSuccess from './pages/Payment/PaymentSuccess';
 import PaymentFail from './pages/Payment/PaymentFail';
 import UserDetail from './pages/UserDetail/UserDetail';
 import LikedStore from './pages/LikedStore/LikedStore';
+import MyPage from './pages/MyPage/MyPage';
 
 const router = createBrowserRouter([
   { path: '/', element: <Home /> },
@@ -68,14 +69,15 @@ const router = createBrowserRouter([
         path: 'userDetail/:id',
         element: <UserDetail />,
       },
-      // {
-      //   path: 'befMap',
-      //   element: <BefMap />,
-      // },
+      {
+        path: 'befMap',
+        element: <BefMap />,
+      },
       {
         path: 'cart',
         element: <Cart />,
       },
+      { path: 'mypage', element: <MyPage /> },
       {
         path: 'order',
         element: <Order />,

@@ -23,6 +23,8 @@ const headerTile: IndexSignature = {
   '/reviewwrite': '리뷰등록',
   '/paymentorder': '결제',
   '/payment': '결제결과',
+  '/mypage': '내정보',
+  '/userDetail': '유저정보',
 };
 
 const Root = () => {
