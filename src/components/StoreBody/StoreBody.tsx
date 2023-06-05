@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import classes from './storeBody.module.scss';
-import { BsTelephone, BsHeart } from 'react-icons/bs';
+import { BsTelephone, BsHeart, BsFillHeartFill } from 'react-icons/bs';
 import { CiShare1 } from 'react-icons/ci';
 import { IoIosPeople } from 'react-icons/io';
 import ReactStars from 'react-stars';
@@ -8,8 +8,7 @@ import Menu from './Menu';
 import Infomation from './Infomation';
 import Reviews from './Reviews';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { instance } from '../../api/axiosBase';
+import { accessInstance } from '../../api/axiosBase';
 
 type StoreType = {
   id: number;
@@ -32,6 +31,7 @@ type StoreType = {
   minPrice: number;
   likeCount: number;
   medium: string[];
+  isLike: boolean;
 };
 
 const StoreBody = (props: { id: string | number | undefined }) => {
@@ -39,10 +39,16 @@ const StoreBody = (props: { id: string | number | undefined }) => {
   const navigator = useNavigate();
   const [tap, setTap] = useState(1);
   const [store, setStore] = useState<StoreType>();
+  const [like, setLike] = useState<boolean>(false);
+  const [likeCount, setLikeCount] = useState<number>();
 
   useEffect(() => {
-    instance.get(`/store/${id}`).then(res => setStore(res.data.payload));
-  }, []);
+    accessInstance.get(`/store/${id}`).then(res => {
+      setStore(res.data.payload);
+      setLikeCount(res.data.payload.likeCount);
+      setLike(res.data.payload.isLike);
+    });
+  }, [id]);
 
   return (
     <div className={classes.wrapStoreBody}>
@@ -53,9 +59,9 @@ const StoreBody = (props: { id: string | number | undefined }) => {
             count={5}
             value={store?.reviewScore}
             size={17}
-            color2={'#F9BF25'}
+            color2="#F9BF25"
           />
-          <span>{store?.reviewScore}</span>
+          <span>{store?.reviewScore.toString().substring(0, 3)}</span>
         </div>
         <span>최근리뷰 {store?.reviewCount}</span>
         <ul className={classes.contact}>
@@ -67,8 +73,49 @@ const StoreBody = (props: { id: string | number | undefined }) => {
           </li>
           <li>
             <span>
-              <BsHeart className={classes.icon} />
-              651
+              {like ? (
+                <BsFillHeartFill
+                  className={classes.icon}
+                  onClick={() => {
+                    if (localStorage.getItem('refreshToken')) {
+                      accessInstance
+                        .post(`/user/store/dislike/${store?.id}`)
+                        .then(res => {
+                          if (res.data.statusCode === 200) {
+                            setLike(!like);
+                            setLikeCount((likeCount as number) - 1);
+                          } else {
+                            alert(res.data.message);
+                          }
+                        });
+                    } else {
+                      alert('로그인이 필요한 서비스 입니다.');
+                    }
+                  }}
+                  style={{ fill: 'red' }}
+                />
+              ) : (
+                <BsHeart
+                  className={classes.icon}
+                  onClick={() => {
+                    if (localStorage.getItem('refreshToken')) {
+                      accessInstance
+                        .post(`/user/store/like/${store?.id}`)
+                        .then(res => {
+                          if (res.data.statusCode === 200) {
+                            setLike(!like);
+                            setLikeCount((likeCount as number) + 1);
+                          } else {
+                            alert(res.data.message);
+                          }
+                        });
+                    } else {
+                      alert('로그인이 필요한 서비스 입니다.');
+                    }
+                  }}
+                />
+              )}
+              {likeCount}
             </span>
           </li>
           <li>

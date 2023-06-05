@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { instance } from '../../api/axiosBase';
 import classes from './menu.module.scss';
 
-type Menu = {
+type MenuType = {
   id: number;
   name: string;
   price: number;
@@ -26,11 +26,11 @@ type Menu = {
 const Menu = (props: { id: string | number | undefined }) => {
   const { id } = props;
   const navigate = useNavigate();
-  const [menu, setMenu] = useState<Menu>();
+  const [menu, setMenu] = useState<MenuType>();
 
   useEffect(() => {
     instance.get(`/store/menu/${id}`).then(res => setMenu(res.data.payload));
-  }, []);
+  }, [id]);
   return (
     <div className={classes.menuList}>
       <ul className={classes.menus}>

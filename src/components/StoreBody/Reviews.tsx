@@ -21,7 +21,7 @@ const Reviews = (props: { id: number | undefined | string }) => {
     instance
       .get(`/store/review/${id}`)
       .then(res => setReview(res.data.payload));
-  }, []);
+  }, [id]);
   return (
     <div>
       {review && (
@@ -45,15 +45,17 @@ const Reviews = (props: { id: number | undefined | string }) => {
                     <div className={classes.top}>
                       <img src={obj.imgSrc} alt="profile_img" />
                       <div className={classes.topRight}>
-                        <div className={classes.userName}>{obj.nickName}</div>
+                        <div className={classes.userName}>{obj.nickname}</div>
                         <div className={classes.star}>
                           <ReactStars
                             count={5}
                             value={obj.score}
                             size={12}
-                            color2={'#F9BF25'}
+                            color2="#F9BF25"
                           />
-                          <span className={classes.date}>{obj.createdAt}</span>
+                          <span className={classes.date}>
+                            {obj.createdAt.substring(0, 10)}
+                          </span>
                         </div>
                       </div>
                     </div>

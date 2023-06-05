@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import DaumPostcode from 'react-daum-postcode';
 
 const PopupPostCode = ({ closePopup, handleAddress }) => {
-  const [address, setAddress] = useState(''); // 주소
-  const [addressDetail, setAddressDetail] = useState(''); // 상세주소
-
   const onCompletePost = data => {
     let fullAddr = data.address;
     let extraAddr = '';
@@ -21,7 +18,6 @@ const PopupPostCode = ({ closePopup, handleAddress }) => {
       fullAddr += extraAddr !== '' ? ` (${extraAddr})` : '';
     }
     handleAddress(fullAddr, zipCode);
-    setAddress(fullAddr);
   };
 
   const postCodeStyle = {

@@ -3,9 +3,10 @@ import { AiOutlineHome } from 'react-icons/ai';
 import { BiSearch } from 'react-icons/bi';
 import { FaRegGrinHearts } from 'react-icons/fa';
 import { MdPersonOutline, MdOutlineStickyNote2 } from 'react-icons/md';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <div className={classes['bottom-nav']}>
       <h3 className="ir">delivery-freinds 네비게이션</h3>
@@ -20,18 +21,18 @@ const Navbar = () => {
               <span>홈</span>
             </NavLink>
           </li>
-          <li>
+          <li onClick={() => navigate('/storeList', { state: '' })}>
             <NavLink
               to="/storeList"
               className={({ isActive }) => (isActive ? classes.selected : '')}
             >
               <BiSearch size="20" />
-              <span>검색</span>
+              <span>배달</span>
             </NavLink>
           </li>
           <li>
             <NavLink
-              to="."
+              to="/likedStore"
               className={({ isActive }) => (isActive ? classes.selected : '')}
             >
               <FaRegGrinHearts size="20" />

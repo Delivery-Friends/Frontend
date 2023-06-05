@@ -19,6 +19,7 @@ import Payment from './pages/Payment/Payment';
 import PaymentSuccess from './pages/Payment/PaymentSuccess';
 import PaymentFail from './pages/Payment/PaymentFail';
 import UserDetail from './pages/UserDetail/UserDetail';
+import LikedStore from './pages/LikedStore/LikedStore';
 
 const router = createBrowserRouter([
   { path: '/', element: <Home /> },
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: 'signup',
         element: <Signup />,
+      },
+      {
+        path: 'likedStore',
+        element: <LikedStore />,
       },
       {
         path: 'storeList',

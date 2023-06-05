@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { ObjectList } from '../../components/ObjectList/ObjectList';
 import classes from './storeList.module.scss';
-import axios from 'axios';
 import { instance } from '../../api/axiosBase';
+import { useLocation } from 'react-router-dom';
 
 type Stores = [
   {
@@ -24,8 +24,10 @@ type Stores = [
 ];
 
 const StoreList = () => {
+  const { state } = useLocation();
+  const cate = state;
   const [stores, setStores] = useState<Stores>();
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState(cate);
   const [sort, setSort] = useState('orderCount,Desc');
 
   // useEffect(() => {
@@ -105,7 +107,14 @@ const StoreList = () => {
         </li>
       </ul>
       <div className={classes.wrapList}>
-        {stores && <ObjectList stores={stores} befs={undefined} />}
+        {stores && (
+          <ObjectList
+            stores={stores}
+            befs={undefined}
+            likedStore={undefined}
+            users={undefined}
+          />
+        )}
       </div>
     </div>
   );

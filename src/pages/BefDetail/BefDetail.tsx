@@ -37,7 +37,7 @@ const BefDetail = () => {
   const [bef, setBef] = useState<Bef>();
   useEffect(() => {
     instance.get(`/teamlist/${befId}`).then(res => setBef(res.data.payload));
-  }, []);
+  }, [befId]);
 
   return (
     <div>

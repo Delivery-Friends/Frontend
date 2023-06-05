@@ -10,16 +10,17 @@ interface IndexSignature {
 const headerTile: IndexSignature = {
   '/login': '로그인',
   '/signup': '회원가입',
-  '/storeList': '배달',
-  '/storeDetail': '음식점',
+  '/storelist': '배달',
+  '/storedetail': '음식점',
   '/foodoption': '음식',
-  '/befList': '배프',
-  '/befDetail': '배프정보',
-  '/befRegistration': '배프등록',
-  '/befMap': '배프지도',
+  '/beflist': '배프',
+  '/befdetail': '배프정보',
+  '/befregistration': '배프등록',
+  '/befmap': '배프지도',
   '/cart': '장바구니',
   '/order': '주문내역',
-  '/reviewWrite': '리뷰등록',
+  '/likedstore': '주문내역',
+  '/reviewwrite': '리뷰등록',
   '/paymentorder': '결제',
   '/payment': '결제결과',
 };
@@ -27,7 +28,7 @@ const headerTile: IndexSignature = {
 const Root = () => {
   const { pathname } = useLocation();
   const page = '/' + pathname.split('/', 2)[1];
-  const title = headerTile[page];
+  const title = headerTile[page.toLowerCase()];
 
   return (
     <>
