@@ -37,9 +37,13 @@ const BefDetail = () => {
   const befId = params.id;
   const [bef, setBef] = useState<Bef>();
   useEffect(() => {
-    accessInstance
-      .get(`/teamlist/${befId}`)
-      .then(res => setBef(res.data.payload));
+    if (localStorage.getItem('refreshToken')) {
+      accessInstance
+        .get(`/teamlist/${befId}`)
+        .then(res => setBef(res.data.payload));
+    } else {
+      navigate('/login');
+    }
   }, [befId]);
 
   return (
