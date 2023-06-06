@@ -130,7 +130,7 @@ const Cart = () => {
                     <GrClose />
                   </div>
                   <img
-                    src="/image/brandLogo/bbqLogo.png"
+                    src={cart.medium[0]}
                     alt="storeImg"
                     onClick={() => navigate(`/storeDetail/${cart.storeId}`)}
                   />
