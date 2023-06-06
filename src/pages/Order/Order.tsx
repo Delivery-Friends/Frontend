@@ -56,30 +56,32 @@ const Order = () => {
                 </div>
               </div>
             </div>
-            <div className={classes.wrapBtn}>
-              {obj.isStoreReviewWrite === false && (
-                <button
-                  onClick={() =>
-                    navigate('/reviewWrite', {
-                      state: { orderId: obj.orderId, leaderId: undefined },
-                    })
-                  }
-                >
-                  상점 리뷰 쓰기
-                </button>
-              )}
-              {obj.isUserReviewWrite === false && (
-                <button
-                  onClick={() =>
-                    navigate('/reviewWrite', {
-                      state: { orderId: undefined, leaderId: obj.leaderId },
-                    })
-                  }
-                >
-                  배프 리뷰 쓰기
-                </button>
-              )}
-            </div>
+            {obj.orderInfo === '팀 결제 완료' && (
+              <div className={classes.wrapBtn}>
+                {obj.isStoreReviewWrite === false && (
+                  <button
+                    onClick={() =>
+                      navigate('/reviewWrite', {
+                        state: { orderId: obj.orderId, leaderId: undefined },
+                      })
+                    }
+                  >
+                    상점 리뷰 쓰기
+                  </button>
+                )}
+                {obj.isUserReviewWrite === false && (
+                  <button
+                    onClick={() =>
+                      navigate('/reviewWrite', {
+                        state: { orderId: undefined, leaderId: obj.leaderId },
+                      })
+                    }
+                  >
+                    배프 리뷰 쓰기
+                  </button>
+                )}
+              </div>
+            )}
           </li>
         );
       })}
