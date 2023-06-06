@@ -53,7 +53,7 @@ const BefStoreMap = ({ positions }) => {
       const clusterer = new kakao.maps.MarkerClusterer({
         map: map,
         averageCenter: true,
-        minLevel: 4,
+
         minClusterSize: 1,
         disableClickZoom: true,
         styles: [
@@ -118,7 +118,7 @@ const BefStoreMap = ({ positions }) => {
           style={{
             // 지도의 크기
             width: '100%',
-            height: '682px',
+            height: '100vh',
           }}
           id="befstoremap"
         />
