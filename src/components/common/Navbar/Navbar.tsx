@@ -21,9 +21,9 @@ const Navbar = () => {
               <span>홈</span>
             </NavLink>
           </li>
-          <li onClick={() => navigate('/storeList', { state: '' })}>
+          <li>
             <NavLink
-              to="/storeList"
+              to="/befList"
               className={({ isActive }) => (isActive ? classes.selected : '')}
             >
               <MdFastfood size="20" />

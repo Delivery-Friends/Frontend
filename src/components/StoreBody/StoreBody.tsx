@@ -7,7 +7,7 @@ import ReactStars from 'react-stars';
 import Menu from './Menu';
 import Infomation from './Infomation';
 import Reviews from './Reviews';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { accessInstance } from '../../api/axiosBase';
 
 type StoreType = {
@@ -34,8 +34,12 @@ type StoreType = {
   isLike: boolean;
 };
 
-const StoreBody = (props: { id: string | number | undefined }) => {
-  const { id } = props;
+const StoreBody = (props: {
+  id: string | number | undefined;
+  isJoin: boolean | undefined;
+  teamId: number | undefined;
+}) => {
+  const { id, isJoin, teamId } = props;
   const navigator = useNavigate();
   const [tap, setTap] = useState(1);
   const [store, setStore] = useState<StoreType>();
@@ -170,7 +174,9 @@ const StoreBody = (props: { id: string | number | undefined }) => {
           </li>
         </ul>
         <div className={classes.content}>
-          {tap === 1 && <Menu id={id} />}
+          {tap === 1 && (
+            <Menu id={id} store={store} isJoin={isJoin} teamId={teamId} />
+          )}
           {tap === 2 && <Infomation store={store} />}
           {tap === 3 && <Reviews id={id} />}
         </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { instance } from '../../api/axiosBase';
+import { accessInstance, instance } from '../../api/axiosBase';
 import classes from './menu.module.scss';
 
 type MenuType = {
@@ -23,8 +23,39 @@ type MenuType = {
   }[];
 }[];
 
-const Menu = (props: { id: string | number | undefined }) => {
-  const { id } = props;
+type StoreType =
+  | {
+      id: number;
+      name: string;
+      region1depthName: string;
+      region2depthName: string;
+      region3depthName: string;
+      phoneNumber: string;
+      intro: string;
+      openTime: string;
+      closeTime: string;
+      registrationNumber: string;
+      deliveryWaitTime: number;
+      deliveryTip: number;
+      packageAvailable: boolean;
+      packageWaitTime: number;
+      reviewScore: number;
+      reviewCount: number;
+      orderCount: number;
+      minPrice: number;
+      likeCount: number;
+      medium: string[];
+      isLike: boolean;
+    }
+  | undefined;
+
+const Menu = (props: {
+  id: string | number | undefined;
+  store: StoreType;
+  isJoin: boolean | undefined;
+  teamId: number | undefined;
+}) => {
+  const { id, store, isJoin, teamId } = props;
   const navigate = useNavigate();
   const [menu, setMenu] = useState<MenuType>();
 
@@ -43,11 +74,19 @@ const Menu = (props: { id: string | number | undefined }) => {
                 <div
                   key={index}
                   className={classes.food}
-                  onClick={() =>
-                    navigate('/foodOption', {
-                      state: { ...obj, storeId: id },
-                    })
-                  }
+                  onClick={() => {
+                    if (window.location.href.includes('befDetail')) {
+                      if (isJoin === true) {
+                        navigate('/foodOption', {
+                          state: { ...obj, storeId: id },
+                        });
+                      } else {
+                        alert('배프참여를 먼저 해주세요.');
+                      }
+                    } else {
+                      alert('배프등록을 먼저 해주세요.');
+                    }
+                  }}
                 >
                   <div>
                     <div className={classes.name}>{obj.name}</div>
@@ -62,13 +101,34 @@ const Menu = (props: { id: string | number | undefined }) => {
             })}
         </li>
       </ul>
-      <div className={classes.bottomBar}>
-        <button onClick={() => navigate('/cart')}>
-          {/* <div className={classes.count}>2</div>  */}
-          <div>장바구니 보기</div>
-          {/* <div className={classes.totalPrice}>43,500 원</div> */}
-        </button>
-      </div>
+      {window.location.href.includes('storeDetail') && (
+        <div className={classes.bottomBar}>
+          <button
+            onClick={() => navigate('/befRegistRation', { state: store })}
+          >
+            <div>배프등록하러 가기</div>
+          </button>
+        </div>
+      )}
+      {window.location.href.includes('befDetail') && isJoin === false && (
+        <div className={classes.bottomBar}>
+          <button
+            onClick={() =>
+              accessInstance
+                .post('/team/join', { teamId: teamId })
+                .then(res => {
+                  if (res.data.statusCode === 200) {
+                    window.location.reload();
+                  } else {
+                    alert(res.data.message);
+                  }
+                })
+            }
+          >
+            <div>배프 참여하기</div>
+          </button>
+        </div>
+      )}
     </div>
   );
 };

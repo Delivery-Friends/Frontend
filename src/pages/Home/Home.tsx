@@ -4,9 +4,15 @@ import classes from './home.module.scss';
 import { IoLocationSharp } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
 import { instance } from '../../api/axiosBase';
+import Modal from '../../components/common/Modal/Modal';
 
 const Home = () => {
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModalHandler = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
   const [location, setLocation] = useState({
     firsrDepth: '',
     secondDepth: '',
@@ -99,6 +105,9 @@ const Home = () => {
           </ul>
         </div>
         <img src="/image/logo.png" alt="logo" />
+        <Button size="lg" onClick={openModalHandler}>
+          공지사항
+        </Button>
         <div className={classes.info}>
           본 사이트는 모바일 환경에 최적화 되어있습니다.
         </div>
@@ -111,6 +120,25 @@ const Home = () => {
           핸드폰으로 QR을 스캔하여 사이트를 이용해주세요.
         </div>
       </div>
+      <Modal
+        title="공지사항"
+        body={
+          <ul className={classes.modalText}>
+            <li>
+              주문방법 : 배프등록/참여 {'>'} 메뉴/옵션선택 {'>'} 장바구니담기{' '}
+              {'>'} 팀리더가 주문결정 {'>'} 각자 결제 진행 {'>'} 주문완료
+            </li>
+            <li>
+              <div>*************************************************</div>
+              <div>혼자주문도 꼭 배프등록을 1인으로 하셔야합니다</div>
+              <div>*************************************************</div>
+            </li>
+            <li>업데이트 예정기능 : 채팅, 알람기능</li>
+          </ul>
+        }
+        isOpen={isModalOpen}
+        onClose={openModalHandler}
+      />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import StoreBody from '../../components/StoreBody/StoreBody';
 import classes from './befDetail.module.scss';
 import { AiFillStar } from 'react-icons/ai';
 import { useNavigate, useParams } from 'react-router-dom';
-import { instance } from '../../api/axiosBase';
+import { accessInstance, instance } from '../../api/axiosBase';
 // import { useLocation } from 'react-router-dom';
 
 type Bef =
@@ -27,6 +27,7 @@ type Bef =
       detailedAddress: string;
       latitude: string;
       longitude: string;
+      isJoin: boolean;
     }
   | undefined;
 
@@ -36,7 +37,9 @@ const BefDetail = () => {
   const befId = params.id;
   const [bef, setBef] = useState<Bef>();
   useEffect(() => {
-    instance.get(`/teamlist/${befId}`).then(res => setBef(res.data.payload));
+    accessInstance
+      .get(`/teamlist/${befId}`)
+      .then(res => setBef(res.data.payload));
   }, [befId]);
 
   return (
@@ -84,7 +87,11 @@ const BefDetail = () => {
               </div>
             </div>
           </div>
-          <StoreBody id={bef?.storeId} />
+          <StoreBody
+            id={bef?.storeId}
+            isJoin={bef?.isJoin}
+            teamId={bef.teamId}
+          />
         </div>
       )}
     </div>
