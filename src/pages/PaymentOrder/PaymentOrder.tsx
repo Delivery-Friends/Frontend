@@ -43,7 +43,7 @@ const PaymentOrder = () => {
   const paymenyClickHandler = (totalPrice: any) => {
     navigate('/payment', {
       state: {
-        orderId: `1111111${myPayInfo?.orderId}12312312`,
+        orderId: `1234${myPayInfo?.orderId}999`,
         amount: totalPrice,
         orderName: `${myPayInfo?.menuInfo.split(' ', 1)[0]}`,
         customerName: myPayInfo?.username,

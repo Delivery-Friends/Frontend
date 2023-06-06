@@ -4,7 +4,7 @@ import clasess from './payment.module.scss';
 const PaymentFail = () => {
   const navigate = useNavigate();
   const moveHomePageHandler = () => {
-    navigate('/');
+    navigate('/teamcart');
   };
 
   return (
