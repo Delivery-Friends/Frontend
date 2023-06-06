@@ -49,14 +49,18 @@ export const BefList = () => {
         likedStore={undefined}
         users={undefined}
       />
-      <button className={classes.mapBtn} onClick={() => navigate('/befMap')}>
-        <FaMapMarkedAlt />
-      </button>
+      <div className={classes.mapBtn} onClick={() => navigate('/befMap')}>
+        <div>
+          <FaMapMarkedAlt fill="#5f4ef7" />
+        </div>
+      </div>
       <div
         className={classes.plusBtn}
         onClick={() => navigate('/storeList', { state: '' })}
       >
-        <BsFillPlusCircleFill />
+        <div>
+          <BsFillPlusCircleFill />
+        </div>
       </div>
     </div>
   );
