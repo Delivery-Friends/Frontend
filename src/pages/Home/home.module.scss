@@ -107,6 +107,17 @@
   }
 }
 
+.modalText {
+  padding: 2rem;
+  li {
+    margin-bottom: 2rem;
+    div {
+      font-size: 1.7rem;
+      line-height: 2rem;
+    }
+  }
+}
+
 @media screen and (max-width: 480px) {
   .info {
     display: none;

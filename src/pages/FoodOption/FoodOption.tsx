@@ -96,6 +96,34 @@ const FoodOption = () => {
           <div className={classes.price}>{menu.price.toLocaleString()}원</div>
         </div>
       </div>
+      <div className={classes.quantity}>
+        <div className={classes.title}>수량</div>
+        <div className={classes.wrapBtn}>
+          <button
+            onClick={() => {
+              if (amount === 1) {
+                alert('1개 미만은 주문하실 수 없습니다.');
+              } else {
+                setAmount(amount - 1);
+              }
+            }}
+          >
+            -
+          </button>
+          <div>{amount}</div>
+          <button
+            onClick={() => {
+              if (amount === 10) {
+                alert('10개 이상 주문하실 수 없습니다.');
+              } else {
+                setAmount(amount + 1);
+              }
+            }}
+          >
+            +
+          </button>
+        </div>
+      </div>
       <div className={classes.options}>
         {menu.readMenuOptionGroupList.length > 0 &&
           menu.readMenuOptionGroupList.map((obj: any, index: number) => {
@@ -178,34 +206,7 @@ const FoodOption = () => {
             }
           })}
       </div>
-      <div className={classes.quantity}>
-        <div className={classes.title}>수량</div>
-        <div className={classes.wrapBtn}>
-          <button
-            onClick={() => {
-              if (amount === 1) {
-                alert('1개 미만은 주문하실 수 없습니다.');
-              } else {
-                setAmount(amount - 1);
-              }
-            }}
-          >
-            -
-          </button>
-          <div>{amount}</div>
-          <button
-            onClick={() => {
-              if (amount === 10) {
-                alert('10개 이상 주문하실 수 없습니다.');
-              } else {
-                setAmount(amount + 1);
-              }
-            }}
-          >
-            +
-          </button>
-        </div>
-      </div>
+
       <div className={classes.bottomBar}>
         <button
           onClick={() => {
