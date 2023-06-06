@@ -1,0 +1,49 @@
+@import '../../styles/utilities/_mixin.scss';
+@import '../../styles/utilities/_variables.scss';
+
+.teamCartWrapper {
+  // position: relative;
+  font-size: 1.6rem;
+  padding: 2rem 1rem;
+  h2 {
+    font-size: 1.8rem;
+    text-align: center;
+
+    margin-bottom: 1rem;
+  }
+  .teamStatusList {
+    li {
+      border: 1px solid #d5d5d5;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0);
+      border-radius: 0.4rem;
+      display: flex;
+      padding: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.2rem;
+
+      strong {
+        font-weight: 700;
+      }
+    }
+    margin-bottom: 4.8rem;
+  }
+
+  .payInfo {
+    p {
+      font-size: 1.8rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      margin-bottom: 2rem;
+    }
+  }
+}

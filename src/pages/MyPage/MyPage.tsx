@@ -29,23 +29,16 @@ interface UserReviewData {
   createdDate: string;
 }
 
-interface ChangeData {
-  content: string;
-}
-
 const MyPage = () => {
   const navigate = useNavigate();
   const [userData, setUserData] = useState<UserData>();
   const [userReviews, setUserReviews] = useState<UserReviewData[]>([]);
   const [isChangeNickName, setIsChangeNickName] = useState(false);
   const [isChangeImg, setIsChangeImg] = useState(false);
-
   const [userNickName, setUserNickName] = useState<string>();
-
   const [preImage, setPreImage] = useState(undefined);
 
   const nickNameRef = useRef<HTMLInputElement>(null);
-  const imgRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const api = async () => {
@@ -109,19 +102,22 @@ const MyPage = () => {
   };
 
   const imgChangeHandler = () => {
-    setIsChangeImg(!isChangeImg);
-    if (isChangeImg) {
+    setIsChangeImg(prevIsChangeImg => !prevIsChangeImg);
+
+    if (isChangeImg && preImage) {
       const changeImg = async () => {
-        const { data } = await accessInstance.post('/user/profile', {
+        await accessInstance.post('/user/profile', {
           content: preImage,
         });
-        console.log(data);
       };
       changeImg();
+    } else {
+      return;
     }
   };
 
   const uploadChangeImgHandler = (event: any) => {
+    console.log('uploadChange');
     const file = event.target.files[0];
     const formData = new FormData();
     formData.append('file', file);
@@ -141,13 +137,23 @@ const MyPage = () => {
     };
     imgUpload();
   };
+
+  const imageDefaultHandler = (e: any) => {
+    e.target.onerror = null;
+    e.target.src = '/image/userImage/placeholder.jpg';
+  };
+
   return (
     <section className={classes.userInfoWrapper}>
       <div className={classes.userInfo}>
         <div className={classes.mainUserImg}>
           {isChangeImg ? (
             <>
-              <img src={preImage || userData?.imgSrc} alt="미리보기이미지" />
+              <img
+                src={preImage || userData?.imgSrc}
+                alt="미리보기이미지"
+                onError={imageDefaultHandler}
+              />
               <label
                 htmlFor="imgupload"
                 style={{ background: `url(${IconImgButton})` }}
@@ -157,7 +163,6 @@ const MyPage = () => {
                 id="imgupload"
                 accept="image/*"
                 type="file"
-                ref={imgRef}
                 onChange={uploadChangeImgHandler}
               />
             </>
@@ -171,7 +176,11 @@ const MyPage = () => {
         <div className={classes.userInfoText}>
           <div className={classes.nickName}>
             {isChangeNickName ? (
-              <input type="text" ref={nickNameRef} />
+              <input
+                type="text"
+                ref={nickNameRef}
+                placeholder={userNickName || userData?.nickname}
+              />
             ) : (
               <p>{userNickName || userData?.nickname}</p>
             )}
@@ -209,6 +218,7 @@ const MyPage = () => {
                     <img
                       src={review.imgSrc}
                       alt="프로필이미지"
+                      onError={imageDefaultHandler}
                       onClick={() => goUserDetailPage(review.userId)}
                     />
                     <div>

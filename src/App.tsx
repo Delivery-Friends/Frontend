@@ -21,6 +21,7 @@ import PaymentFail from './pages/Payment/PaymentFail';
 import UserDetail from './pages/UserDetail/UserDetail';
 import LikedStore from './pages/LikedStore/LikedStore';
 import MyPage from './pages/MyPage/MyPage';
+import TeamCart from './pages/TeamCart/TeamCart';
 
 const router = createBrowserRouter([
   {
@@ -87,7 +88,7 @@ const router = createBrowserRouter([
         element: <ReviewWrite />,
       },
       {
-        path: 'paymentorder/:orderId',
+        path: 'paymentorder',
         element: <PaymentOrder />,
       },
       {
@@ -96,6 +97,7 @@ const router = createBrowserRouter([
       },
       { path: 'payment/success', element: <PaymentSuccess /> },
       { path: 'payment/fail', element: <PaymentFail /> },
+      { path: 'teamcart', element: <TeamCart /> },
     ],
   },
 ]);

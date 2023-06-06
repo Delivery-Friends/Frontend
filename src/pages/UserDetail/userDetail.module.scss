@@ -17,9 +17,13 @@
 
     .mainUserImg {
       position: relative;
+      border-radius: 50%;
       width: 80px;
       height: 80px;
-
+      border: 1px solid rgba(210, 207, 207, 0.6470588235);
+      img {
+        object-fit: cover;
+      }
       button {
         position: absolute;
         right: 6px;
@@ -50,7 +54,6 @@
         align-items: center;
         gap: 0.4rem;
         .heart {
-          margin-top: -0.2rem;
           margin-left: 0.4rem;
           font-size: 14px;
         }
