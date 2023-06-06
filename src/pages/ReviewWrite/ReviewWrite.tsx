@@ -71,7 +71,8 @@ const ReviewWrite = () => {
         })
         .then(res => {
           if (res.status === 200) {
-            navigate(`/userDetail/${id.leaderId}`);
+            console.log(res);
+            // navigate(`/userDetail/${id.leaderId}`);
           } else {
             alert('리뷰 등록에 실패하였습니다.');
           }

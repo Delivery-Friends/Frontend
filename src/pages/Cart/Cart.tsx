@@ -6,25 +6,26 @@ import { userCart } from '../../api/cartAxios';
 import Button from '../../components/common/Button/Button';
 import { accessInstance } from '../../api/axiosBase';
 
+interface Menu {
+  name: string;
+  price: number;
+  count: number;
+  options: [
+    {
+      name: string;
+      price: number;
+      count: number;
+    }
+  ];
+}
+
 interface UserCart {
   cartId: number;
   storeId: number;
   storeName: string;
   deliveryTip: number;
-  menus: [
-    {
-      name: string;
-      price: number;
-      count: number;
-      options: [
-        {
-          name: string;
-          price: number;
-          count: number;
-        }
-      ];
-    }
-  ];
+  medium: string[];
+  menus: Menu[];
 }
 
 const Cart = () => {
@@ -51,23 +52,32 @@ const Cart = () => {
     api();
   }, []);
 
-  const foodpaymentHandler = () => {
-    navigate('/paymentorder/order1234', {
-      state: { cartData: cartData },
-    });
+  const calculatorTotalPrice = (menu: Menu) => {
+    let totalPrice: any;
+    let optionPrice;
+    if (menu && menu.options) {
+      optionPrice = menu.options.reduce((accur, option) => {
+        return accur + option.price * option.count;
+      }, 0);
+    } else {
+      optionPrice = 0;
+    }
+
+    totalPrice = (menu.price * menu.count + optionPrice).toLocaleString();
+    return totalPrice;
   };
 
-  let totalPrice: string;
-  if (cartData.length > 0) {
-    const optionPrice = cartData[0].menus[0].options.reduce((accur, option) => {
-      return accur + option.price * option.count;
-    }, 0);
+  // let totalPrice: string;
+  // if (cartData.length > 0) {
+  //   const optionPrice = cartData[0].menus[0].options.reduce((accur, option) => {
+  //     return accur + option.price * option.count;
+  //   }, 0);
 
-    totalPrice = (
-      cartData[0].menus[0].price * cartData[0].menus[0].count +
-      optionPrice
-    ).toLocaleString();
-  }
+  //   totalPrice = (
+  //     cartData[0].menus[0].price * cartData[0].menus[0].count +
+  //     optionPrice
+  //   ).toLocaleString();
+  // }
 
   const teamCartHandler = async (cartId: number) => {
     const { data } = await accessInstance.post('/team/cart', {
@@ -100,8 +110,10 @@ const Cart = () => {
   return (
     <div className={classes.cartMainWrapper}>
       <p>
-        현재 고객님은 <strong>{teamStoreName}</strong> 에서 주문을 하실 수
-        있습니다.
+        {teamStoreName
+          ? `현재 고객님은 ${teamStoreName} 에서 주문을 하실 수
+          있습니다.`
+          : '아직 가입된 팀이 없습니다.'}
       </p>
       {cartData.length > 0 &&
         cartData.map((cart, index) => {
@@ -146,25 +158,24 @@ const Cart = () => {
                         <li>
                           <div className={classes.menuName}>{menu?.name}</div>
                           <div className={classes.menuInfo}>
-                            <img
-                              src="/image/brandLogo/bbqLogo.png"
-                              alt="menuImg"
-                            />
+                            <img src={cart?.medium[0]} alt="메뉴이미지" />
                             <div className={classes.info}>
                               <div className={classes.price}>
-                                • 가격 :{menu?.price.toLocaleString()}원
+                                • 가격 :{menu?.price.toLocaleString()}원{' '}
+                                {menu?.count}마리
                               </div>
                               <div className={classes.options}>
-                                {menu?.options.map((option, index) => (
-                                  <div key={index}>
-                                    {`•${option.name} : ${
-                                      option.count
-                                    }개 : ${option.price.toLocaleString()}`}
-                                  </div>
-                                ))}
+                                {menu &&
+                                  menu?.options?.map((option, index) => (
+                                    <div key={index}>
+                                      {`•${option.name} : ${
+                                        option.count
+                                      }개 : ${option.price.toLocaleString()}`}
+                                    </div>
+                                  ))}
                               </div>
                               <div className={classes.totalPrice}>
-                                {totalPrice}원
+                                {calculatorTotalPrice(menu)}원
                               </div>
                             </div>
                           </div>

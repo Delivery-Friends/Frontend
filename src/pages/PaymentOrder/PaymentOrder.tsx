@@ -45,7 +45,7 @@ const PaymentOrder = () => {
       state: {
         orderId: `1111111${myPayInfo?.orderId}12312312`,
         amount: totalPrice,
-        orderName: `${myPayInfo?.menuInfo}..`,
+        orderName: `${myPayInfo?.menuInfo.split(' ', 1)[0]}`,
         customerName: myPayInfo?.username,
       },
     });

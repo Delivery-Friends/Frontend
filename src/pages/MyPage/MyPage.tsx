@@ -117,7 +117,6 @@ const MyPage = () => {
   };
 
   const uploadChangeImgHandler = (event: any) => {
-    console.log('uploadChange');
     const file = event.target.files[0];
     const formData = new FormData();
     formData.append('file', file);
@@ -138,22 +137,13 @@ const MyPage = () => {
     imgUpload();
   };
 
-  const imageDefaultHandler = (e: any) => {
-    e.target.onerror = null;
-    e.target.src = '/image/userImage/placeholder.jpg';
-  };
-
   return (
     <section className={classes.userInfoWrapper}>
       <div className={classes.userInfo}>
         <div className={classes.mainUserImg}>
           {isChangeImg ? (
             <>
-              <img
-                src={preImage || userData?.imgSrc}
-                alt="미리보기이미지"
-                onError={imageDefaultHandler}
-              />
+              <img src={preImage || userData?.imgSrc} alt="미리보기이미지" />
               <label
                 htmlFor="imgupload"
                 style={{ background: `url(${IconImgButton})` }}
@@ -218,7 +208,6 @@ const MyPage = () => {
                     <img
                       src={review.imgSrc}
                       alt="프로필이미지"
-                      onError={imageDefaultHandler}
                       onClick={() => goUserDetailPage(review.userId)}
                     />
                     <div>

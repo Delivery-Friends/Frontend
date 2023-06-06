@@ -19,7 +19,7 @@ const headerTile: IndexSignature = {
   '/befmap': '배프지도',
   '/cart': '장바구니',
   '/order': '주문내역',
-  '/likedstore': '주문내역',
+  '/likedstore': '찜한내역',
   '/reviewwrite': '리뷰등록',
   '/paymentorder': '결제',
   '/payment': '결제결과',
