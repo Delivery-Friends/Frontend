@@ -5,7 +5,7 @@ import classes from './teamcart.module.scss';
 import Button from '../../components/common/Button/Button';
 import { useNavigate } from 'react-router-dom';
 
-interface TeamState {
+interface TeamOrderStatus {
   nickname: string;
   status: string;
 }
@@ -20,15 +20,17 @@ export interface PayInfo {
 
 const TeamCart = () => {
   const navigate = useNavigate();
-  const [teamStatesData, setTeamStatesData] = useState<TeamState[]>([]);
+  const [teamStatesData, setTeamStatesData] = useState<TeamOrderStatus[]>([]);
   const [myPayInfo, setMyPayInfo] = useState<PayInfo>();
   const [isPay, setIsPay] = useState<boolean>(false);
+  const [myState, setMyState] = useState<string>();
 
   useEffect(() => {
     const api = async () => {
       const { data } = await accessInstance.get('team/status');
       if (data.statusCode === 200) {
-        setTeamStatesData(data.payload);
+        setTeamStatesData(data.payload.teamOrderStatus);
+        setMyState(data.payload.myStatus);
       }
     };
 
@@ -36,8 +38,17 @@ const TeamCart = () => {
   }, []);
 
   const teamPayHandler = async () => {
-    const res = await accessInstance.post('/team/pay');
+    const { data } = await accessInstance.post('/team/pay');
+
+    if (data.statusCode === '40000') {
+      alert('리더가 아닌 사람은 모집마감을 할 수 없어요.');
+      return;
+    } else {
+      window.location.reload();
+    }
+
     // 만약 리더가 아닌 사람이 모집마감(teamPay클릭 시) 에러 발생 리더만 사람들을 wait시킬 수 있음.
+    // 팀 리더가 아닌 사람이 클릭 시 에러 처리
   };
 
   const myPayInfoHandler = async () => {
@@ -55,22 +66,22 @@ const TeamCart = () => {
     totalPrice = myPayInfo?.deliveryTip + myPayInfo?.price;
   }
 
+  const statusChangeHandler = async () => {
+    const { data } = await accessInstance.get('team/status');
+    setTeamStatesData(data.payload.teamOrderStatus);
+  };
+
   return (
     <section className={classes.teamCartWrapper}>
       <h2>나의배프현황</h2>
       <ul className={classes.teamStatusList}>
-        {teamStatesData.map((teamstate: TeamState, index) => {
+        {teamStatesData.map((teamstate: TeamOrderStatus, index) => {
           return (
             <li key={index}>
               <p>{teamstate.nickname}</p>
               <span>
                 현재상태 <strong>{teamstate.status}</strong>
               </span>
-              {teamstate.status === 'wait' && (
-                <Button size="sm" active onClick={myPayInfoHandler}>
-                  결제금액확인
-                </Button>
-              )}
             </li>
           );
         })}
@@ -95,8 +106,23 @@ const TeamCart = () => {
           </Button>
         </div>
       )}
-      <Button onClick={teamPayHandler} size="lg">
-        모집마감
+      {myState === 'join' && (
+        <Button onClick={teamPayHandler} size="lg">
+          모집마감
+        </Button>
+      )}
+      {myState === 'wait' && (
+        <Button size="lg" active onClick={myPayInfoHandler}>
+          결제금액확인
+        </Button>
+      )}
+      {myState === 'pay' && (
+        <p className={classes.payTitle}>
+          아직 다른사람들이 결제중이에요.. 잠시만 기달려주세요
+        </p>
+      )}
+      <Button size="lg" onClick={statusChangeHandler}>
+        상태새로고침
       </Button>
     </section>
   );
