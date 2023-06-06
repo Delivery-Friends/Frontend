@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { format, register } from 'timeago.js';
 import koLocale from 'timeago.js/lib/lang/ko'; // 한글로 변환
 import Button from '../../components/common/Button/Button';
-import { BsHeart } from 'react-icons/bs';
+import { BsHeart, BsFillHeartFill } from 'react-icons/bs';
 import { BiPencil } from 'react-icons/bi';
 
 register('ko', koLocale);
@@ -35,12 +35,15 @@ const UserDetail = () => {
   const navigate = useNavigate();
   const [userData, setUserData] = useState<UserData>();
   const [userReviews, setUserReviews] = useState<UserReviewData[]>([]);
-  const [isLike, setIsLike] = useState();
+  const [isLike, setIsLike] = useState<boolean>();
+  const [likeCount, setLikeCount] = useState<number>();
 
   useEffect(() => {
     const api = async () => {
       const { data } = await accessInstance.get(`/userinfo/${id}`);
       setUserData(data.payload);
+      setIsLike(data.payload.isLike);
+      setLikeCount(data.payload.likeCount);
     };
     api();
   }, [id]);
@@ -62,11 +65,34 @@ const UserDetail = () => {
     navigate(`/userDetail/${userId}`);
   };
 
+  const beflikeHandler = async () => {
+    if (localStorage.getItem('refreshToken')) {
+      if (!isLike) {
+        await accessInstance.post(`/user/like/${id}`);
+        setIsLike(!isLike);
+        setLikeCount(prevLike => (prevLike as number) + 1);
+      } else {
+        await accessInstance.post(`/user/dislike/${id}`);
+        setIsLike(!isLike);
+        setLikeCount(prevLike => (prevLike as number) - 1);
+      }
+    }
+  };
+
+  const imageDefaultHandler = (e: any) => {
+    e.target.onerror = null;
+    e.target.src = '/image/userImage/placeholder.jpg';
+  };
+
   return (
     <section className={classes.userInfoWrapper}>
       <div className={classes.userInfo}>
         <div className={classes.mainUserImg}>
-          <img src={userData?.imgSrc} alt="프로필이미지" />
+          <img
+            src={userData?.imgSrc}
+            alt="프로필이미지"
+            onError={imageDefaultHandler}
+          />
         </div>
         <div className={classes.userInfoText}>
           <div className={classes.nickName}>
@@ -75,8 +101,14 @@ const UserDetail = () => {
           <div className={classes.starReview}>
             <AiFillStar className={classes.star} />
             <strong>{userData?.score}</strong>
-            <BsHeart className={classes.heart} />
-            <strong>{userData?.reviewCount}</strong>
+            <span onClick={beflikeHandler}>
+              {isLike ? (
+                <BsFillHeartFill className={classes.heart} color="red" />
+              ) : (
+                <BsHeart className={classes.heart} />
+              )}
+            </span>
+            <strong>{likeCount}</strong>
           </div>
         </div>
         <div className={classes.rightButton}>
@@ -103,6 +135,7 @@ const UserDetail = () => {
                       src={review.imgSrc}
                       alt="프로필이미지"
                       onClick={() => goUserDetailPage(review.userId)}
+                      onError={imageDefaultHandler}
                     />
                     <div>
                       <div>{review.nickname}</div>

@@ -74,6 +74,11 @@ const Cart = () => {
       cartId: cartId,
     });
 
+    if (data.statusCode === 200) {
+      navigate('/teamcart');
+      return;
+    }
+
     if (data.statusCode === 30001) {
       alert(data.message);
       return;

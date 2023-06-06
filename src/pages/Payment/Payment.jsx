@@ -20,8 +20,9 @@ const Payment = () => {
           orderId: `${state.orderId}`, //결제 마다 고유의 주문아이디가 필요
           orderName: state.orderName, //제품이름
           customerName: state.realName, //주문자의 실명
-          successUrl: 'http://localhost:3000/payment/success', //성공시 이동할 url
-          failUrl: 'http://localhost:3000/payment/fail', //실패시 이동할 url
+          successUrl:
+            'https://delivery-friends-frontend.vercel.app/payment/success', //성공시 이동할 url
+          failUrl: 'https://delivery-friends-frontend.vercel.app/payment/fail', //실패시 이동할 url
           flowMode: 'DIRECT',
           easyPay: '토스페이',
         })

@@ -25,6 +25,7 @@ const headerTile: IndexSignature = {
   '/payment': '결제결과',
   '/mypage': '내정보',
   '/userdetail': '유저정보',
+  '/teamcart': '나의배프현황',
 };
 
 const Root = () => {
