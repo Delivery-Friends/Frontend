@@ -52,6 +52,7 @@ const Reviews = (props: { id: number | undefined | string }) => {
                             value={obj.score}
                             size={12}
                             color2="#F9BF25"
+                            edit={false}
                           />
                           <span className={classes.date}>
                             {obj.createdAt.substring(0, 10)}
