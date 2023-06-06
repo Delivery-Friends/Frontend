@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ObjectList } from '../../components/ObjectList/ObjectList';
 import classes from './befList.module.scss';
-import { RiMap2Fill } from 'react-icons/ri';
+import { FaMapMarkedAlt } from 'react-icons/fa';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 import { instance } from '../../api/axiosBase';
@@ -50,9 +50,12 @@ export const BefList = () => {
         users={undefined}
       />
       <button className={classes.mapBtn} onClick={() => navigate('/befMap')}>
-        <RiMap2Fill />
+        <FaMapMarkedAlt />
       </button>
-      <div className={classes.plusBtn} onClick={() => navigate('/storeList')}>
+      <div
+        className={classes.plusBtn}
+        onClick={() => navigate('/storeList', { state: '' })}
+      >
         <BsFillPlusCircleFill />
       </div>
     </div>

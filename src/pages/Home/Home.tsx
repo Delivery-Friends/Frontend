@@ -49,7 +49,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className={classes.wrapHome}>
       <div className={classes.main}>
         <div>
           <IoLocationSharp size={20} />
