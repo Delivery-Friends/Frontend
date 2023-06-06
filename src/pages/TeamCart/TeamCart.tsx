@@ -68,6 +68,11 @@ const TeamCart = () => {
 
   const statusChangeHandler = async () => {
     const { data } = await accessInstance.get('team/status');
+
+    if (data.statusCode === 20007) {
+      navigate('/order');
+    }
+
     setTeamStatesData(data.payload.teamOrderStatus);
     setMyState(data.payload.myStatus);
   };
