@@ -40,7 +40,7 @@ const TeamCart = () => {
   const teamPayHandler = async () => {
     const { data } = await accessInstance.post('/team/pay');
 
-    if (data.statusCode === '40000') {
+    if (data.statusCode === 40000) {
       alert('리더가 아닌 사람은 모집마감을 할 수 없어요.');
       return;
     } else {
@@ -69,6 +69,7 @@ const TeamCart = () => {
   const statusChangeHandler = async () => {
     const { data } = await accessInstance.get('team/status');
     setTeamStatesData(data.payload.teamOrderStatus);
+    setMyState(data.payload.myStatus);
   };
 
   return (
