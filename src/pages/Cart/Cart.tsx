@@ -162,7 +162,7 @@ const Cart = () => {
                             <div className={classes.info}>
                               <div className={classes.price}>
                                 • 가격 :{menu?.price.toLocaleString()}원{' '}
-                                {menu?.count}마리
+                                {menu?.count}개
                               </div>
                               <div className={classes.options}>
                                 {menu &&
