@@ -61,7 +61,9 @@ const Reviews = (props: { id: number | undefined | string }) => {
                       </div>
                     </div>
                     <div className={classes.content}>
-                      <img src={obj.reviewMedium[0]} alt="review_img" />
+                      {obj.reviewMedium[0] !== '' && (
+                        <img src={obj.reviewMedium[0]} alt="review_img" />
+                      )}
                       <div className={classes.text}>{obj.content}</div>
                     </div>
                   </div>
