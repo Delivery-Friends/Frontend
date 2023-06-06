@@ -6,9 +6,9 @@ import classes from './userDetail.module.scss';
 import { useEffect, useState } from 'react';
 import { format, register } from 'timeago.js';
 import koLocale from 'timeago.js/lib/lang/ko'; // 한글로 변환
-import Button from '../../components/common/Button/Button';
 import { BsHeart, BsFillHeartFill } from 'react-icons/bs';
-import { BiPencil } from 'react-icons/bi';
+// import Button from '../../components/common/Button/Button';
+// import { BiPencil } from 'react-icons/bi';
 
 register('ko', koLocale);
 
@@ -55,11 +55,13 @@ const UserDetail = () => {
     };
     api();
   }, [id]);
-  const reviewWriteHandler = () => {
-    navigate('/reviewWrite', {
-      state: { orderId: undefined, leaderId: id },
-    });
-  };
+
+  // 리뷰를 한번만 작성하는 게 가능하기 때문에 기능 없애기
+  // const reviewWriteHandler = () => {
+  //   navigate('/reviewWrite', {
+  //     state: { orderId: undefined, leaderId: id },
+  //   });
+  // };
 
   const goUserDetailPage = (userId: number) => {
     navigate(`/userDetail/${userId}`);
@@ -78,21 +80,11 @@ const UserDetail = () => {
       }
     }
   };
-
-  const imageDefaultHandler = (e: any) => {
-    e.target.onerror = null;
-    e.target.src = '/image/userImage/placeholder.jpg';
-  };
-
   return (
     <section className={classes.userInfoWrapper}>
       <div className={classes.userInfo}>
         <div className={classes.mainUserImg}>
-          <img
-            src={userData?.imgSrc}
-            alt="프로필이미지"
-            onError={imageDefaultHandler}
-          />
+          <img src={userData?.imgSrc} alt="프로필이미지" />
         </div>
         <div className={classes.userInfoText}>
           <div className={classes.nickName}>
@@ -111,12 +103,12 @@ const UserDetail = () => {
             <strong>{likeCount}</strong>
           </div>
         </div>
-        <div className={classes.rightButton}>
+        {/* <div className={classes.rightButton}>
           <Button size="sm" active onClick={reviewWriteHandler}>
             <BiPencil />
             리뷰작성하기
           </Button>
-        </div>
+        </div> */}
       </div>
       <div className={classes.userReview}>
         <div className={classes.reviewTitle}>
@@ -135,7 +127,6 @@ const UserDetail = () => {
                       src={review.imgSrc}
                       alt="프로필이미지"
                       onClick={() => goUserDetailPage(review.userId)}
-                      onError={imageDefaultHandler}
                     />
                     <div>
                       <div>{review.nickname}</div>
