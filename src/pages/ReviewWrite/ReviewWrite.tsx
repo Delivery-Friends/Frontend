@@ -117,6 +117,7 @@ const ReviewWrite = () => {
         onChange={e => setReview({ ...review, star: e })}
         size={30}
         color2="#F9BF25"
+        half={false}
       />
 
       <button onClick={() => onReviewAdd()}>리뷰 등록</button>

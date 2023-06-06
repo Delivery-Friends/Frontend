@@ -7,7 +7,7 @@ import ReactStars from 'react-stars';
 import Menu from './Menu';
 import Infomation from './Infomation';
 import Reviews from './Reviews';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { accessInstance } from '../../api/axiosBase';
 
 type StoreType = {
@@ -64,6 +64,7 @@ const StoreBody = (props: {
             value={store?.reviewScore}
             size={17}
             color2="#F9BF25"
+            edit={false}
           />
           <span>{store?.reviewScore.toString().substring(0, 3)}</span>
         </div>
