@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ObjectList } from '../../components/ObjectList/ObjectList';
 import classes from './storeList.module.scss';
 import { instance } from '../../api/axiosBase';
-import { useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 type Stores = [
   {
@@ -24,11 +24,19 @@ type Stores = [
 ];
 
 const StoreList = () => {
-  const { state } = useLocation();
-  const cate = state;
   const [stores, setStores] = useState<Stores>();
-  const [category, setCategory] = useState(cate);
-  const [sort, setSort] = useState('orderCount,Desc');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const category = searchParams.get('category');
+  const sort = searchParams.get('sort');
+
+  const moveCategory = (category: string) => {
+    searchParams.set('category', category);
+    setSearchParams(searchParams);
+  };
+  const moveSort = (sort: string) => {
+    searchParams.set('sort', sort);
+    setSearchParams(searchParams);
+  };
 
   // useEffect(() => {
   //   axios.get('/data/objectList/stores.json').then(res => setStores(res.data));
@@ -43,42 +51,42 @@ const StoreList = () => {
     <div className={classes.WrapStoreList}>
       <div className={classes.wrapCategoryBar}>
         <ul className={classes.categoryBar}>
-          <li onClick={() => setCategory('')}>
+          <li onClick={() => moveCategory('')}>
             <span className={category === '' ? classes.selected : ''}>
               전체
             </span>
           </li>
-          <li onClick={() => setCategory('한식')}>
+          <li onClick={() => moveCategory('한식')}>
             <span className={category === '한식' ? classes.selected : ''}>
               한식
             </span>
           </li>
-          <li onClick={() => setCategory('중식')}>
+          <li onClick={() => moveCategory('중식')}>
             <span className={category === '중식' ? classes.selected : ''}>
               중식
             </span>
           </li>
-          <li onClick={() => setCategory('일식')}>
+          <li onClick={() => moveCategory('일식')}>
             <span className={category === '일식' ? classes.selected : ''}>
               일식
             </span>
           </li>
-          <li onClick={() => setCategory('양식')}>
+          <li onClick={() => moveCategory('양식')}>
             <span className={category === '양식' ? classes.selected : ''}>
               양식
             </span>
           </li>
-          <li onClick={() => setCategory('치킨')}>
+          <li onClick={() => moveCategory('치킨')}>
             <span className={category === '치킨' ? classes.selected : ''}>
               치킨
             </span>
           </li>
-          <li onClick={() => setCategory('피자')}>
+          <li onClick={() => moveCategory('피자')}>
             <span className={category === '피자' ? classes.selected : ''}>
               피자
             </span>
           </li>
-          <li onClick={() => setCategory('분식')}>
+          <li onClick={() => moveCategory('분식')}>
             <span className={category === '분식' ? classes.selected : ''}>
               분식
             </span>
@@ -87,20 +95,20 @@ const StoreList = () => {
       </div>
       <ul className={classes.sortingBar}>
         <li
-          onClick={() => setSort('orderCount,Desc')}
+          onClick={() => moveSort('orderCount,Desc')}
           className={sort === 'orderCount,Desc' ? classes.selected : ''}
         >
           주문량순
         </li>
         {/* <li>평점순</li> */}
         <li
-          onClick={() => setSort('reviewCount,Desc')}
+          onClick={() => moveSort('reviewCount,Desc')}
           className={sort === 'reviewCount,Desc' ? classes.selected : ''}
         >
           리뷰순
         </li>
         <li
-          onClick={() => setSort('deliveryTip,Asc')}
+          onClick={() => moveSort('deliveryTip,Asc')}
           className={sort === 'deliveryTip,Asc' ? classes.selected : ''}
         >
           배달팁순

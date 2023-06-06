@@ -56,7 +56,7 @@ export const BefList = () => {
       </div>
       <div
         className={classes.plusBtn}
-        onClick={() => navigate('/storeList', { state: '' })}
+        onClick={() => navigate('/storeList?category=&sort=orderCount%2CDesc')}
       >
         <div>
           <BsFillPlusCircleFill />

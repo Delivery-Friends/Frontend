@@ -63,7 +63,7 @@ const Home = () => {
         <div className={classes.orderwrapper}>
           <button
             onClick={() => {
-              navigate('/storeList', { state: '' });
+              navigate('/storeList?category=&sort=orderCount%2CDesc');
             }}
           >
             혼자주문
@@ -80,26 +80,56 @@ const Home = () => {
           <Button
             size="lg"
             onClick={() => {
-              navigate('/storeList', { state: '' });
+              navigate('/storeList?category=&sort=orderCount%2CDesc');
             }}
           >
             맛집랭킹
           </Button>
           <div className={classes.title}>실시간 인기 카테고리</div>
           <ul className={classes.popular}>
-            <li onClick={() => navigate('/storeList', { state: popular[0] })}>
+            <li
+              onClick={() =>
+                navigate(
+                  `/storeList?category=${popular[0]}&sort=orderCount%2CDesc`
+                )
+              }
+            >
               {popular[0]}
             </li>
-            <li onClick={() => navigate('/storeList', { state: popular[1] })}>
+            <li
+              onClick={() =>
+                navigate(
+                  `/storeList?category=${popular[1]}&sort=orderCount%2CDesc`
+                )
+              }
+            >
               {popular[1]}
             </li>
-            <li onClick={() => navigate('/storeList', { state: popular[2] })}>
+            <li
+              onClick={() =>
+                navigate(
+                  `/storeList?category=${popular[2]}&sort=orderCount%2CDesc`
+                )
+              }
+            >
               {popular[2]}
             </li>
-            <li onClick={() => navigate('/storeList', { state: popular[3] })}>
+            <li
+              onClick={() =>
+                navigate(
+                  `/storeList?category=${popular[3]}&sort=orderCount%2CDesc`
+                )
+              }
+            >
               {popular[3]}
             </li>
-            <li onClick={() => navigate('/storeList', { state: popular[4] })}>
+            <li
+              onClick={() =>
+                navigate(
+                  `/storeList?category=${popular[4]}&sort=orderCount%2CDesc`
+                )
+              }
+            >
               {popular[4]}
             </li>
           </ul>
