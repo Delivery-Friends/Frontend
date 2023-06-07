@@ -92,7 +92,7 @@ const UserDetail = () => {
           </div>
           <div className={classes.starReview}>
             <AiFillStar className={classes.star} />
-            <strong>{userData?.score}</strong>
+            <strong>{userData?.score.toString().substring(0, 3)}</strong>
             <span onClick={beflikeHandler}>
               {isLike ? (
                 <BsFillHeartFill className={classes.heart} color="red" />

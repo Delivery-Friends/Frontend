@@ -180,7 +180,7 @@ const MyPage = () => {
           </div>
           <div className={classes.starReview}>
             <AiFillStar className={classes.star} />
-            <strong>{userData?.score}</strong>
+            <strong>{userData?.score.toString().substring(0, 3)}</strong>
           </div>
         </div>
         <div className={classes.rightButton}>
