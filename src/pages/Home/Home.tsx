@@ -154,18 +154,52 @@ const Home = () => {
         title="공지사항"
         body={
           <ul className={classes.modalText}>
-            <li>
-              주문방법 : 배프등록/참여 {'>'} 메뉴/옵션선택 {'>'} 장바구니담기{' '}
-              {'>'} 팀리더가 주문결정 {'>'} 각자 결제 진행 {'>'} 주문완료
+            <li style={{ marginTop: '20px' }}>
+              <div
+                className={classes.blue}
+                style={{
+                  color: 'blue',
+                  textAlign: 'center',
+                  marginBottom: '1rem',
+                }}
+              >
+                실제 결제가 진행되지 않으니 편하게 사용해보세요.
+              </div>
+            </li>
+            <li style={{ margin: '20px', textAlign: 'center' }}>
+              <div
+                style={{ color: 'blue', fontSize: '18px', marginBottom: '5px' }}
+              >
+                주문방법
+              </div>
+              <div>배프등록</div>
+              <div>메뉴/옵션선택</div>
+              <div>장바구니담기</div>
+              <div>팀리더가 주문결정</div>
+              <div>각자 결제 진행</div>
+              <div>주문완료</div>
             </li>
             <li>
-              <div>*************************************************</div>
-              <div>혼자주문은 배프등록을 1인으로 하시면 됩니다.</div>
-              <div>*************************************************</div>
+              <div style={{ textAlign: 'center' }}>
+                *************************************************
+              </div>
+              <div style={{ textAlign: 'center' }}>
+                혼자주문은 배프등록을 1인으로 하시면 됩니다.
+              </div>
+              <div style={{ textAlign: 'center' }}>
+                *************************************************
+              </div>
             </li>
-            <li>
-              업데이트 예정기능 : 알람기능, 실시간통신기능, 알고리즘을 통한
-              메뉴추천기능
+
+            <li style={{ textAlign: 'center' }}>
+              <div
+                style={{ color: 'blue', fontSize: '18px', marginBottom: '5px' }}
+              >
+                업데이트 예정기능
+              </div>
+              <div>알람기능</div>
+              <div>실시간통신기능</div>
+              <div>알고리즘을 통한 메뉴추천기능</div>
             </li>
           </ul>
         }
