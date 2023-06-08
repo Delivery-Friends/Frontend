@@ -141,7 +141,7 @@ const Cart = () => {
                     {cart?.storeName}{' '}
                   </div>
                   <Button
-                    size="storemd"
+                    size="sm"
                     active
                     onClick={() => {
                       teamCartHandler(cart.cartId);
