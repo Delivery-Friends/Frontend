@@ -38,12 +38,13 @@ const LikedStore = () => {
   const [users, setUsers] = useState<Users>();
   const [tap, setTap] = useState('찜한가게');
   useEffect(() => {
-    accessInstance
-      .get(`/user/store/list`)
-      .then(res => setStores(res.data.payload));
-    accessInstance
-      .get(`/user/likelist`)
-      .then(res => setUsers(res.data.payload));
+    const api = async () => {
+      const storelistres = await accessInstance.get(`/user/store/list`);
+      setStores(storelistres.data.payload);
+      const likelistres = await accessInstance.get(`/user/likelist`);
+      setUsers(likelistres.data.payload);
+    };
+    api();
   }, []);
   return (
     <div className={classes.wrapLikedStore}>

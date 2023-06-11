@@ -36,20 +36,15 @@ const Cart = () => {
 
   useEffect(() => {
     const userCartApi = async () => {
-      const data = await userCart();
-      setCartData(data);
+      const cart = await userCart();
+      setCartData(cart);
+      console.log('cartapi호출');
+      const { data: teamMy } = await accessInstance.get('/team/my');
+      console.log('teammyapi호출');
+      setTeamStoreName(teamMy.payload.storeName);
+      setTeamStoreId(teamMy.payload.storeId);
     };
     userCartApi();
-  }, []);
-
-  useEffect(() => {
-    const api = async () => {
-      const { data } = await accessInstance.get('/team/my');
-      setTeamStoreName(data.payload.storeName);
-      setTeamStoreId(data.payload.storeId);
-    };
-
-    api();
   }, []);
 
   const calculatorTotalPrice = (menu: Menu) => {

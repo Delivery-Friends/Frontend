@@ -53,20 +53,12 @@ const PaymentOrder = () => {
 
   useEffect(() => {
     const paymentOrderApi = async () => {
-      const { data } = await accessInstance.get('/team/my');
-      setMyTeamInfo(data.payload);
+      const { data: teamInfo } = await accessInstance.get('/team/my');
+      setMyTeamInfo(teamInfo.payload);
+      const { data: payInfo } = await accessInstance.get('/team/payInfo');
+      setMyPayInfo(payInfo.payload);
     };
-
     paymentOrderApi();
-  }, []);
-
-  useEffect(() => {
-    const api = async () => {
-      const { data } = await accessInstance.get('/team/payInfo');
-      setMyPayInfo(data.payload);
-    };
-
-    api();
   }, []);
 
   let totalPrice: any;
