@@ -46,7 +46,6 @@ accessInstance.interceptors.request.use(
 
 accessInstance.interceptors.response.use(
   async response => {
-    console.log(response);
     return response;
   },
   async error => {
@@ -54,7 +53,7 @@ accessInstance.interceptors.response.use(
 
     const { data } = response;
 
-    if (data.status === 500 || data.statusCode === 10003) {
+    if (data.statusCode === 10003) {
       const { data } = await getRefreshToken();
       if (data.statusCode === 10003) {
         // refreshToken만료
