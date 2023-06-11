@@ -22,6 +22,7 @@ import UserDetail from './pages/UserDetail/UserDetail';
 import LikedStore from './pages/LikedStore/LikedStore';
 import MyPage from './pages/MyPage/MyPage';
 import TeamCart from './pages/TeamCart/TeamCart';
+import useAuthInterceptors from './hook/useAuthInterceptors';
 
 const router = createBrowserRouter([
   {
@@ -103,6 +104,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  useAuthInterceptors();
   return <RouterProvider router={router} />;
 }
 

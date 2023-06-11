@@ -62,8 +62,6 @@ export const createNewMark = (map, storeData) => {
       }
     );
 
-    console.log(latitude, longitude);
-
     const marker = new kakao.maps.Marker({
       position: new kakao.maps.LatLng(+latitude, +longitude),
       title: storeName,

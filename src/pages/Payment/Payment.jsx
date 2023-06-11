@@ -27,7 +27,6 @@ const Payment = () => {
           easyPay: '토스페이',
         })
         .catch(function (error) {
-          console.log(error);
           if (error.code === 'USER_CANCEL') {
             // 결제 고객이 결제창을 닫았을 때 에러 처리
             // navigate('/paymentorder/1234');

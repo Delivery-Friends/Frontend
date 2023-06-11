@@ -6,11 +6,9 @@ const AuthReducer = (
 ) => {
   switch (action.type) {
     case ActionTypes.LOGIN:
-      return {
-        accessToken: action.payload?.accessToken,
-      };
+      return action.payload?.accessToken;
     case ActionTypes.LOGOUT:
-      return { accessToken: null };
+      return undefined;
     default:
       return state;
   }

@@ -40,11 +40,9 @@ const PaymentSuccess = () => {
         return res;
       })
       .then(res => {
-        accessInstance
-          .post('/user/pay', {
-            key: paymentKey,
-          })
-          .then(res => console.log(res));
+        accessInstance.post('/user/pay', {
+          key: paymentKey,
+        });
       });
   }, [amount, paymentKey, orderId, customerName]);
 

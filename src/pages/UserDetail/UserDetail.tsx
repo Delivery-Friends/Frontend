@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { format, register } from 'timeago.js';
 import koLocale from 'timeago.js/lib/lang/ko'; // 한글로 변환
 import { BsHeart, BsFillHeartFill } from 'react-icons/bs';
+import { getCookie } from '../../util/cookie';
 // import Button from '../../components/common/Button/Button';
 // import { BiPencil } from 'react-icons/bi';
 
@@ -64,7 +65,7 @@ const UserDetail = () => {
   };
 
   const beflikeHandler = async () => {
-    if (localStorage.getItem('refreshToken')) {
+    if (getCookie('refreshToken')) {
       if (!isLike) {
         await accessInstance.post(`/user/like/${id}`);
         setIsLike(!isLike);

@@ -33,16 +33,17 @@ const Cart = () => {
   const [cartData, setCartData] = useState<UserCart[]>([]);
   const [teamStoreName, setTeamStoreName] = useState<string>();
   const [teamStoreId, setTeamStoreId] = useState<number>();
-
   useEffect(() => {
     const userCartApi = async () => {
-      const cart = await userCart();
-      setCartData(cart);
-      console.log('cartapi호출');
-      const { data: teamMy } = await accessInstance.get('/team/my');
-      console.log('teammyapi호출');
-      setTeamStoreName(teamMy.payload.storeName);
-      setTeamStoreId(teamMy.payload.storeId);
+      const data = await userCart();
+      setCartData(data.payload);
+
+      const res = await accessInstance.get('/team/my');
+      if (res) {
+        const { data: teamMy } = res;
+        setTeamStoreName(teamMy.payload.storeName);
+        setTeamStoreId(teamMy.payload.storeId);
+      }
     };
     userCartApi();
   }, []);
@@ -61,18 +62,6 @@ const Cart = () => {
     totalPrice = (menu.price * menu.count + optionPrice).toLocaleString();
     return totalPrice;
   };
-
-  // let totalPrice: string;
-  // if (cartData.length > 0) {
-  //   const optionPrice = cartData[0].menus[0].options.reduce((accur, option) => {
-  //     return accur + option.price * option.count;
-  //   }, 0);
-
-  //   totalPrice = (
-  //     cartData[0].menus[0].price * cartData[0].menus[0].count +
-  //     optionPrice
-  //   ).toLocaleString();
-  // }
 
   const teamCartHandler = async (cartId: number) => {
     const { data } = await accessInstance.post('/team/cart', {

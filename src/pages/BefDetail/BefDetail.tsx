@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import StoreBody from '../../components/StoreBody/StoreBody';
 import classes from './befDetail.module.scss';
-import { AiFillStar } from 'react-icons/ai';
 import { useNavigate, useParams } from 'react-router-dom';
-import { accessInstance, instance } from '../../api/axiosBase';
-// import { useLocation } from 'react-router-dom';
+import { accessInstance } from '../../api/axiosBase';
+import { getCookie } from '../../util/cookie';
 
 type Bef =
   | {
@@ -37,7 +36,7 @@ const BefDetail = () => {
   const befId = params.id;
   const [bef, setBef] = useState<Bef>();
   useEffect(() => {
-    if (localStorage.getItem('refreshToken')) {
+    if (getCookie('refreshToken')) {
       accessInstance
         .get(`/teamlist/${befId}`)
         .then(res => setBef(res.data.payload));
@@ -63,11 +62,6 @@ const BefDetail = () => {
                   {bef?.leaderName}
                   {'>'}
                 </div>
-                {/* <AiFillStar className={classes.star} />
-            <span className={classes.userStars}>
-              3.9
-              <span className={classes.review}>(10)</span>
-            </span> */}
               </div>
               <div className={classes.objectMid}>
                 참여인원{' '}

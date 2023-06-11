@@ -5,8 +5,7 @@ import classes from './login.module.scss';
 
 import { FadeLoader } from 'react-spinners';
 import useAuthContext from '../../hook/useAuthContext';
-// import useAuthContext from '../../hook/useAuthContext';
-// import { setCookie } from '../../util/cookie';
+import { setCookie } from '../../util/cookie';
 
 const LoginKakao = () => {
   const navigate = useNavigate();
@@ -21,12 +20,12 @@ const LoginKakao = () => {
         if (payload.kakaoId) {
           navigate('/signup', { state: { kakaoId: payload.kakaoId } });
         } else {
-          localStorage.setItem('accessToken', payload.accessToken);
-          localStorage.setItem('refreshToken', payload.refreshToken);
-          // setCookie('refreshToken', payload.refreshToken, {
-          //   path: '/',
-          // });
-          // login(payload.accessToken);
+          // localStorage.setItem('accessToken', payload.accessToken);
+          // localStorage.setItem('refreshToken', payload.refreshToken);
+          setCookie('refreshToken', payload.refreshToken, {
+            path: '/',
+          });
+          login(payload.accessToken);
           navigate('/');
         }
       };

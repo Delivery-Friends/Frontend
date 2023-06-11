@@ -8,6 +8,8 @@ import { format, register } from 'timeago.js';
 import koLocale from 'timeago.js/lib/lang/ko'; // 한글로 변환
 import Button from '../../components/common/Button/Button';
 import IconImgButton from '../../assets/images/icon-img-button-gray.svg';
+import { removeCookie } from '../../util/cookie';
+import useAuthContext from '../../hook/useAuthContext';
 
 register('ko', koLocale);
 
@@ -40,6 +42,8 @@ const MyPage = () => {
 
   const nickNameRef = useRef<HTMLInputElement>(null);
 
+  const { logout } = useAuthContext();
+
   useEffect(() => {
     const api = async () => {
       const { data: userMy } = await accessInstance.get(`/user/my`);
@@ -55,7 +59,8 @@ const MyPage = () => {
   };
 
   const logoutHandler = () => {
-    localStorage.clear();
+    removeCookie('refreshToken');
+    logout();
     navigate('/');
   };
 
