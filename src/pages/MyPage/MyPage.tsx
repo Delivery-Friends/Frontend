@@ -42,16 +42,10 @@ const MyPage = () => {
 
   useEffect(() => {
     const api = async () => {
-      const { data } = await accessInstance.get(`/user/my`);
-      setUserData(data.payload);
-    };
-    api();
-  }, []);
-
-  useEffect(() => {
-    const api = async () => {
-      const { data } = await accessInstance.get(`/user/myReview/`);
-      setUserReviews(data.payload);
+      const { data: userMy } = await accessInstance.get(`/user/my`);
+      setUserData(userMy.payload);
+      const { data: myReview } = await accessInstance.get(`/user/myReview/`);
+      setUserReviews(myReview.payload);
     };
     api();
   }, []);

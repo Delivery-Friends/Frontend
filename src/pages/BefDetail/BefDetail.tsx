@@ -44,7 +44,7 @@ const BefDetail = () => {
     } else {
       navigate('/login');
     }
-  }, [befId]);
+  }, [befId, navigate]);
 
   return (
     <div>
@@ -79,6 +79,7 @@ const BefDetail = () => {
                   href={`https://map.kakao.com/link/search/${bef?.basicAddress}`}
                   target="_blank"
                   className={classes.location}
+                  rel="noreferrer"
                 >
                   {bef?.basicAddress}
                 </a>

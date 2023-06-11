@@ -40,18 +40,14 @@ const UserDetail = () => {
 
   useEffect(() => {
     const api = async () => {
-      const { data } = await accessInstance.get(`/userinfo/${id}`);
-      setUserData(data.payload);
-      setIsLike(data.payload.isLike);
-      setLikeCount(data.payload.likeCount);
-    };
-    api();
-  }, [id]);
-
-  useEffect(() => {
-    const api = async () => {
-      const { data } = await accessInstance.get(`/user/review/${id}`);
-      setUserReviews(data.payload);
+      const { data: userInfo } = await accessInstance.get(`/userinfo/${id}`);
+      setUserData(userInfo.payload);
+      setIsLike(userInfo.payload.isLike);
+      setLikeCount(userInfo.payload.likeCount);
+      const { data: userReview } = await accessInstance.get(
+        `/user/review/${id}`
+      );
+      setUserReviews(userReview.payload);
     };
     api();
   }, [id]);
