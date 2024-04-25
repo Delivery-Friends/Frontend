@@ -25,8 +25,7 @@ const Signup = () => {
       kakaoId: state.kakaoId,
     };
 
-    const res = await userJoin(joinData);
-    console.log(res);
+    await userJoin(joinData);
     // 회원가입 후 로그인 창으로 이동
     navigate('/login');
   };

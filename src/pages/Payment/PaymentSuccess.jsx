@@ -4,6 +4,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import classes from './payment.module.scss';
 import Button from '../../components/common/Button/Button';
+import { accessInstance } from '../../api/axiosBase';
 const PaymentSuccess = () => {
   const navigate = useNavigate();
   const [params, setParams] = useSearchParams();
@@ -14,8 +15,8 @@ const PaymentSuccess = () => {
 
   const [paymentData, setPaymentData] = useState([]);
 
-  const moveHomePageHandler = () => {
-    navigate('/');
+  const moveTeamCartHandler = () => {
+    navigate('/teamcart');
   };
 
   useEffect(() => {
@@ -25,7 +26,7 @@ const PaymentSuccess = () => {
       orderId: orderId,
       customerName: customerName,
     };
-    console.log(data);
+
     axios
       .post('https://api.tosspayments.com/v1/payments/confirm', data, {
         headers: {
@@ -35,11 +36,15 @@ const PaymentSuccess = () => {
         },
       })
       .then(res => {
-        console.log(res);
         setPaymentData(res.data);
         return res;
+      })
+      .then(res => {
+        accessInstance.post('/user/pay', {
+          key: paymentKey,
+        });
       });
-  }, [amount, paymentKey, orderId]);
+  }, [amount, paymentKey, orderId, customerName]);
 
   return (
     paymentData && (
@@ -48,13 +53,13 @@ const PaymentSuccess = () => {
           <p>총 결제금액</p>
           <span>{`${Number(amount).toLocaleString()}원`}</span>
         </div>
-        <div className={classes.require}>
+        {/* <div className={classes.require}>
           <p>주문 메뉴</p>
-          <span>BBQ 뿌링클치킨</span>
-        </div>
+          <span>뿌링클</span>
+        </div> */}
         <p className={classes.success}>주문에 성공하였습니다.</p>
-        <Button size="lg" onClick={moveHomePageHandler}>
-          홈페이지로 이동
+        <Button size="lg" onClick={moveTeamCartHandler}>
+          TeamCart 페이지로 이동
         </Button>
       </div>
     )

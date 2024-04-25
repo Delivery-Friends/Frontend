@@ -1,56 +1,130 @@
 @import '../../styles/utilities/_mixin.scss';
 @import '../../styles/utilities/_variables.scss';
 
-.main {
-  width: 100%;
-  padding: 0 20px;
-  padding-top: 14px;
-  padding-bottom: 32px;
-  color: #fff;
-  background-color: $pointColor;
-  border-radius: 0% 0% 10% 10% / 20% 20% 20% 20%;
+.wrapHome {
+  padding-bottom: 6.5rem;
+  .main {
+    width: 100%;
+    padding: 0 20px;
+    padding-top: 14px;
+    padding-bottom: 2rem;
+    color: #fff;
+    background-color: $pointColor;
+    border-radius: 0% 0% 10% 10% / 20% 20% 20% 20%;
 
-  div {
-    display: flex;
-    margin-bottom: 1.2rem;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
-    span {
-      font-size: 1.8rem;
-      text-align: center;
-      font-weight: 600;
+    div {
+      display: flex;
+      margin-bottom: 1.2rem;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      span {
+        font-size: 1.8rem;
+        text-align: center;
+        font-weight: 600;
+      }
+    }
+
+    input {
+      display: none;
+      width: 100%;
+      height: 32px;
+      padding: 0.8rem 0.4rem;
+      font-size: 1.6rem;
+    }
+    .title {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-top: 2rem;
     }
   }
 
-  input {
-    width: 100%;
-    height: 32px;
-    padding: 0.8rem 0.4rem;
-    font-size: 1.6rem;
+  .mainwrapper {
+    @include flex(center, center);
+    flex-direction: column;
+    img {
+      width: 20vw;
+      margin: 4rem auto;
+    }
+    button {
+      background-color: $pointColor;
+      color: #fff;
+    }
+    margin-top: 6rem;
+    padding: 0 1.2rem;
+    .orderwrapper {
+      width: 95%;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      button {
+        width: 43%;
+        font-size: 1.8rem;
+        font-weight: 500;
+        height: 12rem;
+        border: none;
+        border-radius: 0.7rem;
+      }
+    }
+
+    .foodranking {
+      width: 94%;
+      margin-top: 5rem;
+      button {
+        margin: 0 auto;
+      }
+
+      button:last-child {
+        margin-top: 1.6rem;
+      }
+      .title {
+        width: 100%;
+        text-align: center;
+        margin-top: 4rem;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: $pointColor;
+      }
+      .popular {
+        @include flex(space-between, center);
+        // flex-direction: column;
+        margin-top: 2rem;
+        width: 100%;
+        height: 10vw;
+        border: 0.2rem solid $pointColor;
+        border-radius: 0.5rem;
+        padding: 3rem;
+        li {
+          font-size: 1.8rem;
+          font-weight: 700;
+          color: $pointColor;
+        }
+      }
+    }
+    .info {
+      margin: 3rem 0;
+      font-size: 3rem;
+      &:last-child {
+        margin-bottom: 7.5rem;
+      }
+    }
+  }
+
+  .modalText {
+    padding: 2rem;
+    li {
+      margin-bottom: 2rem;
+      div {
+        font-size: 1.7rem;
+        line-height: 2rem;
+        text-align: center;
+      }
+    }
   }
 }
 
-.mainwrapper {
-  margin-top: 6rem;
-  padding: 0 1.2rem;
-  .orderwrapper {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    button {
-      height: 120px;
-    }
-  }
-
-  .foodranking {
-    margin-top: 5rem;
-    button {
-      margin: 0 auto;
-    }
-
-    button:last-child {
-      margin-top: 1.6rem;
-    }
+@media screen and (max-width: 480px) {
+  .info {
+    display: none;
   }
 }

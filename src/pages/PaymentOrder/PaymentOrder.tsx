@@ -1,7 +1,10 @@
 import Button from '../../components/common/Button/Button';
 import { BiTime } from 'react-icons/bi';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import classes from './paymentorder.module.scss';
+import { useEffect, useState } from 'react';
+import { accessInstance } from '../../api/axiosBase';
+import { PayInfo } from '../TeamCart/TeamCart';
 
 // const [cart, setCart] = useState([]);
 // useEffect(() => {
@@ -19,18 +22,49 @@ import classes from './paymentorder.module.scss';
 //           orderName: productList.productName, //제품이름
 //           customerName: userInfo.realName,
 
+interface MyTeamInfo {
+  storeId: number;
+  storeName: string;
+  storeScore: number;
+  reviewCount: number;
+  basicAddress: string;
+  detailedAddress: string;
+  longitude: string;
+  latitude: string;
+  endTime: string;
+  medium: string[];
+}
+
 const PaymentOrder = () => {
   const navigate = useNavigate();
-  const paymenyClickHandler = () => {
+  const [myTeamInfo, setMyTeamInfo] = useState<MyTeamInfo>();
+  const [myPayInfo, setMyPayInfo] = useState<PayInfo>();
+
+  const paymenyClickHandler = (totalPrice: any) => {
     navigate('/payment', {
       state: {
-        orderId: '5fa721312311242',
-        amount: 20000,
-        orderName: 'BBQ 황금올리브',
-        customerName: '이정호',
+        orderId: `1234${myPayInfo?.orderId}999`,
+        amount: totalPrice,
+        orderName: `${myPayInfo?.menuInfo.split(' ', 1)[0]}`,
+        customerName: myPayInfo?.username,
       },
     });
   };
+
+  useEffect(() => {
+    const paymentOrderApi = async () => {
+      const { data: teamInfo } = await accessInstance.get('/team/my');
+      setMyTeamInfo(teamInfo.payload);
+      const { data: payInfo } = await accessInstance.get('/team/payInfo');
+      setMyPayInfo(payInfo.payload);
+    };
+    paymentOrderApi();
+  }, []);
+
+  let totalPrice: any;
+  if (myPayInfo) {
+    totalPrice = myPayInfo?.deliveryTip + myPayInfo?.price;
+  }
 
   return (
     <section className={classes.orderwrapper}>
@@ -42,28 +76,33 @@ const PaymentOrder = () => {
         </p>
       </div>
       <div className={classes.address}>
-        <p>수원시 영통구 아주대학교</p>
+        <p>{myTeamInfo?.basicAddress}</p>
         <span>[도로명] 은행마을로 100</span>
-        <input type="text" placeholder="원천관" />
+        <input type="text" placeholder={myTeamInfo?.detailedAddress} />
       </div>
       <div className={classes.payment}>
         <p>결제금액</p>
         <div>
           <span>주문금액</span>
-          <span>20,000원</span>
+          <span>{myPayInfo?.price.toLocaleString()}원</span>
         </div>
         <div>
           <span>배달팁</span>
-          <span>1200원</span>
+          <span>{myPayInfo?.deliveryTip.toLocaleString()}원</span>
         </div>
         <div>
           <span>총 결제금액</span>
-          <span>20,000원</span>
+          <span>{totalPrice?.toLocaleString()}원</span>
         </div>
       </div>
       <div className={classes.orderpayment}>
         <p>결제수단</p>
-        <Button size="lg" onClick={paymenyClickHandler}>
+        <Button
+          size="lg"
+          onClick={() => {
+            paymenyClickHandler(totalPrice);
+          }}
+        >
           <img src="/image/userImage/toss.png" alt="토스아이콘" /> 토스페이로
           결제하기
         </Button>

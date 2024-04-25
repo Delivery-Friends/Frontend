@@ -1,9 +1,10 @@
-import axios from 'axios';
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { BASE_URL } from '../../config';
+import { useLocation, useNavigate } from 'react-router-dom';
 import classes from './reviewWrite.module.scss';
 import ReactStars from 'react-stars';
+import { accessInstance } from '../../api/axiosBase';
+import axios from 'axios';
+import { BASE_URL } from '../../config';
 
 type Review = {
   text: string;
@@ -12,11 +13,12 @@ type Review = {
 };
 
 const ReviewWrite = () => {
+  const navigate = useNavigate();
   const { state } = useLocation();
-  const orderId = state;
+  const id = state;
   const [review, setReview] = useState<Review>({
     text: '',
-    img: '/image/defaultImg.png',
+    img: '',
     star: 0,
   });
 
@@ -25,12 +27,11 @@ const ReviewWrite = () => {
     // 백엔드에 보내줄 이미지파일을 폼데이터로 저장
     formData.append('file', event.target.files[0]);
 
-    //이미지 수정 formData 보내기
+    //이미지 업로드 formData 보내기
     axios
       .post(`${BASE_URL}/upload`, formData)
       .then(res => {
         if (res.status === 200) {
-          console.log('이미지 첨부 성공');
           //받아온 url로 프론트상에서 이미지 변경
           setReview({
             ...review,
@@ -42,7 +43,42 @@ const ReviewWrite = () => {
       })
       .catch(error => alert(error));
   };
-  console.log(review);
+
+  const onReviewAdd = () => {
+    if (id.orderId !== undefined) {
+      // 상점리뷰일때
+      accessInstance
+        .post('/user/review/store/add', {
+          orderId: id.orderId,
+          score: review.star,
+          content: review.text,
+          media: [review.img],
+        })
+        .then(res => {
+          if (res.status === 200) {
+            navigate('/order');
+          } else {
+            alert('리뷰 등록에 실패하였습니다.');
+          }
+        });
+    } else {
+      //배프리더에 대한 리뷰일때
+      accessInstance
+        .post('/user/review', {
+          userId: id.leaderId,
+          content: review.text,
+          score: review.star,
+        })
+        .then(res => {
+          if (res.status === 200) {
+            navigate(`/userDetail/${id.leaderId}`);
+          } else {
+            alert('리뷰 등록에 실패하였습니다.');
+          }
+        });
+    }
+  };
+
   return (
     <div className={classes.wrapReview}>
       <textarea
@@ -51,9 +87,18 @@ const ReviewWrite = () => {
           setReview({ ...review, text: e.target.value });
         }}
         placeholder="리뷰를 작성해 주세요..."
-      ></textarea>
-      <div className={classes.inputImg}>
-        <img src={review.img} alt="review_img" />
+      />
+      <div
+        className={classes.inputImg}
+        style={
+          id.orderId !== undefined ? { display: 'block' } : { display: 'none' }
+        }
+      >
+        {review.img === '' ? (
+          <img src="/image/defaultImg.png" alt="review_img" />
+        ) : (
+          <img src={review.img} alt="review_img" />
+        )}
         <label htmlFor="inputImg">
           <div>사진 첨부</div>
         </label>
@@ -71,10 +116,11 @@ const ReviewWrite = () => {
         value={review.star}
         onChange={e => setReview({ ...review, star: e })}
         size={30}
-        color2={'#F9BF25'}
+        color2="#F9BF25"
+        half={false}
       />
 
-      <button>리뷰 등록</button>
+      <button onClick={() => onReviewAdd()}>리뷰 등록</button>
     </div>
   );
 };

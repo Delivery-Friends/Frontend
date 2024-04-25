@@ -1,0 +1,141 @@
+@import '../../styles/utilities/_mixin.scss';
+@import '../../styles/utilities/_variables.scss';
+
+.userInfoWrapper {
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+  .userInfo {
+    position: relative;
+    display: flex;
+    padding: 2rem 1.2rem;
+    border-bottom: 0.5rem solid rgba(210, 207, 207, 0.6470588235);
+    align-items: center;
+    gap: 1.2rem;
+
+    .mainUserImg {
+      position: relative;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      border: 1px solid rgba(210, 207, 207, 0.6470588235);
+      img {
+        object-fit: cover;
+      }
+      button {
+        position: absolute;
+        right: 6px;
+      }
+    }
+
+    .rightButton {
+      position: absolute;
+      display: flex;
+      gap: 0.6rem;
+      right: 18px;
+    }
+    .userInfoText {
+      margin-right: 0.8rem;
+      .nickName {
+        margin-bottom: 0.6rem;
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+      }
+
+      p {
+        font-size: 1.6rem;
+        font-weight: 500;
+      }
+      .starReview {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        .heart {
+          margin-left: 0.4rem;
+          font-size: 14px;
+        }
+        .star {
+          margin-top: -0.2rem;
+          margin-left: -0.2rem;
+          color: #fece28;
+          font-size: 2rem;
+        }
+        strong {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+
+  .userReview {
+    .reviewTitle {
+      display: flex;
+      margin-bottom: 1rem;
+      padding: 1.4rem 1.2rem;
+      border-bottom: 1px solid #eee;
+      font-size: 1.8rem;
+      align-items: center;
+      gap: 1rem;
+      strong {
+        font-weight: 700;
+      }
+    }
+
+    .starReview {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      .star {
+        margin-top: -0.4rem;
+        color: #fece28;
+        font-size: 2rem;
+      }
+    }
+    .reviewTotal {
+      display: flex;
+      gap: 0.2rem;
+    }
+  }
+
+  .reviewList {
+    padding: 1.4rem 1.2rem;
+    padding-bottom: 6.5rem;
+    font-size: 1.2rem;
+    li {
+      margin-bottom: 2.4rem;
+      .reviewUserInfo {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        img {
+          width: 36px;
+          height: 36px;
+        }
+
+        .starReview {
+          margin-top: 0.2rem;
+          .star {
+            margin-top: -0.2rem;
+            margin-left: -0.2rem;
+            color: #fece28;
+            font-size: 1.4rem;
+          }
+          strong {
+            font-weight: 600;
+          }
+          p {
+            margin-left: 0.4rem;
+          }
+        }
+      }
+      .content {
+        margin-top: 1.2rem;
+        padding-right: 1.4rem;
+        @include text-style(xs);
+      }
+    }
+  }
+}

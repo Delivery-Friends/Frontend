@@ -3,29 +3,23 @@ import ActionTypes from './ActionTypes';
 import AuthReducer from './AuthReducer';
 
 interface AuthContext {
-  auth: {
-    accessToken?: string;
-  };
+  accessToken?: string;
   login: (accessToken: string) => void;
   logout: () => void;
 }
 
 const authContext = createContext<AuthContext>({
-  auth: {
-    accessToken: undefined,
-  },
+  accessToken: undefined,
   login: (accessToken: string) => {},
   logout: () => {},
 });
 
 const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
-  const [auth, authDispatch] = useReducer(AuthReducer, {
-    accessToken: undefined,
-  });
+  const [accessToken, authDispatch] = useReducer(AuthReducer, undefined);
 
   const value: AuthContext = useMemo(
     () => ({
-      auth,
+      accessToken,
       login: accessToken => {
         authDispatch({
           type: ActionTypes.LOGIN,
@@ -36,7 +30,7 @@ const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
         authDispatch({ type: ActionTypes.LOGOUT });
       },
     }),
-    [auth]
+    [accessToken]
   );
 
   return <authContext.Provider value={value}>{children}</authContext.Provider>;

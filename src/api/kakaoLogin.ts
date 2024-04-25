@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { instance } from './axiosBase';
+import { getCookie } from '../util/cookie';
 
 export interface JoinDataType {
   name?: string;
@@ -37,12 +38,13 @@ export const userJoin = async (joinData: JoinDataType) => {
   return res.data;
 };
 
-// Refresh토큰재발급
+// Refresh만료시 토큰 재발급
 export const getRefreshToken = async () => {
+  const refreshToken = getCookie('refreshToken');
   const res = await instance.post(
-    '/doRefresh',
+    '/refresh',
     {},
-    { headers: { 'REFRESH-TOKEN': localStorage.getItem('refreshToken') } }
+    { headers: { 'REFRESH-TOKEN': `Bearer ${refreshToken}` } }
   );
   return res;
 };

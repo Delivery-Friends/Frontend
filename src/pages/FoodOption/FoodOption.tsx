@@ -1,43 +1,42 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
-import { BASE_URL } from '../../config';
+import { useLocation, useNavigate } from 'react-router-dom';
 import classes from './foodOption.module.scss';
 import { accessInstance } from '../../api/axiosBase';
 
-type Menu = {
-  id: number;
-  name: string;
-  price: number;
-  expression: string;
-  readMenuOptionGroupList: {
-    id: number;
-    name: string;
-    multiSelect: number;
-    readMenuOptionList: {
-      id: number;
-      name: string;
-      price: number;
-      maxCount: number;
-      defaultValue: number;
-    }[];
-  }[];
-}[];
+// type Menu = {
+//   id: number;
+//   name: string;
+//   price: number;
+//   expression: string;
+//   readMenuOptionGroupList: {
+//     id: number;
+//     name: string;
+//     multiSelect: number;
+//     readMenuOptionList: {
+//       id: number;
+//       name: string;
+//       price: number;
+//       maxCount: number;
+//       defaultValue: number;
+//     }[];
+//   }[];
+// }[];
 
-type Option = {
-  id: number;
-  name: string;
-  multiSelect: number;
-  readMenuOptionList: {
-    id: number;
-    name: string;
-    price: number;
-    maxCount: number;
-    defaultValue: number;
-  }[];
-}[];
+// type Option = {
+//   id: number;
+//   name: string;
+//   multiSelect: number;
+//   readMenuOptionList: {
+//     id: number;
+//     name: string;
+//     price: number;
+//     maxCount: number;
+//     defaultValue: number;
+//   }[];
+// }[];
 
 const FoodOption = () => {
+  const navigate = useNavigate();
   const [amount, setAmount] = useState(1);
   const { state } = useLocation();
   const menu = state;
@@ -47,7 +46,6 @@ const FoodOption = () => {
       obj.readMenuOptionList.map((objs: any) => {
         let option: any = choiceOption;
         option[objs.id] = objs.defaultValue;
-
         setChoiceOption(option);
       });
     });
@@ -58,20 +56,28 @@ const FoodOption = () => {
     const arrs = Object.entries(choiceOption).map(arr => {
       return { menuOptionId: arr[0], count: arr[1] };
     });
-    accessInstance.post(
-      `/user/cart/add`,
+    accessInstance
+      .post(
+        `/user/cart/add`,
 
-      {
-        storeId: menu.storeId,
-        menu: [
-          {
-            menuId: menu.id,
-            count: amount,
-            choiceOption: arrs,
-          },
-        ],
-      }
-    );
+        {
+          storeId: menu.storeId,
+          menu: [
+            {
+              menuId: menu.id,
+              count: amount,
+              choiceOption: arrs,
+            },
+          ],
+        }
+      )
+      .then(res => {
+        if (res.data.statusCode === 200) {
+          navigate('/cart');
+        } else {
+          alert('장바구니 추가에 실패하였습니다.');
+        }
+      });
   };
 
   // const amountChange = (id:any) => {
@@ -81,13 +87,41 @@ const FoodOption = () => {
   // }
   return (
     <div className={classes.foodOption}>
-      <img src="/image/brandLogo/bbqLogo.png" alt="food_img" />
+      <img src={menu.medium[0]} alt="food_img" />
       <div className={classes.info}>
         <div className={classes.name}>{menu.name}</div>
         <div className={classes.description}>{menu.expression}</div>
         <div className={classes.foodPrice}>
           가격
           <div className={classes.price}>{menu.price.toLocaleString()}원</div>
+        </div>
+      </div>
+      <div className={classes.quantity}>
+        <div className={classes.title}>수량</div>
+        <div className={classes.wrapBtn}>
+          <button
+            onClick={() => {
+              if (amount === 1) {
+                alert('1개 미만은 주문하실 수 없습니다.');
+              } else {
+                setAmount(amount - 1);
+              }
+            }}
+          >
+            -
+          </button>
+          <div>{amount}</div>
+          <button
+            onClick={() => {
+              if (amount === 10) {
+                alert('10개 이상 주문하실 수 없습니다.');
+              } else {
+                setAmount(amount + 1);
+              }
+            }}
+          >
+            +
+          </button>
         </div>
       </div>
       <div className={classes.options}>
@@ -172,39 +206,8 @@ const FoodOption = () => {
             }
           })}
       </div>
-      <div className={classes.quantity}>
-        <div className={classes.title}>수량</div>
-        <div className={classes.wrapBtn}>
-          <button
-            onClick={() => {
-              if (amount === 1) {
-                alert('1개 미만은 주문하실 수 없습니다.');
-              } else {
-                setAmount(amount - 1);
-              }
-            }}
-          >
-            -
-          </button>
-          <div>{amount}</div>
-          <button
-            onClick={() => {
-              if (amount === 10) {
-                alert('10개 이상 주문하실 수 없습니다.');
-              } else {
-                setAmount(amount + 1);
-              }
-            }}
-          >
-            +
-          </button>
-        </div>
-      </div>
+
       <div className={classes.bottomBar}>
-        <div className={classes.left}>
-          <span>배달최소주문금액</span>
-          <span className={classes.leatPrice}>10,000원</span>
-        </div>
         <button
           onClick={() => {
             addCart();

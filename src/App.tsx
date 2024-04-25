@@ -18,13 +18,18 @@ import PaymentOrder from './pages/PaymentOrder/PaymentOrder';
 import Payment from './pages/Payment/Payment';
 import PaymentSuccess from './pages/Payment/PaymentSuccess';
 import PaymentFail from './pages/Payment/PaymentFail';
+import UserDetail from './pages/UserDetail/UserDetail';
+import LikedStore from './pages/LikedStore/LikedStore';
+import MyPage from './pages/MyPage/MyPage';
+import TeamCart from './pages/TeamCart/TeamCart';
+import useAuthInterceptors from './hook/useAuthInterceptors';
 
 const router = createBrowserRouter([
-  { path: '/', element: <Home /> },
   {
     path: '/',
     element: <Root />,
     children: [
+      { index: true, element: <Home /> },
       {
         path: 'login',
         element: <Login />,
@@ -35,6 +40,10 @@ const router = createBrowserRouter([
         element: <Signup />,
       },
       {
+        path: 'likedStore',
+        element: <LikedStore />,
+      },
+      {
         path: 'storeList',
         element: <StoreList />,
       },
@@ -43,7 +52,7 @@ const router = createBrowserRouter([
         element: <StoreDetail />,
       },
       {
-        path: 'foodoption/:id',
+        path: 'foodoption',
         element: <FoodOption />,
       },
       {
@@ -59,6 +68,10 @@ const router = createBrowserRouter([
         element: <BefRegistration />,
       },
       {
+        path: 'userDetail/:id',
+        element: <UserDetail />,
+      },
+      {
         path: 'befMap',
         element: <BefMap />,
       },
@@ -66,6 +79,7 @@ const router = createBrowserRouter([
         path: 'cart',
         element: <Cart />,
       },
+      { path: 'mypage', element: <MyPage /> },
       {
         path: 'order',
         element: <Order />,
@@ -75,7 +89,7 @@ const router = createBrowserRouter([
         element: <ReviewWrite />,
       },
       {
-        path: 'paymentorder/:orderId',
+        path: 'paymentorder',
         element: <PaymentOrder />,
       },
       {
@@ -84,11 +98,13 @@ const router = createBrowserRouter([
       },
       { path: 'payment/success', element: <PaymentSuccess /> },
       { path: 'payment/fail', element: <PaymentFail /> },
+      { path: 'teamcart', element: <TeamCart /> },
     ],
   },
 ]);
 
 function App() {
+  useAuthInterceptors();
   return <RouterProvider router={router} />;
 }
 

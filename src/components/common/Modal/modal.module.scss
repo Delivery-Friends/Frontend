@@ -13,7 +13,7 @@
 .modalcard {
   position: fixed;
   display: flex;
-  width: 60%;
+  width: 80%;
 
   background-color: #fff;
   overflow: hidden;
@@ -25,6 +25,7 @@
 
   border-radius: 10px;
   flex-direction: column;
+
   @media screen and (max-width: 575.98px) {
     width: 100%;
   }
@@ -50,6 +51,8 @@
 
   & > div:first-of-type {
     height: 400px;
+    font-size: 1.8rem;
+    font-weight: 600;
     overflow-y: auto;
   }
 
